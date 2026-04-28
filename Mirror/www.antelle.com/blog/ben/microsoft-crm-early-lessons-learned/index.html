@@ -1,0 +1,415 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <title>Microsoft CRM: Early Lessons Learned | Antelle IT Ltd</title>
+    <meta name="viewport" content="width=device-width" />
+    <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+
+    <meta name="description" content="The Blog of Isle of Man based Antelle IT Ltd, a software development company." />
+
+        <meta name="keywords" content="Antelle-Academy, Antelle, Microsoft-CRM" />
+
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport" />
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+
+    <meta property="og:title" content="Microsoft CRM: Early Lessons Learned" />
+    <meta property="og:description" content="" />
+    <meta property="og:url" content="https://www.antelle.com/blog/ben/microsoft-crm-early-lessons-learned/" />
+    
+    
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@antelle" />
+    <meta name="twitter:title" content="Microsoft CRM: Early Lessons Learned" />
+    <meta name="twitter:description" content="Read on the Antelle Blog" />
+    
+    <link rel="icon" type="image/png" href="../../../media/1286/antellesmall.png" />
+    <link href="../../../DependencyHandler.axd@s=L0Nzcy9ib290c3RyYXAubWluLmNzczsvQ3NzL3N0eWxlc2hlZXQuY3NzOw&amp;t=Css&amp;cdv=20190606.css" type="text/css" rel="stylesheet"/>
+    <script src="../../../DependencyHandler.axd@s=L2pzL2pxdWVyeS0zLjIuMS5taW4uanM7L2pzL3BvcHBlci5taW4uanM7L2pzL2Jvb3RzdHJhcC5taW4uanM7L2pzL2Nvb2tpZXdhcm5pbmcuanM7L2pzL2Jyb3dzZXJ3YXJuaW5nLmpzOy9qcy9zY3JpcHRzLmpzOw&amp;t=Javascript&amp;cdv=20190606" type="text/javascript"></script>
+      <!-- Global site tag (gtag.js) - Google Analytics -->
+      <script async src="https://www.googletagmanager.com/gtag/js?id=UA-1678079-2"></script>
+      <script>
+ window.dataLayer = window.dataLayer || [];
+ function gtag(){dataLayer.push(arguments);}
+ gtag('js', new Date());
+
+ gtag('config', 'UA-1678079-2');
+      </script>
+  </head>
+  <body>
+    <div class="
+    blog
+ page">
+
+      <!-- Element : BACKDROP -->
+      <div class="backdrop"></div>
+
+
+      <!-- Element : HEADER -->
+      <header class="global default-header">
+        <div class="container">
+          <nav class="navbar navbar-expand-lg">
+            <a class="navbar-brand" href="../../../index.html">
+              <img src="../../../svg/antelle-logo-full-white.svg" alt="Antelle logo" />
+            </a>
+<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-control">Menu</span>
+</button>
+<!-- Navbar Collapse -->
+<div class="collapse navbar-collapse" id="navbarContent">
+    <ul class="navbar-nav ml-auto">
+                <!--Dropdown Item-->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="index.html#" id="Services" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Services
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="Services">
+                        <div class="dropdown-container">
+                            <div class="dropdown-blurb">
+                                <h4>Our Services</h4>
+                                <span class="caption-text">Antelle offers a broad portfolio of services and solutions primarily based on Microsoft products and frameworks.</span>
+                            </div>
+                            <div class="dropdown-options">
+                                <!--Sub Pages-->
+                                    <a class="dropdown-option" href="../../../services/microsoft-dynamics-crm/index.html">
+                                        <div class="dropdown-item-icon">
+                                            <img src="../../../media/1434/icon-crm.png" alt="Microsoft Dynamics CRM">
+                                        </div>
+                                        <div class="dropdown-item-text">
+                                            <h4>Microsoft Dynamics CRM</h4>
+                                            <span class="caption-text">Antelle have worked with Microsoft Dynamics CRM from version 3 successfully deploying solutions within the Private Banking, Wealth Management, CSP, Service and Public sectors for organisations large and small.</span>
+                                        </div>
+                                    </a>
+                                    <a class="dropdown-option" href="../../../services/software-development/index.html">
+                                        <div class="dropdown-item-icon">
+                                            <img src="../../../media/1435/icon-software-dev.png" alt="Software Development">
+                                        </div>
+                                        <div class="dropdown-item-text">
+                                            <h4>Software Development</h4>
+                                            <span class="caption-text">Each system we build is bespoke to your exact requirements - we offer a full design and build service backed up by our fanatical support and maintenance for when you need help.</span>
+                                        </div>
+                                    </a>
+                                    <a class="dropdown-option" href="../../../services/web-development/index.html">
+                                        <div class="dropdown-item-icon">
+                                            <img src="../../../media/1444/icon-web-dev.png" alt="Web Development">
+                                        </div>
+                                        <div class="dropdown-item-text">
+                                            <h4>Web Development</h4>
+                                            <span class="caption-text">Over the years our team have built many types of sites from the simplest of brochure sites to full blown data-driven solutions running on clustered servers supporting 1,000s of simultaneous users.</span>
+                                        </div>
+                                    </a>
+                                    <a class="dropdown-option" href="../../../services/business-intelligence/index.html">
+                                        <div class="dropdown-item-icon">
+                                            <img src="../../../media/1442/icon-bus-int.png" alt="Business Intelligence">
+                                        </div>
+                                        <div class="dropdown-item-text">
+                                            <h4>Business Intelligence</h4>
+                                            <span class="caption-text">Is your business making the most of its data and gaining the insight it needs to thrive in today&#39;s data-driven world?</span>
+                                        </div>
+                                    </a>
+                                    <a class="dropdown-option" href="../../../services/consultancy/index.html">
+                                        <div class="dropdown-item-icon">
+                                            <img src="../../../media/1443/icon-consultancy.png" alt="Consultancy">
+                                        </div>
+                                        <div class="dropdown-item-text">
+                                            <h4>Consultancy</h4>
+                                            <span class="caption-text">Looking to engage on a consultancy basis?  We can offer a broad range of IT related advisory services.</span>
+                                        </div>
+                                    </a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <!--Dropdown Item-->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="index.html#" id="Experience" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Experience
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="Experience">
+                        <div class="dropdown-container">
+                            <div class="dropdown-blurb">
+                                <h4>Our Experience</h4>
+                                <span class="caption-text">We gain experience through a combination of training and practical application, being involved or led development in many areas.</span>
+                            </div>
+                            <div class="dropdown-options">
+                                <!--Sub Pages-->
+                                    <a class="dropdown-option" href="../../../experience/past-experience/index.html">
+                                        <div class="dropdown-item-icon">
+                                            <img src="../../../media/1450/icon-sector-experience.png" alt="Sector Experience">
+                                        </div>
+                                        <div class="dropdown-item-text">
+                                            <h4>Sector Experience</h4>
+                                            <span class="caption-text">Our experienced team have delivered successful projects and provided consultancy across a broad range of sectors in both the public and private sectors.</span>
+                                        </div>
+                                    </a>
+                                    <a class="dropdown-option" href="../../../experience/core-skills/index.html">
+                                        <div class="dropdown-item-icon">
+                                            <img src="../../../media/1448/icon-core-skills.png" alt="Core Skills">
+                                        </div>
+                                        <div class="dropdown-item-text">
+                                            <h4>Core Skills</h4>
+                                            <span class="caption-text">We use the tools and the products that are right for your solution, be they web based, mobile, cloud or server based rest assured we have it covered.</span>
+                                        </div>
+                                    </a>
+                                    <a class="dropdown-option" href="../../../experience/completed-projects/index.html">
+                                        <div class="dropdown-item-icon">
+                                            <img src="../../../media/1449/icon-projects.png" alt="Completed Projects">
+                                        </div>
+                                        <div class="dropdown-item-text">
+                                            <h4>Completed Projects</h4>
+                                            <span class="caption-text">Browse through a selection of our completed projects to get a flavour for what we have previously delivered.</span>
+                                        </div>
+                                    </a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../../../careers/index.html">Careers</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../../../about/index.html">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../../../contact/index.html">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../../index.html">Blog</a>
+                </li>
+    </ul>
+</div><!--navbar-collapse-->
+          </nav>
+        </div><!--container-->
+      </header><!--header-->
+
+
+      <!-- Element : CONTENT -->
+      <main class="content">
+        <div class="container">
+
+          
+
+<script>
+    window.fbAsyncInit = function () {
+        FB.init({
+            appId: '713710798762477',
+            autoLogAppEvents: true,
+            xfbml: true,
+            version: 'v2.10'
+        });
+        FB.AppEvents.logPageView();
+    };
+
+    (function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) { return; }
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/sdk.js";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+</script>
+
+
+<header class="blog-header">
+    <div class="container">
+        <div class="col-12 col-sm-10 col-md-10 col-lg-10 col-xl-10 mx-auto">
+            <h1 class="subheader-text">Blog</h1>
+        </div>
+        <div class="col-12 col-sm-10 col-md-10 col-lg-10 col-xl-10 mx-auto">
+            <div class="search-blog">
+                <span class="icon-search nc-icon nc-search"></span>
+                <form method="GET" action="https://www.antelle.com/blog/search/">
+                    <input type="search" name="q" placeholder="Search..." required />
+                </form>
+            </div>
+        </div>
+        <div class="col-12 col-sm-10 col-md-10 col-lg-10 col-xl-10 mx-auto text-center back-control">
+            <a href="../../index.html">
+                <span class="nc-icon nc-square-simple-left"></span>
+                All Blog Posts
+            </a>
+        </div>
+    </div><!--container-->
+</header>
+
+<article class="col-12 col-sm-10 col-md-10 col-lg-10 col-xl-10">
+    <!-- Header -->
+    <header>
+        <h2 class="header-text-2 light">Microsoft CRM: Early Lessons Learned</h2>
+        <div class="meta">
+            Published by <strong>Ben</strong> on <strong>Aug 23, 2017 at 17:31pm</strong>
+        </div><!--meta-->
+    </header>
+    <!-- Main -->
+    <div class="blog-content">
+        <h2><span style="font-weight: 400;">Microsoft Dynamics CRM</span></h2>
+<p><span style="font-weight: 400;">There are a few things that I’ve worked with since beginning work at Antelle that feel too “big” to describe with any sort of justice.  Not unless I could hold your attention for a short novel of a blog post, despite that, I’ll give as abridged a summary as I can.</span></p>
+<p> </p>
+<p><span style="font-weight: 400;">CRM stands for Customer Relationship Management, it’s not something that a customer is likely to ever see but it can act as the lifeblood of a business or organisation behind-the-scenes.  In the most simplistic sense, CRM works as a series of forms that guide the user through various processes, the “vanilla” and most recognisable of these is the Business Sales Process.</span></p>
+<p> </p>
+<p><span style="font-weight: 400;">A business will receive a lead, for example someone interested in a service the business provides, the lead can then be developed into an opportunity, which can be lost or one as it passes through the opportunity stage.  After that there are products linked to opportunities that are offered to the customer.  Once the opportunity is won, more forms, more processes lead to the completion of sales.</span></p>
+<p> </p>
+<p><span style="font-weight: 400;">It is hard to quickly describe CRM, I could talk for hours about some subtlety or another.  But what is pertinent to my role and this blog is developing for Dynamics CRM.  I’ve had a crack at CRM recently, being given a blank organisation filled with default Microsoft sample data and entities.</span></p>
+<p> </p>
+<h3><span style="font-weight: 400;">It’s Big</span></h3>
+<p><span style="font-weight: 400;">That is an understatement of the highest caliber, fundamentals apply across the board, form customisation and view creation are the bread and butter of working with CRM but the purview of such things are vast.  Custom entities require new forms and new views, there is a great deal of power in CRM but the same systems that make it a robust and reliable system also make it a great deal more difficult to develop for.  Even a simple update to a large organisation requires a mammoth amount of work in a system that is sadly not suited to large wholesale changes.</span></p>
+<p> </p>
+<p><span style="font-weight: 400;">As I started to learn and engage with the options available for customising CRM I came across so many blogs and written resources that make it all seem so simple.  Which in fairness is not technically wrong, it often feels like the worst thing about developing for the platform is a case of how time consuming it is, instead of any inherent difficulty curve.</span></p>
+<p> </p>
+<p><span style="font-weight: 400;">It can be painful to carefully plan a custom workflow using several custom made entities, which can take a long time to implement and test, moreso when you are still learning.  Only to find that a different plan of attack is required to solve the problem.  A calculated field can do an awful lot, but the most important lessons I’ve learned about CRM so far are more about learning which highly powerful tool of customisation will perform the job to it’s best.</span></p>
+<p> </p>
+<p><span style="font-weight: 400;">With all things in development, it can be crushing to be over 99 of 100 hurdles only to find that the last hurdle simply cannot be passed and you have to turn back, often moving the hurdles back into place to passed again with a different approach.</span></p>
+<p> </p>
+<h3><span style="font-weight: 400;">It’s Malleable</span></h3>
+<p><span style="font-weight: 400;">For all that I’ve just said, CRM often seemed intimidating.  A great big looming beast that I could really struggle to get a good grip on.  I’ve moved away from CRM for the moment as other projects have taken precedence.  Knowing now that CRM is perfectly accessible, just with a particular mindset and a not insignificant amount of patience.</span></p>
+<p> </p>
+<p><span style="font-weight: 400;">The rules in CRM are fairly clear, it takes me back to learning Database Design and SQL in that often enough the reason you can struggle is simply because you haven’t yet learned the logic required to work with it.  Database Design was foreign to me because it was perfectly disconnected, it can be hard to naturally connect when and why certain elements of the doctrine (if you will) interact with one another.</span></p>
+<p> </p>
+<p><span style="font-weight: 400;">I feel the key part of mindset I was missing looking from the outside in was that CRM does have very clear ways of doing things, just not in the way you would expect.  Components such as web resources conform to the way I already know, especially in the case of Javascript as a web resource, I’ve worked with different JS libraries before so I know what to expect and I more importantly I know exactly how to learn it.</span></p>
+<p> </p>
+<p><span style="font-weight: 400;">I feel that soon I will back to learning CRM and so I felt perhaps now was the best time to write a blog post (that was definitely meant to be shorter than this) about my experience thus far.</span></p>
+<p> </p>
+<h3><span style="font-weight: 400;">Hindsight is 20/20</span></h3>
+<p><span style="font-weight: 400;">I’ve been rightfully called out on it, it can be easy to try and learn a little bit of everything as soon as possible.  It feels like common sense to try and know the bigger picture so that the little picture will be better and not out of place.  With different programming languages this can be perfectly fine.</span></p>
+<p> </p>
+<p><span style="font-weight: 400;">In this case I tried to make one small thing in every case and move onto the next.  I learned how to make a custom entity, then I wanted to learn how to use it in a workflow, then I wanted to put a small web resource on my a custom form for my entity so I could reel off just how much I was learning.</span></p>
+<p> </p>
+<p><span style="font-weight: 400;">Except when it came to presentation time it all felt too small.  I had a big long list of things I’d done but the end result was really nothing of substance.  In trying to do everything I’d missed things that really are important.  In nodding my head at small victories and marching on to the next thing I was really not doing enough work where it mattered, and where I had done work it was often of pretty poor quality.</span></p>
+<p> </p>
+<p><span style="font-weight: 400;">There is a (semi) famous quote detailing that you shouldn’t fear a man who’s practiced a thousand kicks once and instead that you should fear a man who has practiced one kick; a thousand times.  I feel that rings true enough here.  The objective of whatever I learn is to be of use not far, far down the line.  But instead that it should be usable in the near-term, if I need to learn more than those things then I can.  It has to be good enough to be useful though.</span></p>
+<p> </p>
+<p><span style="font-weight: 400;">I do feel in CRM that it is absolutely what you can definitely do that is more important than what you maybe can do.  That isn’t to say that knowing a little bit about a lot is bad, when the time comes for me too learn more and more things in-depth, I will definitely have a good springboard into it from the work I’ve done previously.</span></p>
+<p> </p>
+<p><span style="font-weight: 400;">In conclusion, it’s not bad what I’ve done so far.  It’s not really that good either, which is the problem.  It’s easier to deal with a problem you can recognise however, instead of it falling on you when you can’t see it.</span><br /><br /></p>
+<p><span style="font-weight: 400;">Thank you for reading.</span></p>
+<p> </p>
+<p><span style="font-weight: 400;">Ben Thrussell</span></p>
+        <div class="tags-list text-center">
+                    <a class="tag" href="../../search/index.html@q=%23Antelle-Academy.html"><span class="nc-icon nc-tag"></span>#Antelle-Academy</a>
+        <a class="tag" href="../../search/index.html@q=%23Antelle.html"><span class="nc-icon nc-tag"></span>#Antelle</a>
+        <a class="tag" href="../../search/index.html@q=%23Microsoft-CRM.html"><span class="nc-icon nc-tag"></span>#Microsoft-CRM</a>
+
+        </div>
+    </div><!--blog-content-->
+    <!-- Footer -->
+    <footer>
+        <p class="text-center">Share this post:</p>
+        <div class="social-media text-center">
+            <a href="https:twitter.com/home?status=https%3a%2f%2fwww.antelle.com%2fblog%2fben%2fmicrosoft-crm-early-lessons-learned%2f">
+                <span class="nc-icon nc-logo-twitter"></span>
+            </a>
+            <a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fwww.antelle.com%2fblog%2fben%2fmicrosoft-crm-early-lessons-learned%2f">
+                <span class="nc-icon nc-logo-fb-simple"></span>
+            </a>
+            <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fwww.antelle.com%2fblog%2fben%2fmicrosoft-crm-early-lessons-learned%2f&amp;title=Microsoft CRM: Early Lessons Learned">
+                <span class="nc-icon nc-logo-linkedin"></span>
+            </a>
+            <a href="https://plus.google.com/share?hl=en-GB&amp;url=https%3a%2f%2fwww.antelle.com%2fblog%2fben%2fmicrosoft-crm-early-lessons-learned%2f">
+                <span class="nc-icon nc-logo-google-plus"></span>
+            </a>
+        </div>
+    </footer>
+</article>
+
+
+
+
+
+<script>
+    function fbShare() {
+        FB.ui({
+            method: 'share',
+            href: 'https://www.antelle.com/blog/ben/microsoft-crm-early-lessons-learned/',
+        }, function (response) { });
+    }
+</script>
+
+
+
+
+
+        </div>
+      </main><!--content-->
+
+
+      <!-- Element : FOOTER -->
+      <footer class="global">
+<section class="contact-cta">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-sm-12 col-md-9 col-lg-9 col-xl-9">
+                <h3 class="light">We strive to deliver a level of service that exceeds the expectations of our customers. If you have any questions about our products or services, please do not hesitate to get in touch</h3>
+            </div>
+            <div class="col-12 col-sm-12 col-md-3 col-lg-3 col-xl-3 cta-contact">
+                <a href="../../../contact/index.html" class="cta cta-secondary">Contact us</a>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="contact-details">
+    <div class="container">
+        <div class="row">
+            <h2 class="sr-only">Contact Details</h2>
+            <div class="col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3">
+                <div class="mail contact-item">
+                    <span class="nc-icon nc-email"></span>
+                    <a href="mailto:hello@antelle.com">Mail: hello@antelle.com</a>
+                </div>
+                <div class="phone contact-item">
+                    <span class="nc-icon nc-phone"></span>
+                    Phone: +44 (0)1624 660613
+                </div>
+            </div>
+            <div class="col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3">
+                <div class="linkedin contact-item">
+                    <span class="nc-icon nc-linkedin"></span>
+                    <a href="https://www.linkedin.com/company/antelle-it-ltd/">LinkedIn: antelleit</a>
+                </div>
+                <div class="skype contact-item">
+                    <span class="nc-icon nc-skype"></span>
+                    <a href="skype:antelleit">Skype: antelleit</a>
+                </div>
+            </div>
+            <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+                <div class="address contact-item">
+                    <span class="nc-icon nc-office"></span>
+                    <strong>Antelle IT Ltd.</strong><br />
+                    <p>Antelle IT Ltd, Unit 17b, Carrs Lane, Tromode Estate, Douglas, Isle of Man, IM4 4RG</p>
+                </div>
+            </div>
+        </div><!--row-->
+    </div><!--container-->
+</section><!--contact-details-->
+<section class="ancillary">
+    <div class="container">
+        <div class="row">
+            <h3 class="sr-only">Ancillary Information</h3>
+            <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                <div class="copyright">
+                    &copy; Copyright 2026 Antelle IT Limited.
+                </div>
+            </div>
+            <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                    <div class="information-security">
+                        <a href="../../../iso-27001/index.html">Information Security</a>
+                    </div>
+                <div class="privacy">
+                    <a href="../../../privacy-policy/index.html">Privacy Policy</a>
+                </div>
+                <div class="sitemap">
+                    <a href="../../../about/site-map/index.html">Site Map</a>
+                </div>
+            </div>
+        </div><!--row-->
+    </div><!--container-->
+</section><!--ancillary-->
+      </footer>
+
+    </div>
+    <div id="browserWarning">
+        Sorry! The Antelle website does not fully support this legacy browser.  The site is fully compliant and tested against the latest versions of Chrome, Edge, Firefox, Opera and Safari.
+    </div>
+  </body>
+</html>

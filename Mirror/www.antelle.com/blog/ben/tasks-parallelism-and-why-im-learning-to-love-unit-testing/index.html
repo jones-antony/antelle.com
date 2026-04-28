@@ -1,0 +1,398 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <title>Tasks, Parallelism and why I'm learning to love Unit Testing | Antelle IT Ltd</title>
+    <meta name="viewport" content="width=device-width" />
+    <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+
+    <meta name="description" content="The Blog of Isle of Man based Antelle IT Ltd, a software development company." />
+
+        <meta name="keywords" content="Antelle-Academy, C-Sharp" />
+
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport" />
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+
+    <meta property="og:title" content="Tasks, Parallelism and why I&#39;m learning to love Unit Testing" />
+    <meta property="og:description" content="" />
+    <meta property="og:url" content="https://www.antelle.com/blog/ben/tasks-parallelism-and-why-im-learning-to-love-unit-testing/" />
+    
+    
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@antelle" />
+    <meta name="twitter:title" content="Tasks, Parallelism and why I&#39;m learning to love Unit Testing" />
+    <meta name="twitter:description" content="Read on the Antelle Blog" />
+    
+    <link rel="icon" type="image/png" href="../../../media/1286/antellesmall.png" />
+    <link href="../../../DependencyHandler.axd@s=L0Nzcy9ib290c3RyYXAubWluLmNzczsvQ3NzL3N0eWxlc2hlZXQuY3NzOw&amp;t=Css&amp;cdv=20190606.css" type="text/css" rel="stylesheet"/>
+    <script src="../../../DependencyHandler.axd@s=L2pzL2pxdWVyeS0zLjIuMS5taW4uanM7L2pzL3BvcHBlci5taW4uanM7L2pzL2Jvb3RzdHJhcC5taW4uanM7L2pzL2Nvb2tpZXdhcm5pbmcuanM7L2pzL2Jyb3dzZXJ3YXJuaW5nLmpzOy9qcy9zY3JpcHRzLmpzOw&amp;t=Javascript&amp;cdv=20190606" type="text/javascript"></script>
+      <!-- Global site tag (gtag.js) - Google Analytics -->
+      <script async src="https://www.googletagmanager.com/gtag/js?id=UA-1678079-2"></script>
+      <script>
+ window.dataLayer = window.dataLayer || [];
+ function gtag(){dataLayer.push(arguments);}
+ gtag('js', new Date());
+
+ gtag('config', 'UA-1678079-2');
+      </script>
+  </head>
+  <body>
+    <div class="
+    blog
+ page">
+
+      <!-- Element : BACKDROP -->
+      <div class="backdrop"></div>
+
+
+      <!-- Element : HEADER -->
+      <header class="global default-header">
+        <div class="container">
+          <nav class="navbar navbar-expand-lg">
+            <a class="navbar-brand" href="../../../index.html">
+              <img src="../../../svg/antelle-logo-full-white.svg" alt="Antelle logo" />
+            </a>
+<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-control">Menu</span>
+</button>
+<!-- Navbar Collapse -->
+<div class="collapse navbar-collapse" id="navbarContent">
+    <ul class="navbar-nav ml-auto">
+                <!--Dropdown Item-->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="index.html#" id="Services" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Services
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="Services">
+                        <div class="dropdown-container">
+                            <div class="dropdown-blurb">
+                                <h4>Our Services</h4>
+                                <span class="caption-text">Antelle offers a broad portfolio of services and solutions primarily based on Microsoft products and frameworks.</span>
+                            </div>
+                            <div class="dropdown-options">
+                                <!--Sub Pages-->
+                                    <a class="dropdown-option" href="../../../services/microsoft-dynamics-crm/index.html">
+                                        <div class="dropdown-item-icon">
+                                            <img src="../../../media/1434/icon-crm.png" alt="Microsoft Dynamics CRM">
+                                        </div>
+                                        <div class="dropdown-item-text">
+                                            <h4>Microsoft Dynamics CRM</h4>
+                                            <span class="caption-text">Antelle have worked with Microsoft Dynamics CRM from version 3 successfully deploying solutions within the Private Banking, Wealth Management, CSP, Service and Public sectors for organisations large and small.</span>
+                                        </div>
+                                    </a>
+                                    <a class="dropdown-option" href="../../../services/software-development/index.html">
+                                        <div class="dropdown-item-icon">
+                                            <img src="../../../media/1435/icon-software-dev.png" alt="Software Development">
+                                        </div>
+                                        <div class="dropdown-item-text">
+                                            <h4>Software Development</h4>
+                                            <span class="caption-text">Each system we build is bespoke to your exact requirements - we offer a full design and build service backed up by our fanatical support and maintenance for when you need help.</span>
+                                        </div>
+                                    </a>
+                                    <a class="dropdown-option" href="../../../services/web-development/index.html">
+                                        <div class="dropdown-item-icon">
+                                            <img src="../../../media/1444/icon-web-dev.png" alt="Web Development">
+                                        </div>
+                                        <div class="dropdown-item-text">
+                                            <h4>Web Development</h4>
+                                            <span class="caption-text">Over the years our team have built many types of sites from the simplest of brochure sites to full blown data-driven solutions running on clustered servers supporting 1,000s of simultaneous users.</span>
+                                        </div>
+                                    </a>
+                                    <a class="dropdown-option" href="../../../services/business-intelligence/index.html">
+                                        <div class="dropdown-item-icon">
+                                            <img src="../../../media/1442/icon-bus-int.png" alt="Business Intelligence">
+                                        </div>
+                                        <div class="dropdown-item-text">
+                                            <h4>Business Intelligence</h4>
+                                            <span class="caption-text">Is your business making the most of its data and gaining the insight it needs to thrive in today&#39;s data-driven world?</span>
+                                        </div>
+                                    </a>
+                                    <a class="dropdown-option" href="../../../services/consultancy/index.html">
+                                        <div class="dropdown-item-icon">
+                                            <img src="../../../media/1443/icon-consultancy.png" alt="Consultancy">
+                                        </div>
+                                        <div class="dropdown-item-text">
+                                            <h4>Consultancy</h4>
+                                            <span class="caption-text">Looking to engage on a consultancy basis?  We can offer a broad range of IT related advisory services.</span>
+                                        </div>
+                                    </a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <!--Dropdown Item-->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="index.html#" id="Experience" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Experience
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="Experience">
+                        <div class="dropdown-container">
+                            <div class="dropdown-blurb">
+                                <h4>Our Experience</h4>
+                                <span class="caption-text">We gain experience through a combination of training and practical application, being involved or led development in many areas.</span>
+                            </div>
+                            <div class="dropdown-options">
+                                <!--Sub Pages-->
+                                    <a class="dropdown-option" href="../../../experience/past-experience/index.html">
+                                        <div class="dropdown-item-icon">
+                                            <img src="../../../media/1450/icon-sector-experience.png" alt="Sector Experience">
+                                        </div>
+                                        <div class="dropdown-item-text">
+                                            <h4>Sector Experience</h4>
+                                            <span class="caption-text">Our experienced team have delivered successful projects and provided consultancy across a broad range of sectors in both the public and private sectors.</span>
+                                        </div>
+                                    </a>
+                                    <a class="dropdown-option" href="../../../experience/core-skills/index.html">
+                                        <div class="dropdown-item-icon">
+                                            <img src="../../../media/1448/icon-core-skills.png" alt="Core Skills">
+                                        </div>
+                                        <div class="dropdown-item-text">
+                                            <h4>Core Skills</h4>
+                                            <span class="caption-text">We use the tools and the products that are right for your solution, be they web based, mobile, cloud or server based rest assured we have it covered.</span>
+                                        </div>
+                                    </a>
+                                    <a class="dropdown-option" href="../../../experience/completed-projects/index.html">
+                                        <div class="dropdown-item-icon">
+                                            <img src="../../../media/1449/icon-projects.png" alt="Completed Projects">
+                                        </div>
+                                        <div class="dropdown-item-text">
+                                            <h4>Completed Projects</h4>
+                                            <span class="caption-text">Browse through a selection of our completed projects to get a flavour for what we have previously delivered.</span>
+                                        </div>
+                                    </a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../../../careers/index.html">Careers</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../../../about/index.html">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../../../contact/index.html">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../../index.html">Blog</a>
+                </li>
+    </ul>
+</div><!--navbar-collapse-->
+          </nav>
+        </div><!--container-->
+      </header><!--header-->
+
+
+      <!-- Element : CONTENT -->
+      <main class="content">
+        <div class="container">
+
+          
+
+<script>
+    window.fbAsyncInit = function () {
+        FB.init({
+            appId: '713710798762477',
+            autoLogAppEvents: true,
+            xfbml: true,
+            version: 'v2.10'
+        });
+        FB.AppEvents.logPageView();
+    };
+
+    (function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) { return; }
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/sdk.js";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+</script>
+
+
+<header class="blog-header">
+    <div class="container">
+        <div class="col-12 col-sm-10 col-md-10 col-lg-10 col-xl-10 mx-auto">
+            <h1 class="subheader-text">Blog</h1>
+        </div>
+        <div class="col-12 col-sm-10 col-md-10 col-lg-10 col-xl-10 mx-auto">
+            <div class="search-blog">
+                <span class="icon-search nc-icon nc-search"></span>
+                <form method="GET" action="https://www.antelle.com/blog/search/">
+                    <input type="search" name="q" placeholder="Search..." required />
+                </form>
+            </div>
+        </div>
+        <div class="col-12 col-sm-10 col-md-10 col-lg-10 col-xl-10 mx-auto text-center back-control">
+            <a href="../../index.html">
+                <span class="nc-icon nc-square-simple-left"></span>
+                All Blog Posts
+            </a>
+        </div>
+    </div><!--container-->
+</header>
+
+<article class="col-12 col-sm-10 col-md-10 col-lg-10 col-xl-10">
+    <!-- Header -->
+    <header>
+        <h2 class="header-text-2 light">Tasks, Parallelism and why I&#39;m learning to love Unit Testing</h2>
+        <div class="meta">
+            Published by <strong>Ben</strong> on <strong>June 7, 2017 at 11:13am</strong>
+        </div><!--meta-->
+    </header>
+    <!-- Main -->
+    <div class="blog-content">
+        <p>Hello there.</p>
+<p>Since the last blog post there has been some nice progress on where I feel I am, with several Umbraco Projects close to completion I've been left to do more revising and more in-depth learning with C# in preparation for taking on the Microsoft C# Exam for a rematch.</p>
+<p>Microsoft, quite thankfully, tell you where you lacking when you fail an exam and recommends some important areas for you to improve.</p>
+<p>Which brings me to one half of what I'm talking about today.</p>
+<h2>Tasks</h2>
+<p>Given what I've learned in the interval, it's shocking to me that I went into the last exam with such a lack of understanding about Tasks, both about how they can be used and with how they were implemented.  </p>
+<p>A Task, in essence, is a single operation that doesn't return a value (clarification on this later) and can be executed asynchronously via the thread pool as opposed to on the main application thread.  This allows greater control and information in regards to controlling and understanding how an application is running as you can check the status of a task throughout it's execution with less coding.</p>
+<p>Tasks can return values but must be declared with the returned type as a parameter.  For example a task that returns void is defined as just that, a Task().  Whereas a task designed to return a string would be declared as Task&lt;string&gt;().</p>
+<p>It would amiss to discuss tasks without touching on the "async" and "await" keywords of C#.  "async" defines an operation that is handled asynchronously, this operation can then wait on other operations to finish before it continues, helping to control the flow of an application.</p>
+<p>The purpose "await" is exactly what I mentioned above, an awaited task can be finished before the work continues meaning that long running and expensive operations can be waited for without "freezing" the application.</p>
+<p>Tasks have many use cases and are part of a greater school of design; Parallelism.</p>
+<h2>Parallelism</h2>
+<p>This is an interesting and deep topic to talk about, so I'll keep it to some essentials.</p>
+<p>Parallelism allows several operation to be executed concurrently, for example, starting many tasks at once in order to process a large set of data quickly.  However, using this functionality incurs and overhead where data is handed out to several different threads at once and then recombined at the end.  If the load of work is too small, you can lose performance as the windup to parallel invocation and then execution and wind-down can be slower than simply handling the work sequentially.</p>
+<p>I'll admit that my revision and study into the topic still leaves something to be desired, but as the projects I work on grow in complexity, it's another tool to help improve the quality of what I can create.  Through my reading on the subject, it's clear that Parallelism is going to become increasingly more efficient and therefore more useful as time goes on.  It's better to be prepared and able to take advantage of it now, than playing catch up later down the line.</p>
+<h2>Unit Testing</h2>
+<p>Oh boy, this is something that has gotten me excited the more I've read into it and the reason why will require some explanation.</p>
+<p>Ever since I started working at Antelle, I've found the best way to learn and provide myself with revision material later on, is to create what I call a "Playground", these are small projects, in C# they have been almost exclusively small Console Application that then let me take a new concept I'm trying to understand and learn and create a simple, carefully commented application so that if I ever need to remind myself of an example implementation of anything.  I have some example code that I've written for myself.</p>
+<p>Which brings me onto Unit Testing, this is something I've only strictly got myself to do for the last few months.  To put it generically, a unit test requires a section of code that should then produce what is expected to be produced.  The most basic of code tests would for example be to program a C# method that adds two numbers together.  This result of this method would be bound to a variable, the "actual result".  It is then tested to see if it matches up the "expected result". If it does, then the test would Assert the result to be correct and the test is passed.  If it does not, the test Asserts that the result is incorrect and the test would fail.</p>
+<p>This allows you to ensure that your code is working as designed and then you can confidence in going into actually programming the logic of your application.  If errors occur, you can check your tests to immediately narrow down where the source of the problem can be.</p>
+<p>With my playgrounds, it means that I can write unit tests to see if my implementation is working correctly and you can run as many tests as you like, the tests themselves in turn can be as complex as you like as well.  While I work with these tests they can still be commented for my own later review without missing any of the context and all the while I can write and debug code that doesn't have "Console.WriteLine()" everywhere as means of knowing what values are and what my code is doing.</p>
+<p>Overall, I've found Unit Testing a huge boon to how I think about new code, it means less time spent debugging code that I write and assurance about continuing with developing a project in the knowledge that as long as tests that reflect core use cases of the code are passed without error.  That the error lies outside the test cases.</p>
+<h2>All in all</h2>
+<p>There have been a few projects recently, mostly Umbraco websites that I'm finding more routine to design and build to the customer's needs.  For now, I can focus on revising and being as ready for my exam as possible, I'm making new "Playgrounds" to help with that and I feel much more ready than my last attempt.</p>
+<p> </p>
+<p>Until the next time, thanks for reading.</p>
+        <div class="tags-list text-center">
+                    <a class="tag" href="../../search/index.html@q=%23Antelle-Academy.html"><span class="nc-icon nc-tag"></span>#Antelle-Academy</a>
+        <a class="tag" href="../../search/index.html@q=%23C-Sharp.html"><span class="nc-icon nc-tag"></span>#C-Sharp</a>
+
+        </div>
+    </div><!--blog-content-->
+    <!-- Footer -->
+    <footer>
+        <p class="text-center">Share this post:</p>
+        <div class="social-media text-center">
+            <a href="https:twitter.com/home?status=https%3a%2f%2fwww.antelle.com%2fblog%2fben%2ftasks-parallelism-and-why-im-learning-to-love-unit-testing%2f">
+                <span class="nc-icon nc-logo-twitter"></span>
+            </a>
+            <a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fwww.antelle.com%2fblog%2fben%2ftasks-parallelism-and-why-im-learning-to-love-unit-testing%2f">
+                <span class="nc-icon nc-logo-fb-simple"></span>
+            </a>
+            <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fwww.antelle.com%2fblog%2fben%2ftasks-parallelism-and-why-im-learning-to-love-unit-testing%2f&amp;title=Tasks, Parallelism and why I&#39;m learning to love Unit Testing">
+                <span class="nc-icon nc-logo-linkedin"></span>
+            </a>
+            <a href="https://plus.google.com/share?hl=en-GB&amp;url=https%3a%2f%2fwww.antelle.com%2fblog%2fben%2ftasks-parallelism-and-why-im-learning-to-love-unit-testing%2f">
+                <span class="nc-icon nc-logo-google-plus"></span>
+            </a>
+        </div>
+    </footer>
+</article>
+
+
+
+
+
+<script>
+    function fbShare() {
+        FB.ui({
+            method: 'share',
+            href: 'https://www.antelle.com/blog/ben/tasks-parallelism-and-why-im-learning-to-love-unit-testing/',
+        }, function (response) { });
+    }
+</script>
+
+
+
+
+
+        </div>
+      </main><!--content-->
+
+
+      <!-- Element : FOOTER -->
+      <footer class="global">
+<section class="contact-cta">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-sm-12 col-md-9 col-lg-9 col-xl-9">
+                <h3 class="light">We strive to deliver a level of service that exceeds the expectations of our customers. If you have any questions about our products or services, please do not hesitate to get in touch</h3>
+            </div>
+            <div class="col-12 col-sm-12 col-md-3 col-lg-3 col-xl-3 cta-contact">
+                <a href="../../../contact/index.html" class="cta cta-secondary">Contact us</a>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="contact-details">
+    <div class="container">
+        <div class="row">
+            <h2 class="sr-only">Contact Details</h2>
+            <div class="col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3">
+                <div class="mail contact-item">
+                    <span class="nc-icon nc-email"></span>
+                    <a href="mailto:hello@antelle.com">Mail: hello@antelle.com</a>
+                </div>
+                <div class="phone contact-item">
+                    <span class="nc-icon nc-phone"></span>
+                    Phone: +44 (0)1624 660613
+                </div>
+            </div>
+            <div class="col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3">
+                <div class="linkedin contact-item">
+                    <span class="nc-icon nc-linkedin"></span>
+                    <a href="https://www.linkedin.com/company/antelle-it-ltd/">LinkedIn: antelleit</a>
+                </div>
+                <div class="skype contact-item">
+                    <span class="nc-icon nc-skype"></span>
+                    <a href="skype:antelleit">Skype: antelleit</a>
+                </div>
+            </div>
+            <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+                <div class="address contact-item">
+                    <span class="nc-icon nc-office"></span>
+                    <strong>Antelle IT Ltd.</strong><br />
+                    <p>Antelle IT Ltd, Unit 17b, Carrs Lane, Tromode Estate, Douglas, Isle of Man, IM4 4RG</p>
+                </div>
+            </div>
+        </div><!--row-->
+    </div><!--container-->
+</section><!--contact-details-->
+<section class="ancillary">
+    <div class="container">
+        <div class="row">
+            <h3 class="sr-only">Ancillary Information</h3>
+            <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                <div class="copyright">
+                    &copy; Copyright 2026 Antelle IT Limited.
+                </div>
+            </div>
+            <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                    <div class="information-security">
+                        <a href="../../../iso-27001/index.html">Information Security</a>
+                    </div>
+                <div class="privacy">
+                    <a href="../../../privacy-policy/index.html">Privacy Policy</a>
+                </div>
+                <div class="sitemap">
+                    <a href="../../../about/site-map/index.html">Site Map</a>
+                </div>
+            </div>
+        </div><!--row-->
+    </div><!--container-->
+</section><!--ancillary-->
+      </footer>
+
+    </div>
+    <div id="browserWarning">
+        Sorry! The Antelle website does not fully support this legacy browser.  The site is fully compliant and tested against the latest versions of Chrome, Edge, Firefox, Opera and Safari.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,277 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const asset = (path: string) => `/assets/${path}`;
+
+const services = [
+  {
+    title: 'Microsoft Dynamics CRM',
+    href: '/services/microsoft-dynamics-crm/',
+    icon: 'media/1434/icon-crm.png',
+    alt: 'Microsoft Dynamics CRM Image',
+    text: 'Antelle have worked with Microsoft Dynamics CRM from version 3 successfully deploying solutions within the Private Banking, Wealth Management, CSP, Service and Public sectors for organisations large and small.'
+  },
+  {
+    title: 'Software Development',
+    href: '/services/software-development/',
+    icon: 'media/1435/icon-software-dev.png',
+    alt: 'Software Development Image',
+    text: 'Each system we build is bespoke to your exact requirements - we offer a full design and build service backed up by our fanatical support and maintenance for when you need help.'
+  },
+  {
+    title: 'Web Development',
+    href: '/services/web-development/',
+    icon: 'media/1444/icon-web-dev.png',
+    alt: 'Web Development Image',
+    text: 'Over the years our team have built many types of sites from the simplest of brochure sites to full blown data-driven solutions running on clustered servers supporting 1,000s of simultaneous users.'
+  },
+  {
+    title: 'Business Intelligence',
+    href: '/services/business-intelligence/',
+    icon: 'media/1442/icon-bus-int.png',
+    alt: 'Business Intelligence Image',
+    text: "Is your business making the most of its data and gaining the insight it needs to thrive in today's data-driven world?"
+  },
+  {
+    title: 'Consultancy',
+    href: '/services/consultancy/',
+    icon: 'media/1443/icon-consultancy.png',
+    alt: 'Consultancy Image',
+    text: 'Looking to engage on a consultancy basis? We can offer a broad range of IT related advisory services.'
+  }
+];
+
+const sectors = [
+  ['media/1415/wealth-management-icon.png', 'Wealth Management & Corporate Service Providers'],
+  ['media/1414/public-sector-icon.png', 'Public Sector'],
+  ['media/1493/icon-privatebanking.png', 'Private Banking'],
+  ['media/1492/icon-outsourcedpayrollproviders.png', 'Outsourced Payroll Providers'],
+  ['media/1495/icon-retailsolutions.png', 'Retail Solutions'],
+  ['media/1497/icon-utilitycompanies.png', 'Utility Companies'],
+  ['media/1496/icon-sportingevents.png', 'Sporting Events']
+];
+
+const projects = [
+  {
+    title: 'Unified Address Lookup Service',
+    href: '/experience/completed-projects/unified-address-lookup-service/',
+    text: 'Create a single service to unify address lookup for use throughout the organisation.'
+  },
+  {
+    title: 'Windows Mobile Stock Management',
+    href: '/experience/completed-projects/windows-mobile-stock-management/',
+    text: 'Deliver a solution that enables our warehouse team to manage stock, goods in and out, transfers and stock take.'
+  },
+  {
+    title: 'Wealth Management MIS',
+    href: '/experience/completed-projects/wealth-management-mis/',
+    text: "Develop a series of MIS reports to form a standardised Board Pack to measure the effectiveness of the organisation's sales and marketing activities."
+  }
+];
+
+const customers = [
+  ['media/1398/client-maitland.jpg', 'Maitland'],
+  ['media/1384/client-cig.jpg', 'Capital International'],
+  ['media/1396/client-iomgovernment.jpg', 'Isle of Man Government'],
+  ['media/1392/client-ils.jpg', 'ILS Fiduciaries'],
+  ['media/1378/client-boston.jpg', 'Boston Group'],
+  ['media/1390/client-dohle.jpg', 'Dohle Corporate Trust Services'],
+  ['media/1402/client-pdms.jpg', 'PDMS'],
+  ['media/1400/client-manxutilities.jpg', 'Manx Utilities'],
+  ['media/1394/client-intecapa.jpg', 'Integrated Capabilities'],
+  ['media/1404/client-stateguernsey.jpg', 'States of Guernsey'],
+  ['media/1388/client-digimap.jpg', 'Digimap'],
+  ['media/1382/client-butterfly.jpg', 'Braddan Parish Commissioners'],
+  ['media/1380/client-bridsonhorrox.jpg', 'Bridson & Horrox Group'],
+  ['media/1431/conister-logo.png', 'Conister Bank']
+];
+---
+
+<BaseLayout title="Home | Antelle IT Ltd" pageClass="homepage">
+  <div class="container">
+    <section class="splash row">
+      <div class="col-11 col-sm-10 col-md-8 col-lg-6 col-xl-6">
+        <h1 class="light">Innovative solutions for business problems.</h1>
+        <p>
+          We provide quality software solutions to business problems, delivered with the excellent on-going support that
+          our customers expect. We focus almost exclusively on a Microsoft technology stack.
+        </p>
+      </div>
+      <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+        <img class="img-splash img-fluid" src={asset('svg/graphics/splash-landing.svg')} alt="Splash graphic" />
+      </div>
+    </section>
+
+    <section class="services">
+      <div class="row">
+        {
+          services.map((service, index) => (
+            <div class={index < 3 ? 'col-12 col-sm-12 col-md-6 col-lg-4' : 'col-sm'}>
+              <a href={service.href} class="service">
+                <span class="icon">
+                  <img class="img-fluid" src={asset(service.icon)} alt={service.alt} />
+                </span>
+                <h4>
+                  {service.title}
+                  <svg class="icon-arrow" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                    <g class="nc-icon-wrapper">
+                      <path d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z" />
+                    </g>
+                  </svg>
+                </h4>
+                <span class="caption-text">{service.text}</span>
+              </a>
+            </div>
+          ))
+        }
+      </div>
+    </section>
+
+    <section class="experience row">
+      <div class="col-8 col-sm-6 col-md-4 col-lg-4 col-xl-4">
+        <div class="img-wrapper">
+          <img class="img-fluid img-fluid" src={asset('media/1453/splash-experience-sector.png')} alt="Past Experience" />
+        </div>
+      </div>
+      <div class="col-12 col-sm-12 col-md-12 col-lg-8 col-xl-8">
+        <div class="experience-content">
+          <h2>Sector Experience</h2>
+          <p class="header-text light">
+            Our experienced team have delivered successful projects and provided consultancy across a broad range of
+            sectors in both the public and private sectors.
+          </p>
+          <ul class="experience-list">
+            {
+              sectors.map(([icon, label]) => (
+                <li>
+                  <img src={asset(icon)} alt={label} />
+                  <span>{label}</span>
+                </li>
+              ))
+            }
+            <li>
+              <a href="/experience/past-experience/" class="cta">Learn More</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="coreskills row">
+      <div class="col-8 col-sm-6 col-md-3 col-lg-3 col-xl-2">
+        <div class="image-wrapper">
+          <img class="img-fluid" src={asset('media/1452/splash-experience-coreskills.png')} alt="Core Skills" />
+        </div>
+      </div>
+      <div class="col-12 col-sm-12 col-md-9 col-lg-9 col-xl-10">
+        <h2>Core Skills</h2>
+        <p class="header-text light">
+          We use the tools and the products that are right for your solution, be they web based, mobile, cloud or server
+          based rest assured we have it covered.
+        </p>
+      </div>
+      <div class="blurb col-12 col-sm-12 col-md-6 col-lg-5 col-xl-5">
+        <p><span class="header-text light">At Antelle we pride ourselves on the high level of expertise we have with our chosen tools.</span></p>
+        <p>
+          This experience is hard-won through the successful delivery of projects and services for many organisations
+          both on and off the Isle of Man.
+        </p>
+        <p>
+          We are passionate about technology but do not implement technology for technologies sake; rather our approach
+          is always to deliver the most appropriate solution based on the businesses requirements.
+        </p>
+      </div>
+      <div class="tools col-12 col-sm-12 col-md-6 col-lg-7 col-xl-7">
+        <h4>Our Tools of the Trade</h4>
+        <ul>
+          <li><span>C# &amp; Visual Basic .Net</span></li>
+          <li><span>.Net Framework versions 4.7x to 1.1</span></li>
+          <li><span>Microsoft Dynamics CRM 365, 2016, 2015, 2013, 2011, 4 and 3</span></li>
+          <li><span>Microsoft SQL Server (2017, 2016, 2014, 2012, 2008 R2, 2008, 2005, 2000 and 7)</span></li>
+          <li><span>ASP.Net, MVC, Web API, WCF Webservices and Restful services</span></li>
+        </ul>
+        <a href="/experience/core-skills/" class="cta">And more</a>
+      </div>
+    </section>
+
+    <section class="completed-projects row">
+      <div class="col-8 col-sm-6 col-md-3 col-lg-3 col-xl-2">
+        <div class="image-wrapper">
+          <img class="img-fluid" src={asset('media/1451/splash-experience-completedprojects.png')} alt="Core Skills" />
+        </div>
+      </div>
+      <div class="col-12 col-sm-12 col-md-9 col-lg-9 col-xl-10">
+        <h2>Completed Projects</h2>
+        <p class="header-text light">
+          Browse through a selection of our completed projects to get a flavour for what we have previously delivered.
+        </p>
+      </div>
+      {
+        projects.map((project) => (
+          <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
+            <div class="project">
+              <h3>{project.title}</h3>
+              <p>Project Brief:</p>
+              <br />
+              <p>{project.text}</p>
+              <br />
+              <a href={project.href}>Our Solution</a>
+            </div>
+          </div>
+        ))
+      }
+    </section>
+
+    <section class="customers row">
+      <div class="col-12">
+        <p class="header-text light">We're trusted by international and local customers:</p>
+      </div>
+      {
+        customers.map(([src, alt]) => (
+          <div class="customer">
+            <img src={asset(src)} alt={alt} />
+          </div>
+        ))
+      }
+    </section>
+
+    <section class="partnerships row">
+      <div class="col-12">
+        <h3 class="sr-only">Partnerships</h3>
+        <p class="header-text light">We have earned the partnership of major programs and associations.</p>
+      </div>
+      <div class="col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3">
+        <div class="partner">
+          <a href="/about/members-of-micta/">
+            <header>
+              <h3 class="caption-text">Member of MICTA</h3>
+            </header>
+            <div class="img-wrapper">
+              <img class="img-fluid" src={asset('media/1429/partner-miicta.jpg')} alt="Member of MICTA" />
+            </div>
+            <p class="caption-text">
+              MICTA provide the voice and support that our ICT eco-system needs to Government, Industry and Leaders here
+              on the Isle of Man.
+            </p>
+          </a>
+        </div>
+      </div>
+      <div class="col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3">
+        <div class="partner">
+          <a href="/services/microsoft-dynamics-crm/clickdimensions-e-marketing/">
+            <header>
+              <h3 class="caption-text">Click Dimensions Partner</h3>
+            </header>
+            <div class="img-wrapper">
+              <img class="img-fluid" src={asset('media/1427/partner-clickdimensions.jpg')} alt="Click Dimensions Partner" />
+            </div>
+            <p class="caption-text">
+              We've partnered with ClickDimensions for their multi-award winning fully integrated marketing solution for
+              Dynamics CRM.
+            </p>
+          </a>
+        </div>
+      </div>
+    </section>
+  </div>
+</BaseLayout>

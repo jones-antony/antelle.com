@@ -127,6 +127,10 @@ Every pull request should include:
 - Manual verification steps
 - Screenshots if visual layout changed
 
+## Task completion notes
+
+When Codex completes a local site task, include a clickable URL to the running site or relevant page, where the local dev server is available.
+
 ## Commands
 
 Preferred local commands after Astro setup:

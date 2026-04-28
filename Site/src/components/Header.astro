@@ -1,0 +1,184 @@
+---
+const asset = (path: string) => `/assets/${path}`;
+---
+
+<header class="global default-header">
+  <div class="container">
+    <nav class="navbar navbar-expand-lg">
+      <a class="navbar-brand" href="/">
+        <img src={asset('svg/antelle-logo-full-white.svg')} alt="Antelle logo" />
+      </a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-menu-toggle
+        aria-controls="navbarContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-control">Menu</span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarContent">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              id="Services"
+              data-dropdown-toggle
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              Services
+            </a>
+            <div class="dropdown-menu" aria-labelledby="Services">
+              <div class="dropdown-container">
+                <div class="dropdown-blurb">
+                  <h4>Our Services</h4>
+                  <span class="caption-text">
+                    Antelle offers a broad portfolio of services and solutions primarily based on Microsoft products
+                    and frameworks.
+                  </span>
+                </div>
+                <div class="dropdown-options">
+                  <a class="dropdown-option" href="/services/microsoft-dynamics-crm/">
+                    <div class="dropdown-item-icon">
+                      <img src={asset('media/1434/icon-crm.png')} alt="Microsoft Dynamics CRM" />
+                    </div>
+                    <div class="dropdown-item-text">
+                      <h4>Microsoft Dynamics CRM</h4>
+                      <span class="caption-text">
+                        Antelle have worked with Microsoft Dynamics CRM from version 3 successfully deploying solutions
+                        within the Private Banking, Wealth Management, CSP, Service and Public sectors for organisations
+                        large and small.
+                      </span>
+                    </div>
+                  </a>
+                  <a class="dropdown-option" href="/services/software-development/">
+                    <div class="dropdown-item-icon">
+                      <img src={asset('media/1435/icon-software-dev.png')} alt="Software Development" />
+                    </div>
+                    <div class="dropdown-item-text">
+                      <h4>Software Development</h4>
+                      <span class="caption-text">
+                        Each system we build is bespoke to your exact requirements - we offer a full design and build
+                        service backed up by our fanatical support and maintenance for when you need help.
+                      </span>
+                    </div>
+                  </a>
+                  <a class="dropdown-option" href="/services/web-development/">
+                    <div class="dropdown-item-icon">
+                      <img src={asset('media/1444/icon-web-dev.png')} alt="Web Development" />
+                    </div>
+                    <div class="dropdown-item-text">
+                      <h4>Web Development</h4>
+                      <span class="caption-text">
+                        Over the years our team have built many types of sites from the simplest of brochure sites to
+                        full blown data-driven solutions running on clustered servers supporting 1,000s of simultaneous
+                        users.
+                      </span>
+                    </div>
+                  </a>
+                  <a class="dropdown-option" href="/services/business-intelligence/">
+                    <div class="dropdown-item-icon">
+                      <img src={asset('media/1442/icon-bus-int.png')} alt="Business Intelligence" />
+                    </div>
+                    <div class="dropdown-item-text">
+                      <h4>Business Intelligence</h4>
+                      <span class="caption-text">
+                        Is your business making the most of its data and gaining the insight it needs to thrive in
+                        today's data-driven world?
+                      </span>
+                    </div>
+                  </a>
+                  <a class="dropdown-option" href="/services/consultancy/">
+                    <div class="dropdown-item-icon">
+                      <img src={asset('media/1443/icon-consultancy.png')} alt="Consultancy" />
+                    </div>
+                    <div class="dropdown-item-text">
+                      <h4>Consultancy</h4>
+                      <span class="caption-text">
+                        Looking to engage on a consultancy basis? We can offer a broad range of IT related advisory
+                        services.
+                      </span>
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              id="Experience"
+              data-dropdown-toggle
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              Experience
+            </a>
+            <div class="dropdown-menu" aria-labelledby="Experience">
+              <div class="dropdown-container">
+                <div class="dropdown-blurb">
+                  <h4>Our Experience</h4>
+                  <span class="caption-text">
+                    We gain experience through a combination of training and practical application, being involved or
+                    led development in many areas.
+                  </span>
+                </div>
+                <div class="dropdown-options">
+                  <a class="dropdown-option" href="/experience/past-experience/">
+                    <div class="dropdown-item-icon">
+                      <img src={asset('media/1450/icon-sector-experience.png')} alt="Sector Experience" />
+                    </div>
+                    <div class="dropdown-item-text">
+                      <h4>Sector Experience</h4>
+                      <span class="caption-text">
+                        Our experienced team have delivered successful projects and provided consultancy across a broad
+                        range of sectors in both the public and private sectors.
+                      </span>
+                    </div>
+                  </a>
+                  <a class="dropdown-option" href="/experience/core-skills/">
+                    <div class="dropdown-item-icon">
+                      <img src={asset('media/1448/icon-core-skills.png')} alt="Core Skills" />
+                    </div>
+                    <div class="dropdown-item-text">
+                      <h4>Core Skills</h4>
+                      <span class="caption-text">
+                        We use the tools and the products that are right for your solution, be they web based, mobile,
+                        cloud or server based rest assured we have it covered.
+                      </span>
+                    </div>
+                  </a>
+                  <a class="dropdown-option" href="/experience/completed-projects/">
+                    <div class="dropdown-item-icon">
+                      <img src={asset('media/1449/icon-projects.png')} alt="Completed Projects" />
+                    </div>
+                    <div class="dropdown-item-text">
+                      <h4>Completed Projects</h4>
+                      <span class="caption-text">
+                        Browse through a selection of our completed projects to get a flavour for what we have
+                        previously delivered.
+                      </span>
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/careers/">Careers</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/about/">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/contact/">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+</header>

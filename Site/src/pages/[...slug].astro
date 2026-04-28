@@ -1,0 +1,17 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getMirrorPage, getMirrorPageSlugs } from '../lib/mirror-pages';
+
+export function getStaticPaths() {
+  return getMirrorPageSlugs().map((slug) => ({
+    params: { slug },
+    props: { page: getMirrorPage(slug) }
+  }));
+}
+
+const { page } = Astro.props;
+---
+
+<BaseLayout title={page.title} description={page.description} pageClass={page.pageClass}>
+  <div class="container" set:html={page.content} />
+</BaseLayout>

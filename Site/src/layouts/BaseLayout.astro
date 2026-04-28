@@ -1,0 +1,47 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+  title: string;
+  description?: string;
+  pageClass?: string;
+}
+
+const {
+  title,
+  description = 'Isle of Man based custom software development, web development and systems design. Specialists in Microsoft Dynamics CRM and Umbraco CMS.',
+  pageClass = ''
+} = Astro.props;
+
+const classes = ['page', pageClass].filter(Boolean).join(' ');
+---
+
+<!doctype html>
+<html lang="en-GB">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="description" content={description} />
+    <meta
+      name="keywords"
+      content="C#, VB, Sage, SQL Server, CRM, Dynamics CRM, Microsoft CRM, ASP.Net, .NET, Business Intelligence, BI, MIS, Management Reporting, SSRS, SQL, VBA, Workflow, Development, Web Development, Software Development, Programming, Javascript, Umbraco, IIS, MVC, Web API"
+    />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <title>{title}</title>
+    <link rel="icon" type="image/png" href="/assets/media/1286/antellesmall.png" />
+    <link rel="stylesheet" href="/assets/site.css" />
+  </head>
+  <body>
+    <div class={classes}>
+      <div class="backdrop"></div>
+      <Header />
+      <main class="content">
+        <slot />
+      </main>
+      <Footer />
+    </div>
+    <script is:inline src="/assets/scripts/navigation.js"></script>
+  </body>
+</html>

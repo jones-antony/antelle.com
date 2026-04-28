@@ -12,6 +12,7 @@ export interface MirrorPage {
 }
 
 const ignoredDirectories = new Set(['blog']);
+const overriddenSlugs = new Set(['services/business-intelligence', 'services/consultancy']);
 
 function walk(directory: string): string[] {
   return readdirSync(directory).flatMap((entry) => {
@@ -116,6 +117,7 @@ export function getMirrorPageSlugs(): string[] {
   return walk(mirrorRoot)
     .map(normaliseRoute)
     .filter((slug) => slug !== '')
+    .filter((slug) => !overriddenSlugs.has(slug))
     .sort();
 }
 

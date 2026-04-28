@@ -1,0 +1,283 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import ProjectCards from '../../../components/ProjectCards.astro';
+import { getProjectsForPage } from '../../../content/projects';
+
+const asset = (path: string) => `/assets/${path}`;
+
+const keyAreas = [
+  'Microsoft CRM design and implementation',
+  'Power Automate workflow design',
+  'Dataverse data model and reporting advice',
+  'Systems integration',
+  'Business process review and re-engineering',
+  'Database optimisation, sizing and capacity planning',
+  'Microsoft Office automation and document generation',
+  'Software development for small teams',
+  'Requirements analysis and specification preparation',
+  'Procurement projects where complex IT forms part of the brief'
+];
+
+const projects = getProjectsForPage('services/consultancy');
+
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfessionalService',
+  name: 'Antelle IT Ltd',
+  url: 'https://www.antelle.com/services/consultancy/',
+  areaServed: 'Isle of Man',
+  serviceType: ['IT consultancy', 'Microsoft technology consultancy', 'Systems integration consultancy'],
+  description: 'Practical IT consultancy for Microsoft technology, systems integration and business process improvement.'
+};
+---
+
+<BaseLayout
+  title="Consultancy | Antelle IT Ltd"
+  description="Practical Isle of Man IT consultancy from Antelle IT Ltd, covering Microsoft technology, systems integration, requirements analysis and business process improvement."
+  pageClass="services"
+  canonicalUrl="https://www.antelle.com/services/consultancy/"
+  structuredData={structuredData}
+>
+  <div class="container">
+    <section class="splash row">
+      <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+        <h1 class="subheader-text">Consultancy</h1>
+        <p class="header-text light">
+          Practical technology advice for organisations planning system change, integration or Microsoft platform work.
+        </p>
+        <a href="/contact/" class="cta cta-large">Discuss a Consultancy Requirement</a>
+      </div>
+      <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+        <svg
+          class="img-splash img-fluid consultancy-hero"
+          viewBox="0 0 420 260"
+          role="img"
+          aria-labelledby="consultancy-hero-title consultancy-hero-desc"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <title id="consultancy-hero-title">Consultancy planning and technology advice</title>
+          <desc id="consultancy-hero-desc">A planning board showing business requirements, technology options and delivery decisions.</desc>
+          <rect class="visual-panel" x="18" y="18" width="384" height="224" rx="8" />
+          <path class="visual-line" d="M84 76h78M84 126h78M84 176h78M162 76c45 0 42 50 86 50h38M162 176c45 0 42-50 86-50h38" />
+          <circle class="visual-mid" cx="70" cy="76" r="18" />
+          <circle class="visual-accent" cx="70" cy="126" r="18" />
+          <circle class="visual-dark" cx="70" cy="176" r="18" />
+          <rect class="visual-dark" x="286" y="58" width="70" height="40" rx="4" />
+          <rect class="visual-accent" x="286" y="108" width="70" height="40" rx="4" />
+          <rect class="visual-mid" x="286" y="158" width="70" height="40" rx="4" />
+          <path class="visual-tick" d="M307 78l10 10 20-22M307 128l10 10 20-22M307 178l10 10 20-22" />
+        </svg>
+      </div>
+    </section>
+
+    <section class="sector row" id="overview">
+      <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 row">
+        <div class="col-sub-header col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+          <h2>Overview</h2>
+        </div>
+        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+          <h3 class="header-2-text light">Useful advice starts with understanding the business problem.</h3>
+          <p>
+            Consultancy is most useful when it turns uncertainty into a clear next step. We help clients understand the
+            business problem, assess realistic options and shape work that can be delivered and supported.
+          </p>
+          <p>
+            Our consultancy work is focused on discovery, requirements, process review, Microsoft platform advice,
+            integration planning and delivery preparation.
+          </p>
+        </div>
+        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+          <p>
+            We can help with early-stage requirements, system reviews, data and database concerns, supplier or procurement
+            support, and the practical steps needed to move from idea to deliverable work.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="sector consultancy-approach row" id="our-approach">
+      <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 row">
+        <div class="col-sub-header col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+          <span class="header-icon approach-header-icon">
+            <img class="icon section-icon img-fluid" src={asset('media/1475/icon-our-approach.png')} alt="" />
+          </span>
+          <h2>Our Approach</h2>
+        </div>
+        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+          <svg class="content-icon" aria-hidden="true" focusable="false" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+            <rect class="visual-panel" x="6" y="8" width="52" height="48" rx="5" />
+            <path class="visual-line" d="M18 23h28M18 32h28M18 41h22" />
+          </svg>
+          <h4>Our Practice</h4>
+          <p>
+            Consultancy is more than knowing a subject. It is about asking the right questions, explaining trade-offs
+            clearly and giving advice in a form that helps a client make a decision.
+          </p>
+          <p>
+            We are direct about where we can help, where a delivery project needs more definition, and where another
+            specialist would be a better fit.
+          </p>
+        </div>
+        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+          <svg class="content-icon" aria-hidden="true" focusable="false" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+            <rect class="visual-dark" x="7" y="8" width="22" height="22" rx="3" />
+            <rect class="visual-accent" x="35" y="8" width="22" height="22" rx="3" />
+            <rect class="visual-mid" x="7" y="36" width="22" height="22" rx="3" />
+            <rect class="visual-dark" x="35" y="36" width="22" height="22" rx="3" />
+          </svg>
+          <h4>Key Areas</h4>
+          <p>We are currently able to provide consulting services in the following key areas:</p>
+          <ul>
+            {keyAreas.map((area) => <li><span>{area}</span></li>)}
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="sector row" id="grant-scheme-signposting">
+      <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+        <div class="col-sub-header col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+          <h2>Grant Scheme Signposting</h2>
+        </div>
+        <p>
+          Some Isle of Man businesses may be able to access external support schemes for qualifying improvement projects.
+          We have moved the Business Improvement Scheme information onto a separate signposting page so this Consultancy
+          page can stay focused on advisory work.
+        </p>
+        <a href="/services/consultancy/business-improvement-scheme/" class="cta cta-secondary">View Grant Scheme Signposting</a>
+      </div>
+    </section>
+
+    <section class="completed-projects row">
+      <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+        <h2>Completed Projects</h2>
+        <p class="owner-note">OWNER INPUT REQUIRED: confirm the tagged projects are the right examples for Consultancy.</p>
+      </div>
+      <ProjectCards projects={projects} withArrow />
+    </section>
+
+    <section class="other-services row">
+      <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+        <h2 class="subheader-text">Other Services</h2>
+      </div>
+      <div class="row">
+        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+          <a href="/services/microsoft-dynamics-crm/" class="service">
+            <img class="icon img-fluid" src={asset('media/1434/icon-crm.png')} alt="Microsoft Dynamics CRM" />
+            <h3>Microsoft Dynamics CRM</h3>
+            <p>
+              Antelle have worked with Microsoft Dynamics CRM from version 3 successfully deploying solutions within
+              the Private Banking, Wealth Management, CSP, Service and Public sectors.
+            </p>
+          </a>
+        </div>
+        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+          <a href="/services/software-development/" class="service">
+            <img class="icon img-fluid" src={asset('media/1435/icon-software-dev.png')} alt="Software Development" />
+            <h3>Software Development</h3>
+            <p>
+              Bespoke software development, design and support for systems that need to match real operational
+              requirements.
+            </p>
+          </a>
+        </div>
+        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+          <a href="/services/web-development/" class="service">
+            <img class="icon img-fluid" src={asset('media/1444/icon-web-dev.png')} alt="Web Development" />
+            <h3>Web Development</h3>
+            <p>
+              Web applications and integrations built with maintainability, hosting and long-term support in mind.
+            </p>
+          </a>
+        </div>
+        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+          <a href="/services/business-intelligence/" class="service">
+            <img class="icon img-fluid" src={asset('media/1442/icon-bus-int.png')} alt="Business Intelligence" />
+            <h3>Business Intelligence</h3>
+            <p>
+              Azure SQL and Power BI reporting support for teams that need reliable, understandable operational data.
+            </p>
+          </a>
+        </div>
+      </div>
+    </section>
+  </div>
+</BaseLayout>
+
+<style>
+  .consultancy-hero,
+  .section-icon,
+  .content-icon {
+    display: block;
+    height: auto;
+  }
+
+  .consultancy-hero {
+    width: 100%;
+  }
+
+  .content-icon {
+    height: 4rem;
+    margin-bottom: 1rem;
+    width: 4rem;
+  }
+
+  .approach-header-icon {
+    align-items: center;
+    display: inline-flex;
+    justify-content: center;
+  }
+
+  .approach-header-icon .section-icon {
+    margin: 0;
+  }
+
+  .section-icon {
+    width: 4rem;
+  }
+
+  .visual-panel {
+    fill: #ffffff;
+    stroke: #8dd8f8;
+    stroke-width: 2;
+  }
+
+  .visual-line {
+    fill: none;
+    stroke: #0072bc;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 5;
+  }
+
+  .visual-tick {
+    fill: none;
+    stroke: #ffffff;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 6;
+  }
+
+  .visual-accent {
+    fill: #8dd8f8;
+  }
+
+  .visual-mid {
+    fill: #00baf2;
+  }
+
+  .visual-dark {
+    fill: #0072bc;
+  }
+
+  .owner-note {
+    background: #fff59d;
+    color: #7a5a00;
+    display: inline;
+    font-weight: 700;
+    line-height: 1.5;
+    padding: 0.1rem 0.25rem;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+  }
+</style>

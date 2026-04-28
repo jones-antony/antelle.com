@@ -1,0 +1,38 @@
+---
+import { getProjectHref, type CompletedProject } from '../content/projects';
+
+interface Props {
+  projects: CompletedProject[];
+  withArrow?: boolean;
+  includeBreaks?: boolean;
+}
+
+const { projects, withArrow = false, includeBreaks = false } = Astro.props;
+---
+
+{
+  projects.map((project) => (
+    <div class={withArrow ? 'col-12 col-sm-12 col-md-6 col-lg-4' : 'col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4'}>
+      <article class="project">
+        <h3>{project.title}</h3>
+        <p>Project Brief:</p>
+        {includeBreaks && <br />}
+        <p>{project.summary}</p>
+        {project.relevance && <p><strong>Why it is relevant:</strong> {project.relevance}</p>}
+        {includeBreaks && <br />}
+        <a href={getProjectHref(project)}>
+          Our Solution
+          {
+            withArrow && (
+              <svg class="icon-arrow" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                <g class="nc-icon-wrapper" fill="#000000">
+                  <path d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z" />
+                </g>
+              </svg>
+            )
+          }
+        </a>
+      </article>
+    </div>
+  ))
+}

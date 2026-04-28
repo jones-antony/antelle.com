@@ -6,12 +6,16 @@ interface Props {
   title: string;
   description?: string;
   pageClass?: string;
+  canonicalUrl?: string;
+  structuredData?: Record<string, unknown>;
 }
 
 const {
   title,
   description = 'Isle of Man based custom software development, web development and systems design. Specialists in Microsoft Dynamics CRM and Umbraco CMS.',
-  pageClass = ''
+  pageClass = '',
+  canonicalUrl,
+  structuredData
 } = Astro.props;
 
 const classes = ['page', pageClass].filter(Boolean).join(' ');
@@ -24,14 +28,16 @@ const classes = ['page', pageClass].filter(Boolean).join(' ');
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="description" content={description} />
-    <meta
-      name="keywords"
-      content="C#, VB, Sage, SQL Server, CRM, Dynamics CRM, Microsoft CRM, ASP.Net, .NET, Business Intelligence, BI, MIS, Management Reporting, SSRS, SQL, VBA, Workflow, Development, Web Development, Software Development, Programming, Javascript, Umbraco, IIS, MVC, Web API"
-    />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <title>{title}</title>
+    {canonicalUrl && <link rel="canonical" href={canonicalUrl} />}
     <link rel="icon" type="image/png" href="/assets/media/1286/antellesmall.png" />
     <link rel="stylesheet" href="/assets/site.css" />
+    {
+      structuredData && (
+        <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+      )
+    }
   </head>
   <body>
     <div class={classes}>

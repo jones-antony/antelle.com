@@ -1,5 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import ProjectCards from '../components/ProjectCards.astro';
+import { getProjectsForPage } from '../content/projects';
 
 const asset = (path: string) => `/assets/${path}`;
 
@@ -51,23 +53,7 @@ const sectors = [
   ['media/1496/icon-sportingevents.png', 'Sporting Events']
 ];
 
-const projects = [
-  {
-    title: 'Unified Address Lookup Service',
-    href: '/experience/completed-projects/unified-address-lookup-service/',
-    text: 'Create a single service to unify address lookup for use throughout the organisation.'
-  },
-  {
-    title: 'Windows Mobile Stock Management',
-    href: '/experience/completed-projects/windows-mobile-stock-management/',
-    text: 'Deliver a solution that enables our warehouse team to manage stock, goods in and out, transfers and stock take.'
-  },
-  {
-    title: 'Wealth Management MIS',
-    href: '/experience/completed-projects/wealth-management-mis/',
-    text: "Develop a series of MIS reports to form a standardised Board Pack to measure the effectiveness of the organisation's sales and marketing activities."
-  }
-];
+const projects = getProjectsForPage('home');
 
 const customers = [
   ['media/1398/client-maitland.jpg', 'Maitland'],
@@ -206,20 +192,7 @@ const customers = [
           Browse through a selection of our completed projects to get a flavour for what we have previously delivered.
         </p>
       </div>
-      {
-        projects.map((project) => (
-          <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
-            <div class="project">
-              <h3>{project.title}</h3>
-              <p>Project Brief:</p>
-              <br />
-              <p>{project.text}</p>
-              <br />
-              <a href={project.href}>Our Solution</a>
-            </div>
-          </div>
-        ))
-      }
+      <ProjectCards projects={projects} includeBreaks />
     </section>
 
     <section class="customers row">

@@ -1,0 +1,212 @@
+---
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+
+const schemeBenefits = [
+  'The scheme is intended to support business improvement projects through external consultancy.',
+  'Published guidance states support may be available for 50% of consultancy project costs, up to a maximum of £5,000 per project.',
+  'The scheme supports consultancy projects and does not support the purchase of hardware or software.',
+  'Support is discretionary and applicants should wait for confirmation before starting a project.'
+];
+
+const schemeDisciplines = [
+  'Business Advisory Service',
+  'Digital Marketing / Social Media',
+  'Information Communication Technology / Information Systems',
+  'Intellectual Property Protection Support',
+  'Legal, Financial and Professional Advice Concerning External Investment in Business',
+  'Legislation Compliance',
+  'Marketing',
+  'Quality Accreditations',
+  'Transactional websites'
+];
+
+const applicantChecks = [
+  'Confirm the latest scheme rules and eligibility with the Department for Enterprise.',
+  'Check whether the proposed work qualifies before committing to a supplier or project start date.',
+  'Prepare a clear project scope, expected outcome and quotation.',
+  'Keep evidence of approval, completion and payment for the claim process.'
+];
+
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name: 'Business Improvement Scheme Signposting',
+  url: 'https://www.antelle.com/services/consultancy/business-improvement-scheme/',
+  description:
+    'Signposting information for Isle of Man businesses considering the Business Improvement Scheme for consultancy projects.'
+};
+---
+
+<BaseLayout
+  title="Business Improvement Scheme Signposting | Antelle IT Ltd"
+  description="Signposting information for Isle of Man businesses considering the Business Improvement Scheme for consultancy projects."
+  pageClass="services"
+  canonicalUrl="https://www.antelle.com/services/consultancy/business-improvement-scheme/"
+  structuredData={structuredData}
+>
+  <div class="container">
+    <section class="splash row">
+      <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+        <h1 class="subheader-text">Business Improvement Scheme</h1>
+        <p class="header-text light">
+          Signposting for Isle of Man businesses considering grant support for consultancy-led improvement projects.
+        </p>
+        <a href="/contact/" class="cta cta-large">Discuss a Project</a>
+      </div>
+      <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+        <svg
+          class="img-splash img-fluid grant-hero"
+          viewBox="0 0 420 260"
+          role="img"
+          aria-labelledby="grant-hero-title grant-hero-desc"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <title id="grant-hero-title">Grant scheme project checklist</title>
+          <desc id="grant-hero-desc">A checklist showing project scope, eligibility and application steps.</desc>
+          <rect class="visual-panel" x="26" y="22" width="368" height="216" rx="8" />
+          <rect class="visual-dark" x="62" y="56" width="90" height="30" rx="4" />
+          <rect class="visual-accent" x="62" y="110" width="90" height="30" rx="4" />
+          <rect class="visual-mid" x="62" y="164" width="90" height="30" rx="4" />
+          <path class="visual-line" d="M174 71h120M174 125h120M174 179h120" />
+          <circle class="visual-accent" cx="326" cy="71" r="18" />
+          <circle class="visual-mid" cx="326" cy="125" r="18" />
+          <circle class="visual-dark" cx="326" cy="179" r="18" />
+          <path class="visual-tick" d="M316 70l7 7 15-17M316 124l7 7 15-17M316 178l7 7 15-17" />
+        </svg>
+        <p class="owner-note">TODO: review all scheme details, eligibility, funding limits and external links before go live.</p>
+      </div>
+    </section>
+
+    <section class="sector row" id="overview">
+      <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 row">
+        <div class="col-sub-header col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+          <h2>Overview</h2>
+          <p class="owner-note">FACT CHECK REQUIRED: this page signposts external scheme information that may change.</p>
+        </div>
+        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+          <p>
+            The Business Improvement Scheme is operated by the Isle of Man Department for Enterprise and is designed to
+            help eligible businesses complete improvement projects through external consultancy.
+          </p>
+          <p>
+            Published Department guidance for November 2024 describes support towards consultancy project costs for
+            qualifying business improvement projects. Applicants should always confirm the latest rules directly with
+            the Department before relying on the scheme.
+          </p>
+        </div>
+        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+          <p>
+            Antelle can discuss the technology or systems side of a proposed project, but grant eligibility and funding
+            decisions sit with the Department for Enterprise.
+          </p>
+          <p>
+            Official information is available from the
+            <a href="https://grants.im/business-improvement-scheme/" target="_blank" rel="noopener noreferrer">
+              Business Improvement Scheme grant page
+            </a>
+            and the
+            <a href="https://www.digitalisleofman.com/media/nqzowakp/bis-guidance-november-2024-final.pdf" target="_blank" rel="noopener noreferrer">
+              November 2024 guidance PDF
+            </a>.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="sector row" id="scheme-summary">
+      <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 row">
+        <div class="col-sub-header col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+          <h2>Scheme Summary</h2>
+        </div>
+        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+          <h4>Published Support</h4>
+          <ul>
+            {schemeBenefits.map((benefit) => <li><span>{benefit}</span></li>)}
+          </ul>
+        </div>
+        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+          <h4>Common Project Disciplines</h4>
+          <ul>
+            {schemeDisciplines.map((discipline) => <li><span>{discipline}</span></li>)}
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="sector row" id="before-applying">
+      <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 row">
+        <div class="col-sub-header col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+          <h2>Before Applying</h2>
+        </div>
+        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+          <p>
+            The scheme is application-led. Businesses should confirm eligibility and obtain approval before beginning any
+            project they expect to include in a grant application.
+          </p>
+          <ul>
+            {applicantChecks.map((check) => <li><span>{check}</span></li>)}
+          </ul>
+        </div>
+        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+          <p>
+            If you are considering a technology, systems or reporting improvement project, Antelle can help shape the
+            scope and expected outcome so the work is clear before you approach the scheme.
+          </p>
+          <a href="/services/consultancy/" class="cta cta-secondary">Back to Consultancy</a>
+        </div>
+      </div>
+    </section>
+  </div>
+</BaseLayout>
+
+<style>
+  .grant-hero {
+    display: block;
+    height: auto;
+  }
+
+  .visual-panel {
+    fill: #ffffff;
+    stroke: #8dd8f8;
+    stroke-width: 2;
+  }
+
+  .visual-line {
+    fill: none;
+    stroke: #0072bc;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 5;
+  }
+
+  .visual-tick {
+    fill: none;
+    stroke: #ffffff;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 6;
+  }
+
+  .visual-accent {
+    fill: #8dd8f8;
+  }
+
+  .visual-mid {
+    fill: #00baf2;
+  }
+
+  .visual-dark {
+    fill: #0072bc;
+  }
+
+  .owner-note {
+    background: #fff59d;
+    color: #7a5a00;
+    display: inline;
+    font-weight: 700;
+    line-height: 1.5;
+    padding: 0.1rem 0.25rem;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+  }
+</style>

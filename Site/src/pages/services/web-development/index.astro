@@ -1,0 +1,107 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfessionalService',
+  name: 'Antelle IT Ltd',
+  url: 'https://www.antelle.com/services/web-development/',
+  areaServed: 'Isle of Man',
+  serviceType: ['Web development', 'Web applications', 'Static site development', 'Website integration'],
+  description:
+    'Web development consultancy and delivery for maintainable websites, web applications and integrations.'
+};
+---
+
+<BaseLayout
+  title="Web Development | Antelle IT Ltd"
+  description="Web development from Antelle IT Ltd, covering maintainable websites, web applications and integrations."
+  pageClass="services"
+  canonicalUrl="https://www.antelle.com/services/web-development/"
+  structuredData={structuredData}
+>
+  <div class="container">
+    <section class="splash row maintained-service-splash">
+      <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+        <h1 class="subheader-text">Web Development</h1>
+        <p class="header-text light">
+          Maintainable web applications, websites and integrations built around practical hosting and support requirements.
+        </p>
+        <a href="/contact/" class="cta cta-large">Discuss a Web Requirement</a>
+      </div>
+      <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+        <svg class="img-splash img-fluid web-hero" viewBox="0 0 420 260" role="img" aria-labelledby="web-hero-title web-hero-desc" xmlns="http://www.w3.org/2000/svg">
+          <title id="web-hero-title">Web application layout</title>
+          <desc id="web-hero-desc">A responsive web application interface with content blocks and connected data.</desc>
+          <rect class="visual-panel" x="18" y="18" width="384" height="224" rx="8" />
+          <rect class="visual-dark" x="58" y="64" width="304" height="132" rx="7" />
+          <path class="visual-accent-line" d="M58 96h304" />
+          <circle class="visual-mid" cx="80" cy="80" r="6" />
+          <circle class="visual-accent" cx="101" cy="80" r="6" />
+          <rect class="visual-accent" x="84" y="120" width="94" height="48" rx="4" />
+          <rect class="visual-mid" x="198" y="120" width="118" height="16" rx="3" />
+          <path class="visual-code" d="M204 158h92M204 174h66" />
+        </svg>
+      </div>
+    </section>
+
+    <section class="overview row">
+      <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+        <h2 class="light">Overview</h2>
+        <p class="text-big">
+          Web work should be driven by the job the site or application needs to perform: publishing content, supporting
+          a business process, integrating systems, or giving customers a reliable online service.
+        </p>
+        <p class="text-big">
+          We can help with maintainable web applications, static site delivery, integrations and practical hosting
+          decisions.
+        </p>
+        <p class="owner-note">OWNER INPUT REQUIRED: confirm whether Umbraco should remain a promoted capability or be reduced on this page.</p>
+      </div>
+      <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+        <div class="rectangle-graphic-bg"><span class="rectangle-graphic img-fluid"></span></div>
+      </div>
+    </section>
+
+    <section class="sector row" id="key-areas">
+      <div class="col-12 row">
+        <div class="col-sub-header col-12">
+          <span class="header-icon"><svg class="icon content-icon" aria-hidden="true" focusable="false" viewBox="0 0 64 64"><rect class="visual-panel" x="8" y="12" width="48" height="38" rx="4" /><path class="visual-line" d="M8 24h48M20 38h24" /></svg></span>
+          <h2>Key Areas</h2>
+        </div>
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
+          <svg class="content-icon" aria-hidden="true" focusable="false" viewBox="0 0 64 64"><rect class="visual-panel" x="8" y="12" width="48" height="40" rx="5" /><path class="visual-line" d="M8 25h48" /><rect class="visual-mid" x="17" y="34" width="30" height="9" rx="2" /></svg>
+          <h4>Web Applications</h4>
+          <p>Application-style web interfaces for controlled data capture, workflow and operational processes.</p>
+        </div>
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
+          <svg class="content-icon" aria-hidden="true" focusable="false" viewBox="0 0 64 64"><rect class="visual-dark" x="11" y="11" width="42" height="42" rx="4" /><path class="visual-code" d="M25 25l-8 7 8 7M39 25l8 7-8 7" /></svg>
+          <h4>Static Sites</h4>
+          <p>Static website delivery where simplicity, security, performance and low operational overhead are priorities.</p>
+        </div>
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
+          <svg class="content-icon" aria-hidden="true" focusable="false" viewBox="0 0 64 64"><circle class="visual-mid" cx="16" cy="18" r="8" /><circle class="visual-accent" cx="48" cy="18" r="8" /><circle class="visual-dark" cx="32" cy="48" r="8" /><path class="visual-line" d="M23 22l7 18M41 22l-7 18M24 18h16" /></svg>
+          <h4>Integration</h4>
+          <p>Connecting web experiences to databases, APIs, Microsoft services and other operational systems.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="sector row" id="delivery-approach">
+      <div class="col-12">
+        <h2>Delivery Approach</h2>
+        <p>
+          We start by clarifying the audience, content ownership, data flows, hosting model and support requirements,
+          then select the simplest technical approach that can meet those needs.
+        </p>
+        <p class="owner-note">OWNER INPUT REQUIRED: add approved current web examples and hosting position before go live.</p>
+      </div>
+    </section>
+  </div>
+</BaseLayout>
+
+<style>
+  .web-hero,.content-icon{display:block;height:auto}.web-hero{width:100%}.content-icon{height:4rem;margin-bottom:1rem;width:4rem}.visual-panel{fill:#fff;stroke:#8dd8f8;stroke-width:2}.visual-line{fill:none;stroke:#0072bc;stroke-linecap:round;stroke-linejoin:round;stroke-width:5}.visual-accent-line{fill:none;stroke:#8dd8f8;stroke-linecap:round;stroke-width:5}.visual-code{fill:none;stroke:#fff;stroke-linecap:round;stroke-linejoin:round;stroke-width:6}.visual-accent{fill:#8dd8f8}.visual-mid{fill:#00baf2}.visual-dark{fill:#0072bc}.owner-note{background:#fff59d;color:#7a5a00;display:inline;font-weight:700;line-height:1.5;padding:.1rem .25rem;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+  @media (max-width:991.98px){section.maintained-service-splash{min-height:auto;padding-bottom:2rem!important;padding-top:2.5rem!important}section.maintained-service-splash>div:nth-of-type(1){max-width:100%;order:2;position:static!important;width:100%!important}section.maintained-service-splash>div:nth-of-type(2){margin-bottom:.75rem;max-width:100%;opacity:1;order:1;position:static!important;text-align:right;width:100%!important}.web-hero{display:inline-block;max-width:20rem;width:50%}}
+  @media (max-width:576px){section.maintained-service-splash .header-text{font-size:1.6em}section.maintained-service-splash .cta{min-width:0;width:100%}.web-hero{max-width:13rem;width:50%}}
+</style>

@@ -16,6 +16,8 @@ Implemented:
 - Removed blog entries from the generated site map while the blog is parked.
 - Added typed completed-project metadata in `Site/src/content/projects.ts` so projects can be tagged to display on specific maintained Astro pages.
 - Added a shared `ProjectCards` component for rendering selected completed projects from the typed metadata.
+- Converted `/careers/` to a maintained Astro page with current-vacancy messaging, future CV consideration wording and an owner note for CV retention/privacy confirmation.
+- Converted the top-level Experience menu pages to maintained Astro pages ready for further editing: `/experience/past-experience/`, `/experience/core-skills/` and `/experience/completed-projects/`.
 
 Generated page scope:
 
@@ -44,3 +46,4 @@ Asset note:
 - Maintained Astro pages should use SVG icons/illustrations where practical. When converting a page, replace legacy PNG icons with SVG equivalents automatically if the image is a simple icon or illustration.
 - If an image cannot be sensibly converted to SVG, for example photographs, complex raster artwork, screenshots, client logos without a vector source, or assets where conversion would be inaccurate, keep the bitmap and highlight the exception for owner review.
 - Repeated content icons on maintained pages should use a consistent `4rem` visual box unless a page-specific design requires a documented exception.
+- Maintained pages with hero graphics should follow the Business Intelligence and Consultancy mobile pattern: keep the hero SVG out of the text background, stack it above the copy on collapsed layouts, align it to the top right, and scale it down so it acts as a compact visual accent rather than a full-width block.

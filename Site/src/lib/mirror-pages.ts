@@ -12,7 +12,20 @@ export interface MirrorPage {
 }
 
 const ignoredDirectories = new Set(['blog']);
-const overriddenSlugs = new Set(['services/business-intelligence', 'services/consultancy']);
+const overriddenSlugs = new Set([
+  'about',
+  'careers',
+  'experience/completed-projects',
+  'experience/core-skills',
+  'experience/past-experience',
+  'services/ai-agentic-services',
+  'services/business-intelligence',
+  'services/consultancy',
+  'services/microsoft-dynamics-crm',
+  'services/power-platform',
+  'services/software-development',
+  'services/web-development'
+]);
 
 function walk(directory: string): string[] {
   return readdirSync(directory).flatMap((entry) => {

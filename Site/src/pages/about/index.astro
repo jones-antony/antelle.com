@@ -1,0 +1,259 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'Antelle IT Ltd',
+  url: 'https://www.antelle.com/about/',
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Douglas',
+    addressRegion: 'Isle of Man',
+    postalCode: 'IM4 4RG',
+    streetAddress: 'Unit 17b, Carrs Lane, Tromode Estate'
+  },
+  description:
+    'Antelle IT Ltd is an Isle of Man software consultancy delivering Microsoft technology, bespoke software and practical long-term support.'
+};
+---
+
+<BaseLayout
+  title="About | Antelle IT Ltd"
+  description="Antelle IT Ltd is a smaller Isle of Man software consultancy delivering Microsoft technology, bespoke software and practical long-term service."
+  pageClass="about"
+  canonicalUrl="https://www.antelle.com/about/"
+  structuredData={structuredData}
+>
+  <div class="container">
+    <section class="splash row maintained-about-splash">
+      <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+        <h1 class="subheader-text">About Antelle</h1>
+        <p class="header-text light">
+          We are a smaller team by design, but we punch well above our size in the quality of delivery, service and
+          long-term support we provide.
+        </p>
+      </div>
+      <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+        <svg
+          class="img-splash img-fluid about-hero"
+          viewBox="0 0 420 260"
+          role="img"
+          aria-labelledby="about-hero-title about-hero-desc"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <title id="about-hero-title">Focused software delivery team</title>
+          <desc id="about-hero-desc">A compact team connected to delivery, service and support outcomes.</desc>
+          <rect class="visual-panel" x="18" y="18" width="384" height="224" rx="8" />
+          <circle class="visual-dark" cx="105" cy="104" r="26" />
+          <circle class="visual-accent" cx="190" cy="104" r="26" />
+          <circle class="visual-mid" cx="275" cy="104" r="26" />
+          <path class="visual-line" d="M131 104h33M216 104h33M105 130v28c0 12 10 22 22 22h126c12 0 22-10 22-22v-28" />
+          <rect class="visual-dark" x="116" y="172" width="148" height="34" rx="6" />
+          <path class="visual-tick" d="M150 189l12 12 26-31M209 189h32" />
+        </svg>
+      </div>
+    </section>
+
+    <section class="sector row" id="who-we-are">
+      <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 row">
+        <div class="col-sub-header col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+          <h2>Who We Are</h2>
+        </div>
+        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+          <h3 class="header-2-text light">Small enough to be direct, experienced enough to deliver.</h3>
+          <p>
+            Antelle is an Isle of Man software consultancy with a deliberately focused team. Clients deal with people
+            who understand the work, the trade-offs and the long-term support implications, rather than a large hand-off
+            chain.
+          </p>
+          <p>
+            That smaller shape matters. It keeps communication direct, makes ownership clear and helps us stay close to
+            the detail that determines whether a system will work well in day-to-day use.
+          </p>
+        </div>
+        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+          <p>
+            We focus on Microsoft technology, bespoke software, integration, reporting and practical consultancy. The
+            aim is not to be the largest supplier in the room; it is to be a capable, responsive partner that can deliver
+            well and support what it builds.
+          </p>
+          <p>
+            Since 2004, we have worked with some of the Isle of Man's leading organisations, helping deliver and support
+            systems that matter to their day-to-day operations.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="sector row" id="how-we-work">
+      <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 row">
+        <div class="col-sub-header col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+          <span class="header-icon">
+            <svg class="icon content-icon" aria-hidden="true" focusable="false" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+              <rect class="visual-panel" x="8" y="10" width="48" height="44" rx="5" />
+              <path class="visual-line" d="M18 24h28M18 34h22M18 44h16" />
+            </svg>
+          </span>
+          <h2>How We Work</h2>
+        </div>
+        <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
+          <svg class="content-icon" aria-hidden="true" focusable="false" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+            <circle class="visual-dark" cx="20" cy="23" r="10" />
+            <circle class="visual-accent" cx="44" cy="23" r="10" />
+            <path class="visual-line" d="M13 50c3-9 10-13 19-13s16 4 19 13" />
+          </svg>
+          <h4>Direct Relationships</h4>
+          <p>
+            We keep projects close to the people doing the work, so decisions, risks and trade-offs can be discussed
+            plainly and early.
+          </p>
+        </div>
+        <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
+          <svg class="content-icon" aria-hidden="true" focusable="false" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+            <path class="visual-dark" d="M32 7l22 9v13c0 14-9 25-22 29C19 54 10 43 10 29V16l22-9Z" />
+            <path class="visual-tick" d="M22 32l7 7 15-18" />
+          </svg>
+          <h4>Responsible Delivery</h4>
+          <p>
+            We prefer grounded advice and maintainable implementation over inflated promises. If something needs more
+            definition, we say so.
+          </p>
+        </div>
+        <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
+          <svg class="content-icon" aria-hidden="true" focusable="false" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+            <rect class="visual-panel" x="9" y="13" width="46" height="38" rx="5" />
+            <path class="visual-line" d="M18 29h28M18 39h18" />
+            <circle class="visual-mid" cx="47" cy="17" r="8" />
+          </svg>
+          <h4>Long-Term Service</h4>
+          <p>
+            Delivery does not stop at launch. Support, documentation, hosting, security and operational ownership are
+            part of the conversation.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="sector row" id="our-approach">
+      <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+        <h2>Our Approach</h2>
+        <p>
+          We work best where a client values clear communication, practical engineering and a supplier that will be
+          honest about what should be built, what should be simplified and what should be left alone.
+        </p>
+        <p>
+          The result is a working style that suits organisations looking for a capable team that can get close to the
+          business problem and stay accountable for the outcome.
+        </p>
+      </div>
+    </section>
+  </div>
+</BaseLayout>
+
+<style>
+  .about-hero,
+  .content-icon {
+    display: block;
+    height: auto;
+  }
+
+  .about-hero {
+    width: 100%;
+  }
+
+  .content-icon {
+    height: 4rem;
+    margin-bottom: 1rem;
+    width: 4rem;
+  }
+
+  .visual-panel {
+    fill: #ffffff;
+    stroke: #8dd8f8;
+    stroke-width: 2;
+  }
+
+  .visual-line {
+    fill: none;
+    stroke: #0072bc;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 5;
+  }
+
+  .visual-tick {
+    fill: none;
+    stroke: #ffffff;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 6;
+  }
+
+  .visual-accent {
+    fill: #8dd8f8;
+  }
+
+  .visual-mid {
+    fill: #00baf2;
+  }
+
+  .visual-dark {
+    fill: #0072bc;
+  }
+
+  .owner-note {
+    background: #fff59d;
+    color: #7a5a00;
+    display: inline;
+    font-weight: 700;
+    line-height: 1.5;
+    padding: 0.1rem 0.25rem;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+  }
+
+  @media (max-width: 991.98px) {
+    section.maintained-about-splash {
+      min-height: auto;
+      padding-bottom: 2rem !important;
+      padding-top: 2.5rem !important;
+    }
+
+    section.maintained-about-splash > div:nth-of-type(1) {
+      max-width: 100%;
+      order: 2;
+      position: static !important;
+      width: 100% !important;
+      z-index: 2;
+    }
+
+    section.maintained-about-splash > div:nth-of-type(2) {
+      margin-bottom: 0.75rem;
+      max-width: 100%;
+      opacity: 1;
+      order: 1;
+      position: static !important;
+      text-align: right;
+      width: 100% !important;
+      z-index: 1;
+    }
+
+    .about-hero {
+      display: inline-block;
+      max-width: 20rem;
+      width: 50%;
+    }
+  }
+
+  @media (max-width: 576px) {
+    section.maintained-about-splash .header-text {
+      font-size: 1.6em;
+    }
+
+    .about-hero {
+      max-width: 13rem;
+      width: 50%;
+    }
+  }
+</style>

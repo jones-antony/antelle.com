@@ -1,0 +1,179 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import ProjectCards from '../../../components/ProjectCards.astro';
+import { completedProjects } from '../../../content/projects';
+
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  name: 'Completed Projects',
+  url: 'https://www.antelle.com/experience/completed-projects/',
+  description:
+    'A selection of completed software, reporting, integration and Microsoft technology projects delivered by Antelle IT Ltd.'
+};
+---
+
+<BaseLayout
+  title="Completed Projects | Antelle IT Ltd"
+  description="A selection of completed software, reporting, integration and Microsoft technology projects delivered by Antelle IT Ltd."
+  pageClass="experience"
+  canonicalUrl="https://www.antelle.com/experience/completed-projects/"
+  structuredData={structuredData}
+>
+  <div class="container">
+    <section class="splash row maintained-experience-splash">
+      <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+        <h1 class="subheader-text">Completed Projects</h1>
+        <p class="header-text light">
+          A selected view of past work that shows the type of operational software, reporting and integration projects
+          Antelle has delivered.
+        </p>
+      </div>
+      <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+        <svg
+          class="img-splash img-fluid experience-hero"
+          viewBox="0 0 420 260"
+          role="img"
+          aria-labelledby="projects-hero-title projects-hero-desc"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <title id="projects-hero-title">Completed project portfolio</title>
+          <desc id="projects-hero-desc">A portfolio board showing completed project cards and delivery checks.</desc>
+          <rect class="visual-panel" x="18" y="18" width="384" height="224" rx="8" />
+          <rect class="visual-dark" x="64" y="62" width="110" height="58" rx="5" />
+          <rect class="visual-accent" x="64" y="142" width="110" height="58" rx="5" />
+          <rect class="visual-mid" x="230" y="62" width="110" height="58" rx="5" />
+          <rect class="visual-panel" x="230" y="142" width="110" height="58" rx="5" />
+          <path class="visual-tick" d="M94 91l13 13 28-34M260 91l13 13 28-34M260 171l13 13 28-34" />
+          <path class="visual-line" d="M94 171h50" />
+        </svg>
+      </div>
+    </section>
+
+    <section class="sector row" id="overview">
+      <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 row">
+        <div class="col-sub-header col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+          <h2>Overview</h2>
+        </div>
+        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+          <h3 class="header-2-text light">Past work, ready to be reviewed and refreshed.</h3>
+          <p>
+            These examples are carried forward from the existing site so the public URLs remain available while the
+            content is reviewed.
+          </p>
+        </div>
+        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+          <p>
+            The individual project detail pages remain mirror-backed for now. This listing is maintained in Astro and
+            can be edited, filtered or expanded as the project tagging model develops.
+          </p>
+          <p>
+            <span class="owner-note">OWNER INPUT REQUIRED: confirm which completed projects should remain public and which should be retired or rewritten.</span>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="completed-projects row" id="project-list">
+      <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+        <h2>Project List</h2>
+      </div>
+      <ProjectCards projects={completedProjects} withArrow />
+    </section>
+  </div>
+</BaseLayout>
+
+<style>
+  .experience-hero {
+    display: block;
+    height: auto;
+    width: 100%;
+  }
+
+  .visual-panel {
+    fill: #ffffff;
+    stroke: #8dd8f8;
+    stroke-width: 2;
+  }
+
+  .visual-line {
+    fill: none;
+    stroke: #0072bc;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 5;
+  }
+
+  .visual-tick {
+    fill: none;
+    stroke: #ffffff;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 6;
+  }
+
+  .visual-accent {
+    fill: #8dd8f8;
+  }
+
+  .visual-mid {
+    fill: #00baf2;
+  }
+
+  .visual-dark {
+    fill: #0072bc;
+  }
+
+  .owner-note {
+    background: #fff59d;
+    color: #7a5a00;
+    display: inline;
+    font-weight: 700;
+    line-height: 1.5;
+    padding: 0.1rem 0.25rem;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+  }
+
+  @media (max-width: 991.98px) {
+    section.maintained-experience-splash {
+      min-height: auto;
+      padding-bottom: 2rem !important;
+      padding-top: 2.5rem !important;
+    }
+
+    section.maintained-experience-splash > div:nth-of-type(1) {
+      max-width: 100%;
+      order: 2;
+      position: static !important;
+      width: 100% !important;
+    }
+
+    section.maintained-experience-splash > div:nth-of-type(2) {
+      margin-bottom: 0.75rem;
+      max-width: 100%;
+      opacity: 1;
+      order: 1;
+      position: static !important;
+      text-align: right;
+      width: 100% !important;
+    }
+
+    .experience-hero {
+      display: inline-block;
+      max-width: 20rem;
+      width: 50%;
+    }
+  }
+
+  @media (max-width: 576px) {
+    section.maintained-experience-splash .header-text {
+      font-size: 1.6em;
+    }
+
+    .experience-hero {
+      max-width: 13rem;
+      width: 50%;
+    }
+  }
+</style>

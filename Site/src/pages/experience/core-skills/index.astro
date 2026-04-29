@@ -1,0 +1,241 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+
+const primarySkills = [
+  'Microsoft .NET and C#',
+  'Microsoft SQL Server and Azure SQL',
+  'Power Platform and Dataverse',
+  'Microsoft Dynamics CRM',
+  'Power BI and reporting',
+  'Systems integration and APIs'
+];
+
+const supportingSkills = [
+  'ASP.NET, MVC, Web API and REST services',
+  'Data migration and transformation',
+  'Office automation and document generation',
+  'Legacy Microsoft application support',
+  'Crystal Reports and SSRS estates',
+  'Hosting, deployment and operational support'
+];
+
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfessionalService',
+  name: 'Antelle IT Ltd',
+  url: 'https://www.antelle.com/experience/core-skills/',
+  areaServed: 'Isle of Man',
+  description:
+    'Core skills from Antelle IT Ltd across Microsoft .NET, SQL Server, Azure SQL, Power Platform, Dataverse, Power BI, Dynamics CRM and integration.'
+};
+---
+
+<BaseLayout
+  title="Core Skills | Antelle IT Ltd"
+  description="Antelle IT Ltd core skills across Microsoft .NET, SQL Server, Azure SQL, Power Platform, Dataverse, Power BI, Dynamics CRM and integration."
+  pageClass="experience"
+  canonicalUrl="https://www.antelle.com/experience/core-skills/"
+  structuredData={structuredData}
+>
+  <div class="container">
+    <section class="splash row maintained-experience-splash">
+      <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+        <h1 class="subheader-text">Core Skills</h1>
+        <p class="header-text light">
+          Microsoft technology, data, integration and software delivery skills applied to practical business problems.
+        </p>
+      </div>
+      <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+        <svg
+          class="img-splash img-fluid experience-hero"
+          viewBox="0 0 420 260"
+          role="img"
+          aria-labelledby="skills-hero-title skills-hero-desc"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <title id="skills-hero-title">Core technology skills</title>
+          <desc id="skills-hero-desc">A technical skills board showing code, data and reporting blocks.</desc>
+          <rect class="visual-panel" x="18" y="18" width="384" height="224" rx="8" />
+          <rect class="visual-dark" x="70" y="66" width="92" height="42" rx="5" />
+          <rect class="visual-accent" x="178" y="66" width="92" height="42" rx="5" />
+          <rect class="visual-mid" x="286" y="66" width="62" height="42" rx="5" />
+          <path class="visual-line" d="M82 150h82M82 180h130M246 150h84M246 180h58" />
+          <circle class="visual-mid" cx="88" cy="88" r="8" />
+          <path class="visual-tick" d="M102 88h38M205 88h38M304 88h26" />
+        </svg>
+      </div>
+    </section>
+
+    <section class="sector row" id="overview">
+      <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 row">
+        <div class="col-sub-header col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+          <h2>Overview</h2>
+        </div>
+        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+          <h3 class="header-2-text light">Skills chosen for the problem, not for novelty.</h3>
+          <p>
+            Our skills are strongest around Microsoft platforms, bespoke software, data, reporting and integration. The
+            focus is on choosing technology that fits the workload, the organisation and the support model.
+          </p>
+        </div>
+        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+          <p>
+            This maintained page is ready for further editing. The legacy skills list has been modernised into a clearer
+            structure, with older capabilities retained as supporting or legacy experience rather than the lead message.
+          </p>
+          <p>
+            <span class="owner-note">OWNER INPUT REQUIRED: confirm the priority order of current skills before go-live.</span>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="sector row" id="primary-skills">
+      <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+        <h2>Primary Skills</h2>
+      </div>
+      {primarySkills.map((skill) => (
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
+          <article class="skill-card">
+            <svg class="content-icon" aria-hidden="true" focusable="false" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+              <rect class="visual-panel" x="8" y="10" width="48" height="44" rx="5" />
+              <path class="visual-line" d="M18 26h28M18 38h20" />
+              <circle class="visual-mid" cx="46" cy="18" r="7" />
+            </svg>
+            <h3>{skill}</h3>
+          </article>
+        </div>
+      ))}
+    </section>
+
+    <section class="sector row" id="supporting-skills">
+      <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+        <h2>Supporting and Legacy Skills</h2>
+        <p>
+          We also support existing systems where older Microsoft or reporting technologies remain operationally
+          important.
+        </p>
+        <ul class="skill-list">
+          {supportingSkills.map((skill) => <li><span>{skill}</span></li>)}
+        </ul>
+      </div>
+    </section>
+  </div>
+</BaseLayout>
+
+<style>
+  .experience-hero,
+  .content-icon {
+    display: block;
+    height: auto;
+  }
+
+  .experience-hero {
+    width: 100%;
+  }
+
+  .content-icon {
+    height: 4rem;
+    margin-bottom: 1rem;
+    width: 4rem;
+  }
+
+  .skill-card {
+    margin-bottom: 2rem;
+  }
+
+  .skill-list {
+    columns: 2;
+  }
+
+  .visual-panel {
+    fill: #ffffff;
+    stroke: #8dd8f8;
+    stroke-width: 2;
+  }
+
+  .visual-line {
+    fill: none;
+    stroke: #0072bc;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 5;
+  }
+
+  .visual-tick {
+    fill: none;
+    stroke: #ffffff;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 6;
+  }
+
+  .visual-accent {
+    fill: #8dd8f8;
+  }
+
+  .visual-mid {
+    fill: #00baf2;
+  }
+
+  .visual-dark {
+    fill: #0072bc;
+  }
+
+  .owner-note {
+    background: #fff59d;
+    color: #7a5a00;
+    display: inline;
+    font-weight: 700;
+    line-height: 1.5;
+    padding: 0.1rem 0.25rem;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+  }
+
+  @media (max-width: 991.98px) {
+    section.maintained-experience-splash {
+      min-height: auto;
+      padding-bottom: 2rem !important;
+      padding-top: 2.5rem !important;
+    }
+
+    section.maintained-experience-splash > div:nth-of-type(1) {
+      max-width: 100%;
+      order: 2;
+      position: static !important;
+      width: 100% !important;
+    }
+
+    section.maintained-experience-splash > div:nth-of-type(2) {
+      margin-bottom: 0.75rem;
+      max-width: 100%;
+      opacity: 1;
+      order: 1;
+      position: static !important;
+      text-align: right;
+      width: 100% !important;
+    }
+
+    .experience-hero {
+      display: inline-block;
+      max-width: 20rem;
+      width: 50%;
+    }
+  }
+
+  @media (max-width: 576px) {
+    section.maintained-experience-splash .header-text {
+      font-size: 1.6em;
+    }
+
+    .experience-hero {
+      max-width: 13rem;
+      width: 50%;
+    }
+
+    .skill-list {
+      columns: 1;
+    }
+  }
+</style>

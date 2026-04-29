@@ -1,0 +1,268 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfessionalService',
+  name: 'Antelle IT Ltd',
+  url: 'https://www.antelle.com/services/ai-agentic-services/',
+  areaServed: 'Isle of Man',
+  serviceType: ['AI consultancy', 'Agentic services', 'AI-assisted workflow automation', 'Microsoft AI services'],
+  description:
+    'AI and agentic services consultancy for organisations exploring practical, governed use of AI-assisted workflows and automation.'
+};
+---
+
+<BaseLayout
+  title="AI and Agentic Services | Antelle IT Ltd"
+  description="AI and agentic services consultancy from Antelle IT Ltd, helping organisations assess and implement practical, governed AI-assisted workflows and automation."
+  pageClass="services"
+  canonicalUrl="https://www.antelle.com/services/ai-agentic-services/"
+  structuredData={structuredData}
+>
+  <div class="container">
+    <section class="splash row maintained-service-splash">
+      <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+        <h1 class="subheader-text">AI and Agentic Services</h1>
+        <p class="header-text light">
+          Practical support for organisations exploring AI-assisted workflows, agentic services and governed automation.
+        </p>
+        <a href="/contact/" class="cta cta-large">Discuss an AI Requirement</a>
+      </div>
+      <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+        <svg
+          class="img-splash img-fluid ai-hero"
+          viewBox="0 0 420 260"
+          role="img"
+          aria-labelledby="ai-hero-title ai-hero-desc"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <title id="ai-hero-title">AI workflow and agentic services</title>
+          <desc id="ai-hero-desc">A governed AI workflow with connected tasks, data and human review.</desc>
+          <rect class="visual-panel" x="18" y="18" width="384" height="224" rx="8" />
+          <rect class="visual-dark" x="54" y="72" width="94" height="70" rx="10" />
+          <circle class="visual-eye" cx="88" cy="105" r="6" />
+          <circle class="visual-eye" cx="116" cy="105" r="6" />
+          <path class="visual-accent-line" d="M92 126h20" />
+          <path class="visual-line" d="M148 107h54c22 0 22 46 44 46h24" />
+          <rect class="visual-accent" x="270" y="56" width="92" height="42" rx="6" />
+          <rect class="visual-mid" x="270" y="121" width="92" height="42" rx="6" />
+          <rect class="visual-dark" x="270" y="186" width="92" height="32" rx="6" />
+          <path class="visual-tick" d="M291 77l10 10 21-24M291 142l10 10 21-24M291 203l10 10 21-24" />
+          <path class="visual-line" d="M316 98v23M316 163v23" />
+        </svg>
+      </div>
+    </section>
+
+    <section class="overview row">
+      <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+        <h2 class="light">Overview</h2>
+        <p class="text-big">
+          AI is most useful when it is connected to a clear business problem, reliable data, sensible controls and a
+          realistic operating model. We can help assess where AI-assisted workflows or agentic services may be useful,
+          and where a simpler automation or software change would be a better fit.
+        </p>
+        <p class="text-big">
+          The focus is practical adoption: identifying suitable use cases, designing governed workflows, integrating
+          with existing Microsoft systems and making sure human review, auditability and support are considered early.
+        </p>
+        <p class="owner-note">OWNER INPUT REQUIRED: confirm the final AI and agentic services offer before this page goes live.</p>
+      </div>
+      <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+        <div class="rectangle-graphic-bg">
+          <span class="rectangle-graphic img-fluid"></span>
+        </div>
+      </div>
+    </section>
+
+    <section class="sector row" id="key-areas">
+      <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 row">
+        <div class="col-sub-header col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+          <span class="header-icon">
+            <svg class="icon section-icon" aria-hidden="true" focusable="false" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+              <rect class="visual-dark" x="8" y="11" width="48" height="35" rx="6" />
+              <circle class="visual-eye" cx="23" cy="28" r="4" />
+              <circle class="visual-eye" cx="41" cy="28" r="4" />
+              <path class="visual-accent-line" d="M25 38h14" />
+            </svg>
+          </span>
+          <h2>Key Areas</h2>
+        </div>
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
+          <svg class="content-icon" aria-hidden="true" focusable="false" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+            <rect class="visual-panel" x="8" y="10" width="48" height="44" rx="5" />
+            <path class="visual-line" d="M18 24h28M18 34h20M18 44h26" />
+          </svg>
+          <h4>AI Readiness and Use Cases</h4>
+          <p>Assessing business processes, data sources and risk so AI work starts with realistic, useful opportunities.</p>
+        </div>
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
+          <svg class="content-icon" aria-hidden="true" focusable="false" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+            <circle class="visual-mid" cx="15" cy="17" r="8" />
+            <circle class="visual-accent" cx="49" cy="17" r="8" />
+            <circle class="visual-dark" cx="32" cy="48" r="8" />
+            <path class="visual-line" d="M22 21l7 20M42 21l-7 20M23 17h18" />
+          </svg>
+          <h4>Agentic Workflows</h4>
+          <p>Designing bounded agent workflows that can take action, call tools or prepare decisions with appropriate human control.</p>
+        </div>
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
+          <svg class="content-icon" aria-hidden="true" focusable="false" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+            <rect class="visual-dark" x="8" y="12" width="20" height="16" rx="3" />
+            <rect class="visual-accent" x="36" y="12" width="20" height="16" rx="3" />
+            <rect class="visual-mid" x="22" y="38" width="20" height="16" rx="3" />
+            <path class="visual-line" d="M28 20h8M18 28l9 10M46 28l-9 10" />
+          </svg>
+          <h4>Integration and Automation</h4>
+          <p>Connecting AI-assisted steps into Microsoft 365, Power Platform, Dataverse, databases and line-of-business systems.</p>
+        </div>
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
+          <svg class="content-icon" aria-hidden="true" focusable="false" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+            <path class="visual-dark" d="M32 6l22 8v14c0 14-9 25-22 30C19 53 10 42 10 28V14l22-8Z" />
+            <path class="visual-tick" d="M22 32l7 7 15-18" />
+          </svg>
+          <h4>Governance and Risk</h4>
+          <p>Considering access, audit trails, data handling, review points and support responsibilities before automation is adopted.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="sector row" id="delivery-approach">
+      <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+        <h2>Delivery Approach</h2>
+        <p>
+          We start by narrowing the use case and deciding what the AI system is allowed to do. From there, the work can
+          move into prototype, integration, testing and handover, with clear boundaries around data, human review and
+          operational support.
+        </p>
+        <p class="owner-note">OWNER INPUT REQUIRED: add approved examples once suitable AI or agentic service scenarios are agreed.</p>
+      </div>
+    </section>
+  </div>
+</BaseLayout>
+
+<style>
+  .ai-hero,
+  .section-icon,
+  .content-icon {
+    display: block;
+    height: auto;
+  }
+
+  .ai-hero {
+    width: 100%;
+  }
+
+  .content-icon {
+    height: 4rem;
+    margin-bottom: 1rem;
+    width: 4rem;
+  }
+
+  .section-icon {
+    width: 4rem;
+  }
+
+  .visual-panel {
+    fill: #ffffff;
+    stroke: #8dd8f8;
+    stroke-width: 2;
+  }
+
+  .visual-line {
+    fill: none;
+    stroke: #0072bc;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 5;
+  }
+
+  .visual-accent-line {
+    fill: none;
+    stroke: #8dd8f8;
+    stroke-linecap: round;
+    stroke-width: 5;
+  }
+
+  .visual-tick {
+    fill: none;
+    stroke: #ffffff;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 6;
+  }
+
+  .visual-eye {
+    fill: #ffffff;
+  }
+
+  .visual-accent {
+    fill: #8dd8f8;
+  }
+
+  .visual-mid {
+    fill: #00baf2;
+  }
+
+  .visual-dark {
+    fill: #0072bc;
+  }
+
+  .owner-note {
+    background: #fff59d;
+    color: #7a5a00;
+    display: inline;
+    font-weight: 700;
+    line-height: 1.5;
+    padding: 0.1rem 0.25rem;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+  }
+
+  @media (max-width: 991.98px) {
+    section.maintained-service-splash {
+      min-height: auto;
+      padding-bottom: 2rem !important;
+      padding-top: 2.5rem !important;
+    }
+
+    section.maintained-service-splash > div:nth-of-type(1) {
+      max-width: 100%;
+      order: 2;
+      position: static !important;
+      width: 100% !important;
+    }
+
+    section.maintained-service-splash > div:nth-of-type(2) {
+      margin-bottom: 0.75rem;
+      max-width: 100%;
+      opacity: 1;
+      order: 1;
+      position: static !important;
+      text-align: right;
+      width: 100% !important;
+    }
+
+    .ai-hero {
+      display: inline-block;
+      max-width: 20rem;
+      width: 50%;
+    }
+  }
+
+  @media (max-width: 576px) {
+    section.maintained-service-splash .header-text {
+      font-size: 1.6em;
+    }
+
+    section.maintained-service-splash .cta {
+      min-width: 0;
+      width: 100%;
+    }
+
+    .ai-hero {
+      max-width: 13rem;
+      width: 50%;
+    }
+  }
+</style>

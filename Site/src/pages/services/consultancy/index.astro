@@ -39,7 +39,7 @@ const structuredData = {
   structuredData={structuredData}
 >
   <div class="container">
-    <section class="splash row">
+    <section class="splash row maintained-service-splash">
       <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
         <h1 class="subheader-text">Consultancy</h1>
         <p class="header-text light">
@@ -214,6 +214,40 @@ const structuredData = {
 
   .consultancy-hero {
     width: 100%;
+  }
+
+  @media (max-width: 991.98px) {
+    section.maintained-service-splash {
+      min-height: auto;
+      padding-bottom: 3rem;
+    }
+
+    section.maintained-service-splash > div:nth-of-type(1),
+    section.maintained-service-splash > div:nth-of-type(2) {
+      max-width: 100%;
+      opacity: 1;
+      position: static !important;
+      width: 100% !important;
+    }
+
+    section.maintained-service-splash > div:nth-of-type(2) {
+      margin-top: 2rem;
+    }
+
+    .consultancy-hero {
+      max-width: 28rem;
+    }
+  }
+
+  @media (max-width: 576px) {
+    section.maintained-service-splash .header-text {
+      font-size: 1.6em;
+    }
+
+    section.maintained-service-splash .cta {
+      min-width: 0;
+      width: 100%;
+    }
   }
 
   .content-icon {

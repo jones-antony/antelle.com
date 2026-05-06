@@ -14,10 +14,14 @@ export interface MirrorPage {
 const ignoredDirectories = new Set(['blog']);
 const overriddenSlugs = new Set([
   'about',
+  'about/members-of-micta',
+  'about/site-map',
   'careers',
   'experience/completed-projects',
   'experience/core-skills',
   'experience/past-experience',
+  'iso-27001',
+  'privacy-policy',
   'services/ai-agentic-services',
   'services/business-intelligence',
   'services/consultancy',

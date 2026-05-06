@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
-import ProjectCards from '../../../components/ProjectCards.astro';
-import { getProjectsForPage } from '../../../content/projects';
+import OtherServices from '../../../components/OtherServices.astro';
+import ServiceCompletedProjects from '../../../components/ServiceCompletedProjects.astro';
 
 const asset = (path: string) => `/assets/${path}`;
 
@@ -17,8 +17,6 @@ const keyAreas = [
   'Requirements analysis and specification preparation',
   'Procurement projects where complex IT forms part of the brief'
 ];
-
-const projects = getProjectsForPage('services/consultancy');
 
 const structuredData = {
   '@context': 'https://schema.org',
@@ -95,20 +93,17 @@ const structuredData = {
       </div>
     </section>
 
-    <section class="sector consultancy-approach row" id="our-approach">
-      <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 row">
-        <div class="col-sub-header col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-          <span class="header-icon approach-header-icon">
-            <img class="icon section-icon img-fluid" src={asset('media/1475/icon-our-approach.png')} alt="" />
-          </span>
-          <h2>Our Approach</h2>
-        </div>
-        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+    <section class="solutions consultancy-approach service-card-grid row" id="our-approach">
+      <div class="col-12">
+        <h2>Our Approach</h2>
+      </div>
+      <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+        <div class="item service-focus-card">
           <svg class="content-icon" aria-hidden="true" focusable="false" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
             <rect class="visual-panel" x="6" y="8" width="52" height="48" rx="5" />
             <path class="visual-line" d="M18 23h28M18 32h28M18 41h22" />
           </svg>
-          <h4>Our Practice</h4>
+          <h3>Our Practice</h3>
           <p>
             Consultancy is more than knowing a subject. It is about asking the right questions, explaining trade-offs
             clearly and giving advice in a form that helps a client make a decision.
@@ -118,14 +113,16 @@ const structuredData = {
             specialist would be a better fit.
           </p>
         </div>
-        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+      </div>
+      <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+        <div class="item service-focus-card">
           <svg class="content-icon" aria-hidden="true" focusable="false" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
             <rect class="visual-dark" x="7" y="8" width="22" height="22" rx="3" />
             <rect class="visual-accent" x="35" y="8" width="22" height="22" rx="3" />
             <rect class="visual-mid" x="7" y="36" width="22" height="22" rx="3" />
             <rect class="visual-dark" x="35" y="36" width="22" height="22" rx="3" />
           </svg>
-          <h4>Key Areas</h4>
+          <h3>Key Areas</h3>
           <p>We are currently able to provide consulting services in the following key areas:</p>
           <ul>
             {keyAreas.map((area) => <li><span>{area}</span></li>)}
@@ -148,59 +145,9 @@ const structuredData = {
       </div>
     </section>
 
-    <section class="completed-projects row">
-      <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-        <h2>Completed Projects</h2>
-        <p class="owner-note">OWNER INPUT REQUIRED: confirm the tagged projects are the right examples for Consultancy.</p>
-      </div>
-      <ProjectCards projects={projects} withArrow />
-    </section>
+    <ServiceCompletedProjects />
 
-    <section class="other-services row">
-      <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-        <h2 class="subheader-text">Other Services</h2>
-      </div>
-      <div class="row">
-        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
-          <a href="/services/microsoft-dynamics-crm/" class="service">
-            <img class="icon img-fluid" src={asset('media/1434/icon-crm.png')} alt="Microsoft Dynamics CRM" />
-            <h3>Microsoft Dynamics CRM</h3>
-            <p>
-              Antelle have worked with Microsoft Dynamics CRM from version 3 successfully deploying solutions within
-              the Private Banking, Wealth Management, CSP, Service and Public sectors.
-            </p>
-          </a>
-        </div>
-        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
-          <a href="/services/software-development/" class="service">
-            <img class="icon img-fluid" src={asset('media/1435/icon-software-dev.png')} alt="Software Development" />
-            <h3>Software Development</h3>
-            <p>
-              Bespoke software development, design and support for systems that need to match real operational
-              requirements.
-            </p>
-          </a>
-        </div>
-        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
-          <a href="/services/web-development/" class="service">
-            <img class="icon img-fluid" src={asset('media/1444/icon-web-dev.png')} alt="Web Development" />
-            <h3>Web Development</h3>
-            <p>
-              Web applications and integrations built with maintainability, hosting and long-term support in mind.
-            </p>
-          </a>
-        </div>
-        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
-          <a href="/services/business-intelligence/" class="service">
-            <img class="icon img-fluid" src={asset('media/1442/icon-bus-int.png')} alt="Business Intelligence" />
-            <h3>Business Intelligence</h3>
-            <p>
-              Azure SQL and Power BI reporting support for teams that need reliable, understandable operational data.
-            </p>
-          </a>
-        </div>
-      </div>
-    </section>
+    <OtherServices currentPath="/services/consultancy/" />
   </div>
 </BaseLayout>
 
@@ -281,6 +228,23 @@ const structuredData = {
 
   .section-icon {
     width: 4rem;
+  }
+
+  .service-card-grid {
+    padding-top: 3rem !important;
+  }
+
+  .service-card-grid > div {
+    margin-bottom: 2rem;
+  }
+
+  .service-focus-card {
+    min-height: auto;
+    padding: 2rem;
+  }
+
+  .service-focus-card p:last-of-type {
+    margin-bottom: 0;
   }
 
   .visual-panel {

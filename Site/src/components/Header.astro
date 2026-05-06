@@ -1,4 +1,6 @@
 ---
+import { services } from '../content/services';
+
 const asset = (path: string) => `/assets/${path}`;
 ---
 
@@ -41,92 +43,19 @@ const asset = (path: string) => `/assets/${path}`;
                   </span>
                 </div>
                 <div class="dropdown-options">
-                  <a class="dropdown-option" href="/services/ai-agentic-services/">
-                    <div class="dropdown-item-icon">
-                      <img src={asset('svg/global/icon-ai-agentic-services.svg')} alt="AI and Agentic Services" />
-                    </div>
-                    <div class="dropdown-item-text">
-                      <h4>AI and Agentic Services</h4>
-                      <span class="caption-text">
-                        Practical advisory and implementation support for AI-assisted workflows, agentic services and
-                        Microsoft-aligned automation where governance and business fit are clear.
-                      </span>
-                    </div>
-                  </a>
-                  <a class="dropdown-option" href="/services/power-platform/">
-                    <div class="dropdown-item-icon">
-                      <img src={asset('svg/global/icon-power-platform.svg')} alt="Power Platform" />
-                    </div>
-                    <div class="dropdown-item-text">
-                      <h4>Power Platform</h4>
-                      <span class="caption-text">
-                        Practical Microsoft Power Platform support covering Power Apps, Power Automate and Dataverse
-                        where low-code tools are the right fit for the business process.
-                      </span>
-                    </div>
-                  </a>
-                  <a class="dropdown-option" href="/services/microsoft-dynamics-crm/">
-                    <div class="dropdown-item-icon">
-                      <img src={asset('media/1434/icon-crm.png')} alt="Microsoft Dynamics CRM" />
-                    </div>
-                    <div class="dropdown-item-text">
-                      <h4>Microsoft Dynamics CRM</h4>
-                      <span class="caption-text">
-                        Antelle have worked with Microsoft Dynamics CRM from version 3 successfully deploying solutions
-                        within the Private Banking, Wealth Management, CSP, Service and Public sectors for organisations
-                        large and small.
-                      </span>
-                    </div>
-                  </a>
-                  <a class="dropdown-option" href="/services/software-development/">
-                    <div class="dropdown-item-icon">
-                      <img src={asset('media/1435/icon-software-dev.png')} alt="Software Development" />
-                    </div>
-                    <div class="dropdown-item-text">
-                      <h4>Software Development</h4>
-                      <span class="caption-text">
-                        Each system we build is bespoke to your exact requirements - we offer a full design and build
-                        service backed up by our fanatical support and maintenance for when you need help.
-                      </span>
-                    </div>
-                  </a>
-                  <a class="dropdown-option" href="/services/web-development/">
-                    <div class="dropdown-item-icon">
-                      <img src={asset('media/1444/icon-web-dev.png')} alt="Web Development" />
-                    </div>
-                    <div class="dropdown-item-text">
-                      <h4>Web Development</h4>
-                      <span class="caption-text">
-                        Over the years our team have built many types of sites from the simplest of brochure sites to
-                        full blown data-driven solutions running on clustered servers supporting 1,000s of simultaneous
-                        users.
-                      </span>
-                    </div>
-                  </a>
-                  <a class="dropdown-option" href="/services/business-intelligence/">
-                    <div class="dropdown-item-icon">
-                      <img src={asset('media/1442/icon-bus-int.png')} alt="Business Intelligence" />
-                    </div>
-                    <div class="dropdown-item-text">
-                      <h4>Business Intelligence</h4>
-                      <span class="caption-text">
-                        Is your business making the most of its data and gaining the insight it needs to thrive in
-                        today's data-driven world?
-                      </span>
-                    </div>
-                  </a>
-                  <a class="dropdown-option" href="/services/consultancy/">
-                    <div class="dropdown-item-icon">
-                      <img src={asset('media/1443/icon-consultancy.png')} alt="Consultancy" />
-                    </div>
-                    <div class="dropdown-item-text">
-                      <h4>Consultancy</h4>
-                      <span class="caption-text">
-                        Looking to engage on a consultancy basis? We can offer a broad range of IT related advisory
-                        services.
-                      </span>
-                    </div>
-                  </a>
+                  {
+                    services.map((service) => (
+                      <a class="dropdown-option" href={service.href}>
+                        <div class="dropdown-item-icon">
+                          <img src={asset(service.icon)} alt={service.title} />
+                        </div>
+                        <div class="dropdown-item-text">
+                          <h4>{service.title}</h4>
+                          <span class="caption-text">{service.summary}</span>
+                        </div>
+                      </a>
+                    ))
+                  }
                 </div>
               </div>
             </div>

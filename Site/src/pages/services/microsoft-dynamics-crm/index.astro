@@ -1,5 +1,7 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
+import OtherServices from '../../../components/OtherServices.astro';
+import ServiceCompletedProjects from '../../../components/ServiceCompletedProjects.astro';
 
 const structuredData = {
   '@context': 'https://schema.org',
@@ -7,15 +9,15 @@ const structuredData = {
   name: 'Antelle IT Ltd',
   url: 'https://www.antelle.com/services/microsoft-dynamics-crm/',
   areaServed: 'Isle of Man',
-  serviceType: ['Microsoft Dynamics 365 consultancy', 'CRM implementation', 'Dataverse reporting'],
+  serviceType: ['Microsoft Dynamics 365 consultancy', 'CRM implementation', 'Dataverse reporting', 'Dynamics cloud migration'],
   description:
-    'Microsoft Dynamics CRM and Dynamics 365 consultancy for practical CRM design, implementation, integration and support.'
+    'Microsoft Dynamics CRM and Dynamics 365 consultancy for cloud CRM design, implementation, migration, integration, reporting and support.'
 };
 ---
 
 <BaseLayout
   title="Microsoft Dynamics CRM | Antelle IT Ltd"
-  description="Microsoft Dynamics CRM and Dynamics 365 consultancy from Antelle IT Ltd, covering CRM design, implementation, integration and support."
+  description="Microsoft Dynamics CRM and Dynamics 365 consultancy from Antelle IT Ltd, covering long-running cloud CRM design, implementation, migration, integration and support."
   pageClass="services"
   canonicalUrl="https://www.antelle.com/services/microsoft-dynamics-crm/"
   structuredData={structuredData}
@@ -25,7 +27,7 @@ const structuredData = {
       <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
         <h1 class="subheader-text">Microsoft Dynamics CRM</h1>
         <p class="header-text light">
-          Practical Dynamics 365 and CRM support for relationship management, process design, integration and reporting.
+          Assured Dynamics 365 and Microsoft CRM support from a team with long-running experience designing, integrating and supporting CRM estates.
         </p>
         <a href="/contact/" class="cta cta-large">Discuss a CRM Requirement</a>
       </div>
@@ -44,44 +46,85 @@ const structuredData = {
       </div>
     </section>
 
-    <section class="overview row">
-      <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
-        <h2 class="light">Overview</h2>
-        <p class="text-big">
-          Dynamics 365 and Microsoft CRM work is most successful when the system reflects the way teams actually manage
-          relationships, service activity, pipeline information and operational follow-up.
+    <section class="sector row crm-overview" id="overview">
+      <div class="col-12">
+        <h2>Overview</h2>
+      </div>
+      <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+        <h3 class="header-2-text light">Experienced Dynamics CRM and Dynamics 365 delivery.</h3>
+        <p>
+          We have worked with Microsoft Dynamics CRM for a long time, from earlier CRM estates through to modern Dynamics
+          365 and Dataverse-backed cloud solutions. That history matters: CRM projects succeed when the implementation
+          reflects real operational work, not just the product feature list.
         </p>
-        <p class="text-big">
-          We can help with CRM design, implementation planning, customisation, integration, reporting and support for
-          existing Dynamics estates.
+        <p>
+          We understand the practical details that sit behind a useful CRM estate: data models, forms and views,
+          security roles, business process flow, reporting, integrations, administration and the support model needed
+          once the system is live.
+        </p>
+      </div>
+      <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+        <p>
+          We can help with new Dynamics 365 work, existing Microsoft CRM estates, upgrade planning, integration,
+          reporting and long-term support. Our approach is calm and practical: understand the business process, shape the
+          CRM around it, and keep the implementation maintainable.
+        </p>
+        <p>
+          That includes cloud-first delivery and migration planning where older CRM estates, reporting tools, data
+          integrations or regulatory controls still form part of the operating environment.
         </p>
         <p class="owner-note">OWNER INPUT REQUIRED: confirm whether this page should refer to Dynamics 365, Microsoft Dynamics CRM, or both.</p>
       </div>
-      <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
-        <div class="rectangle-graphic-bg"><span class="rectangle-graphic img-fluid"></span></div>
-      </div>
     </section>
 
-    <section class="sector row" id="key-areas">
-      <div class="col-12 row">
-        <div class="col-sub-header col-12">
-          <span class="header-icon"><svg class="icon content-icon" aria-hidden="true" focusable="false" viewBox="0 0 64 64"><circle class="visual-dark" cx="20" cy="22" r="11" /><circle class="visual-accent" cx="44" cy="22" r="11" /><path class="visual-line" d="M12 48c4-10 12-14 20-14s16 4 20 14" /></svg></span>
-          <h2>Key Areas</h2>
-        </div>
-        <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
+    <section class="solutions service-card-grid row" id="key-areas">
+      <div class="col-12">
+        <h2>Key Areas</h2>
+      </div>
+      <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+        <div class="item service-focus-card">
           <svg class="content-icon" aria-hidden="true" focusable="false" viewBox="0 0 64 64"><rect class="visual-panel" x="8" y="10" width="48" height="44" rx="5" /><path class="visual-line" d="M18 24h28M18 34h18M18 44h24" /></svg>
-          <h4>CRM Design</h4>
-          <p>Process-led CRM design so entities, forms, views and data capture support real operational work.</p>
+          <h3>CRM Design</h3>
+          <p>
+            Process-led CRM design so tables, forms, views, security roles and data capture support the way teams
+            actually manage clients, cases, opportunities, service activity or operational follow-up.
+          </p>
         </div>
-        <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
+      </div>
+      <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+        <div class="item service-focus-card">
+          <svg class="content-icon" aria-hidden="true" focusable="false" viewBox="0 0 64 64">
+            <path class="visual-accent" d="M22 45h28a10 10 0 0 0 1-20 15 15 0 0 0-29-4A12 12 0 0 0 22 45Z" />
+            <path class="visual-line" d="M24 41h25M35 42V21M35 21l-9 9M35 21l9 9" />
+            <rect class="visual-dark" x="10" y="38" width="16" height="12" rx="3" />
+          </svg>
+          <h3>Cloud Migration</h3>
+          <p>
+            Planning and support for moving older Microsoft CRM estates towards Dynamics 365 and Dataverse-backed cloud
+            services, including data migration, integration review, reporting impact, licence review and optimisation,
+            and staged transition planning.
+          </p>
+        </div>
+      </div>
+      <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+        <div class="item service-focus-card">
           <svg class="content-icon" aria-hidden="true" focusable="false" viewBox="0 0 64 64"><circle class="visual-mid" cx="16" cy="16" r="8" /><circle class="visual-accent" cx="48" cy="16" r="8" /><circle class="visual-dark" cx="32" cy="48" r="8" /><path class="visual-line" d="M24 16h16M21 22l9 18M43 22l-9 18" /></svg>
-          <h4>Integration</h4>
-          <p>Connecting CRM with Microsoft 365, Dataverse, reporting tools, databases and line-of-business systems.</p>
+          <h3>Integration</h3>
+          <p>
+            Connecting CRM with Microsoft 365, Dataverse, reporting tools, databases, portals and line-of-business
+            systems. We focus on reliable data movement, clear ownership and integrations that can be monitored and
+            supported.
+          </p>
         </div>
-        <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
+      </div>
+      <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+        <div class="item service-focus-card">
           <svg class="content-icon" aria-hidden="true" focusable="false" viewBox="0 0 64 64"><rect class="visual-mid" x="9" y="36" width="12" height="17" rx="1" /><rect class="visual-accent" x="26" y="26" width="12" height="27" rx="1" /><rect class="visual-dark" x="43" y="14" width="12" height="39" rx="1" /></svg>
-          <h4>Reporting</h4>
-          <p>Practical CRM and Dataverse reporting foundations, including operational measures and management views.</p>
+          <h3>Reporting</h3>
+          <p>
+            Practical CRM and Dataverse reporting foundations, including operational measures, management views, Power BI
+            support and data structures that make reporting easier to trust and maintain.
+          </p>
         </div>
       </div>
     </section>
@@ -90,17 +133,31 @@ const structuredData = {
       <div class="col-12">
         <h2>Delivery Approach</h2>
         <p>
-          We start with the business process and data model, then shape the CRM configuration, integrations and reporting
-          around the parts of the relationship lifecycle that need clearer control.
+          We start with the business process, user roles and data model, then shape the CRM configuration, integrations
+          and reporting around the parts of the relationship lifecycle that need clearer control.
+        </p>
+        <p>
+          Delivery is collaborative: we work with stakeholders, administrators and users to confirm what the system must
+          support, where existing process should be retained, and where Dynamics 365 can simplify or standardise the way
+          work is managed.
+        </p>
+        <p>
+          Where appropriate we apply agile delivery patterns, building out the first useful slice, reviewing it with
+          users, then extending the configuration, integrations and reporting in controlled increments. That helps keep
+          the CRM aligned with day-to-day operations while protecting maintainability and support.
         </p>
         <p class="owner-note">OWNER INPUT REQUIRED: add approved Dynamics examples or remove this note before go live.</p>
       </div>
     </section>
+
+    <ServiceCompletedProjects />
+
+    <OtherServices currentPath="/services/microsoft-dynamics-crm/" />
   </div>
 </BaseLayout>
 
 <style>
-  .crm-hero,.content-icon{display:block;height:auto}.crm-hero{width:100%}.content-icon{height:4rem;margin-bottom:1rem;width:4rem}.visual-panel{fill:#fff;stroke:#8dd8f8;stroke-width:2}.visual-line{fill:none;stroke:#0072bc;stroke-linecap:round;stroke-linejoin:round;stroke-width:5}.visual-tick{fill:none;stroke:#fff;stroke-linecap:round;stroke-linejoin:round;stroke-width:6}.visual-accent{fill:#8dd8f8}.visual-mid{fill:#00baf2}.visual-dark{fill:#0072bc}.owner-note{background:#fff59d;color:#7a5a00;display:inline;font-weight:700;line-height:1.5;padding:.1rem .25rem;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+  .crm-hero,.content-icon{display:block;height:auto}.crm-hero{width:100%}.content-icon{height:4rem;margin-bottom:1rem;width:4rem}.crm-overview{padding-top:4rem!important}.service-card-grid{padding-top:3rem!important}.service-card-grid>div{margin-bottom:2rem}.service-focus-card{min-height:auto;padding:2rem}.service-focus-card p:last-of-type{margin-bottom:0}.visual-panel{fill:#fff;stroke:#8dd8f8;stroke-width:2}.visual-line{fill:none;stroke:#0072bc;stroke-linecap:round;stroke-linejoin:round;stroke-width:5}.visual-tick{fill:none;stroke:#fff;stroke-linecap:round;stroke-linejoin:round;stroke-width:6}.visual-accent{fill:#8dd8f8}.visual-mid{fill:#00baf2}.visual-dark{fill:#0072bc}.owner-note{background:#fff59d;color:#7a5a00;display:inline;font-weight:700;line-height:1.5;padding:.1rem .25rem;box-decoration-break:clone;-webkit-box-decoration-break:clone}
   @media (max-width:991.98px){section.maintained-service-splash{min-height:auto;padding-bottom:2rem!important;padding-top:2.5rem!important}section.maintained-service-splash>div:nth-of-type(1){max-width:100%;order:2;position:static!important;width:100%!important}section.maintained-service-splash>div:nth-of-type(2){margin-bottom:.75rem;max-width:100%;opacity:1;order:1;position:static!important;text-align:right;width:100%!important}.crm-hero{display:inline-block;max-width:20rem;width:50%}}
   @media (max-width:576px){section.maintained-service-splash .header-text{font-size:1.6em}section.maintained-service-splash .cta{min-width:0;width:100%}.crm-hero{max-width:13rem;width:50%}}
 </style>

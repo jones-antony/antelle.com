@@ -1,5 +1,7 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
+import OtherServices from '../../../components/OtherServices.astro';
+import ServiceCompletedProjects from '../../../components/ServiceCompletedProjects.astro';
 
 const structuredData = {
   '@context': 'https://schema.org',
@@ -7,15 +9,15 @@ const structuredData = {
   name: 'Antelle IT Ltd',
   url: 'https://www.antelle.com/services/ai-agentic-services/',
   areaServed: 'Isle of Man',
-  serviceType: ['AI consultancy', 'Agentic services', 'AI-assisted workflow automation', 'Microsoft AI services'],
+  serviceType: ['AI consultancy', 'Agentic development advice', 'AI-assisted workflow automation', 'Microsoft AI services'],
   description:
-    'AI and agentic services consultancy for organisations exploring practical, governed use of AI-assisted workflows and automation.'
+    'AI and agentic services guidance for organisations exploring practical, governed use of AI-assisted workflows, automation and agentic development.'
 };
 ---
 
 <BaseLayout
   title="AI and Agentic Services | Antelle IT Ltd"
-  description="AI and agentic services consultancy from Antelle IT Ltd, helping organisations assess and implement practical, governed AI-assisted workflows and automation."
+  description="AI and agentic services guidance from Antelle IT Ltd, helping organisations assess practical, governed AI-assisted workflows, automation and agentic development."
   pageClass="services"
   canonicalUrl="https://www.antelle.com/services/ai-agentic-services/"
   structuredData={structuredData}
@@ -25,7 +27,7 @@ const structuredData = {
       <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
         <h1 class="subheader-text">AI and Agentic Services</h1>
         <p class="header-text light">
-          Practical support for organisations exploring AI-assisted workflows, agentic services and governed automation.
+          Practical guidance for organisations exploring AI-assisted workflows, agentic development and governed automation.
         </p>
         <a href="/contact/" class="cta cta-large">Discuss an AI Requirement</a>
       </div>
@@ -54,90 +56,104 @@ const structuredData = {
       </div>
     </section>
 
-    <section class="overview row">
-      <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
-        <h2 class="light">Overview</h2>
-        <p class="text-big">
-          AI is most useful when it is connected to a clear business problem, reliable data, sensible controls and a
-          realistic operating model. We can help assess where AI-assisted workflows or agentic services may be useful,
-          and where a simpler automation or software change would be a better fit.
+    <section class="sector row ai-overview" id="overview">
+      <div class="col-12">
+        <h2>Overview</h2>
+      </div>
+      <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+        <h3 class="header-2-text light">AI work needs a clear problem, good controls and an honest view of readiness.</h3>
+        <p>
+          We are actively building capability in AI-assisted and agentic development. The intent is to move quickly into
+          this area, but in a way that stays practical, governed and aligned with the systems that already run the
+          organisation.
         </p>
-        <p class="text-big">
-          The focus is practical adoption: identifying suitable use cases, designing governed workflows, integrating
-          with existing Microsoft systems and making sure human review, auditability and support are considered early.
+        <p>
+          That means starting with useful questions rather than technology-first assumptions: what process is being
+          improved, what data is involved, what the AI component is allowed to do, and where human review remains
+          necessary.
+        </p>
+      </div>
+      <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+        <p>
+          Our current focus is advisory and exploratory: helping identify sensible use cases, assess risk, shape early
+          prototypes and understand how AI-assisted workflows could connect with Microsoft 365, Power Platform,
+          Dataverse, Dynamics 365, Azure services and existing line-of-business systems.
+        </p>
+        <p>
+          We will not recommend an AI or agentic approach where a simpler automation, reporting change or conventional
+          software improvement is a better answer. The priority is dependable business value, not novelty.
         </p>
         <p class="owner-note">OWNER INPUT REQUIRED: confirm the final AI and agentic services offer before this page goes live.</p>
       </div>
-      <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
-        <div class="rectangle-graphic-bg">
-          <span class="rectangle-graphic img-fluid"></span>
-        </div>
-      </div>
     </section>
 
-    <section class="sector row" id="key-areas">
-      <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 row">
-        <div class="col-sub-header col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-          <span class="header-icon">
-            <svg class="icon section-icon" aria-hidden="true" focusable="false" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-              <rect class="visual-dark" x="8" y="11" width="48" height="35" rx="6" />
-              <circle class="visual-eye" cx="23" cy="28" r="4" />
-              <circle class="visual-eye" cx="41" cy="28" r="4" />
-              <path class="visual-accent-line" d="M25 38h14" />
-            </svg>
-          </span>
-          <h2>Key Areas</h2>
-        </div>
-        <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
+    <section class="solutions service-card-grid row" id="key-areas">
+      <div class="col-12">
+        <h2>Key Areas</h2>
+      </div>
+      <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+        <div class="item service-focus-card">
           <svg class="content-icon" aria-hidden="true" focusable="false" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
             <rect class="visual-panel" x="8" y="10" width="48" height="44" rx="5" />
             <path class="visual-line" d="M18 24h28M18 34h20M18 44h26" />
           </svg>
-          <h4>AI Readiness and Use Cases</h4>
+          <h3>AI Readiness and Use Cases</h3>
           <p>Assessing business processes, data sources and risk so AI work starts with realistic, useful opportunities.</p>
         </div>
-        <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
+      </div>
+      <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+        <div class="item service-focus-card">
           <svg class="content-icon" aria-hidden="true" focusable="false" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
             <circle class="visual-mid" cx="15" cy="17" r="8" />
             <circle class="visual-accent" cx="49" cy="17" r="8" />
             <circle class="visual-dark" cx="32" cy="48" r="8" />
             <path class="visual-line" d="M22 21l7 20M42 21l-7 20M23 17h18" />
           </svg>
-          <h4>Agentic Workflows</h4>
+          <h3>Agentic Workflows</h3>
           <p>Designing bounded agent workflows that can take action, call tools or prepare decisions with appropriate human control.</p>
         </div>
-        <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
+      </div>
+      <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+        <div class="item service-focus-card">
+          <svg class="content-icon" aria-hidden="true" focusable="false" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+            <rect class="visual-panel" x="9" y="12" width="46" height="40" rx="5" />
+            <path class="visual-line" d="M18 25h18M18 35h12M42 22l7 7-16 16-9 2 2-9 16-16Z" />
+            <path class="visual-accent-line" d="M39 25l7 7" />
+          </svg>
+          <h3>Agentic Development Advice</h3>
+          <p>
+            Advising on where agentic development patterns may be appropriate, how to set boundaries around tool use,
+            and how prototypes should be reviewed before they become operational services.
+          </p>
+        </div>
+      </div>
+      <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+        <div class="item service-focus-card">
           <svg class="content-icon" aria-hidden="true" focusable="false" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
             <rect class="visual-dark" x="8" y="12" width="20" height="16" rx="3" />
             <rect class="visual-accent" x="36" y="12" width="20" height="16" rx="3" />
             <rect class="visual-mid" x="22" y="38" width="20" height="16" rx="3" />
             <path class="visual-line" d="M28 20h8M18 28l9 10M46 28l-9 10" />
           </svg>
-          <h4>Integration and Automation</h4>
+          <h3>Integration and Automation</h3>
           <p>Connecting AI-assisted steps into Microsoft 365, Power Platform, Dataverse, databases and line-of-business systems.</p>
         </div>
-        <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
+      </div>
+      <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+        <div class="item service-focus-card">
           <svg class="content-icon" aria-hidden="true" focusable="false" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
             <path class="visual-dark" d="M32 6l22 8v14c0 14-9 25-22 30C19 53 10 42 10 28V14l22-8Z" />
             <path class="visual-tick" d="M22 32l7 7 15-18" />
           </svg>
-          <h4>Governance and Risk</h4>
+          <h3>Governance and Risk</h3>
           <p>Considering access, audit trails, data handling, review points and support responsibilities before automation is adopted.</p>
         </div>
       </div>
     </section>
 
-    <section class="sector row" id="delivery-approach">
-      <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-        <h2>Delivery Approach</h2>
-        <p>
-          We start by narrowing the use case and deciding what the AI system is allowed to do. From there, the work can
-          move into prototype, integration, testing and handover, with clear boundaries around data, human review and
-          operational support.
-        </p>
-        <p class="owner-note">OWNER INPUT REQUIRED: add approved examples once suitable AI or agentic service scenarios are agreed.</p>
-      </div>
-    </section>
+    <ServiceCompletedProjects />
+
+    <OtherServices currentPath="/services/ai-agentic-services/" />
   </div>
 </BaseLayout>
 
@@ -161,6 +177,23 @@ const structuredData = {
 
   .section-icon {
     width: 4rem;
+  }
+
+  .service-card-grid {
+    padding-top: 3rem !important;
+  }
+
+  .service-card-grid > div {
+    margin-bottom: 2rem;
+  }
+
+  .service-focus-card {
+    min-height: auto;
+    padding: 2rem;
+  }
+
+  .service-focus-card p:last-of-type {
+    margin-bottom: 0;
   }
 
   .visual-panel {

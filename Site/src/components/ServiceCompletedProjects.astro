@@ -1,0 +1,27 @@
+---
+import ProjectCards from './ProjectCards.astro';
+import { getProjectsForPage } from '../content/projects';
+
+const projects = getProjectsForPage('services/business-intelligence');
+---
+
+<section class="completed-projects row">
+  <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+    <h2>Completed Projects</h2>
+    <p class="owner-note">OWNER INPUT REQUIRED: confirm the tagged projects and relevance notes are the right examples for this page.</p>
+  </div>
+  <ProjectCards projects={projects} withArrow />
+</section>
+
+<style>
+  .owner-note {
+    background: #fff59d;
+    color: #7a5a00;
+    display: inline;
+    font-weight: 700;
+    line-height: 1.5;
+    padding: 0.1rem 0.25rem;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+  }
+</style>

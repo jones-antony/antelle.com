@@ -2,12 +2,42 @@
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 
 const primarySkills = [
-  'Microsoft .NET and C#',
-  'Microsoft SQL Server and Azure SQL',
-  'Power Platform and Dataverse',
-  'Microsoft Dynamics CRM',
-  'Power BI and reporting',
-  'Systems integration and APIs'
+  {
+    icon: 'code',
+    title: 'Microsoft .NET and C#',
+    text:
+      'Bespoke web, service and back-office application development using the Microsoft .NET ecosystem, with an emphasis on maintainable business software.'
+  },
+  {
+    icon: 'database',
+    title: 'Microsoft SQL Server and Azure SQL',
+    text:
+      'Database design, optimisation, migration and operational support for SQL-backed systems, including Azure SQL where it is the right fit.'
+  },
+  {
+    icon: 'power',
+    title: 'Power Platform and Dataverse',
+    text:
+      'Power Apps, Power Automate and Dataverse solutions for process automation, low-code applications and Microsoft platform integration.'
+  },
+  {
+    icon: 'crm',
+    title: 'Microsoft Dynamics CRM',
+    text:
+      'Dynamics CRM and model-driven business systems covering configuration, customisation, integration, upgrade support and long-term administration.'
+  },
+  {
+    icon: 'reporting',
+    title: 'Power BI and Reporting',
+    text:
+      'Operational dashboards, management information and reporting models that help teams understand performance, exceptions and business activity.'
+  },
+  {
+    icon: 'api',
+    title: 'Systems Integration and APIs',
+    text:
+      'Integration between line-of-business systems, portals, data services and Microsoft platforms using practical API and data exchange patterns.'
+  }
 ];
 
 const supportingSkills = [
@@ -74,17 +104,26 @@ const structuredData = {
         <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
           <h3 class="header-2-text light">Skills chosen for the problem, not for novelty.</h3>
           <p>
-            Our skills are strongest around Microsoft platforms, bespoke software, data, reporting and integration. The
-            focus is on choosing technology that fits the workload, the organisation and the support model.
+            Our core skills sit around the Microsoft technology stack: bespoke .NET software, SQL Server, Azure SQL,
+            Dynamics CRM, Dataverse, Power Apps, Power Automate, Power BI and the wider Azure ecosystem. The focus is on
+            choosing technology that fits the workload, the organisation and the long-term support model.
+          </p>
+          <p>
+            That often means combining custom software, low-code applications, reporting and integration rather than
+            treating each platform as a separate silo. We are comfortable working across business applications, data
+            services, APIs, workflow automation and operational insight.
           </p>
         </div>
         <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
           <p>
-            This maintained page is ready for further editing. The legacy skills list has been modernised into a clearer
-            structure, with older capabilities retained as supporting or legacy experience rather than the lead message.
+            Our experience includes Azure-backed systems, data migrations, reporting estates, Power Apps and model-driven
+            applications, Power Automate workflows, Dataverse data models and integrations between portals,
+            line-of-business systems and Microsoft cloud services.
           </p>
           <p>
-            <span class="owner-note">OWNER INPUT REQUIRED: confirm the priority order of current skills before go-live.</span>
+            We also continue to support established technologies where they remain important to day-to-day operations,
+            including SQL Server Reporting Services, Crystal Reports, Office automation and legacy Microsoft application
+            estates.
           </p>
         </div>
       </div>
@@ -98,11 +137,55 @@ const structuredData = {
         <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
           <article class="skill-card">
             <svg class="content-icon" aria-hidden="true" focusable="false" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-              <rect class="visual-panel" x="8" y="10" width="48" height="44" rx="5" />
-              <path class="visual-line" d="M18 26h28M18 38h20" />
-              <circle class="visual-mid" cx="46" cy="18" r="7" />
+              {skill.icon === 'code' && (
+                <>
+                  <rect class="visual-panel" x="8" y="12" width="48" height="40" rx="5" />
+                  <path class="visual-line" d="M24 25l-8 7 8 7M40 25l8 7-8 7M35 22l-6 20" />
+                </>
+              )}
+              {skill.icon === 'database' && (
+                <>
+                  <ellipse class="visual-dark" cx="32" cy="15" rx="18" ry="7" />
+                  <path class="visual-line" d="M14 15v28c0 4 8 7 18 7s18-3 18-7V15M14 29c0 4 8 7 18 7s18-3 18-7" />
+                  <path class="visual-accent" d="M22 42h20v6H22z" />
+                </>
+              )}
+              {skill.icon === 'power' && (
+                <>
+                  <rect class="visual-dark" x="10" y="10" width="20" height="20" rx="4" />
+                  <rect class="visual-accent" x="34" y="10" width="20" height="20" rx="4" />
+                  <rect class="visual-mid" x="10" y="34" width="20" height="20" rx="4" />
+                  <path class="visual-line" d="M30 20h4M20 30v4M30 44h4M44 30v4" />
+                </>
+              )}
+              {skill.icon === 'crm' && (
+                <>
+                  <circle class="visual-dark" cx="21" cy="22" r="9" />
+                  <circle class="visual-accent" cx="43" cy="22" r="9" />
+                  <path class="visual-line" d="M13 51c3-10 10-15 19-15s16 5 19 15M21 31h22" />
+                </>
+              )}
+              {skill.icon === 'reporting' && (
+                <>
+                  <rect class="visual-panel" x="8" y="11" width="48" height="40" rx="5" />
+                  <rect class="visual-dark" x="17" y="34" width="7" height="10" rx="1" />
+                  <rect class="visual-accent" x="29" y="26" width="7" height="18" rx="1" />
+                  <rect class="visual-mid" x="41" y="18" width="7" height="26" rx="1" />
+                  <path class="visual-line" d="M15 48h36" />
+                </>
+              )}
+              {skill.icon === 'api' && (
+                <>
+                  <rect class="visual-panel" x="8" y="13" width="18" height="18" rx="4" />
+                  <rect class="visual-panel" x="38" y="13" width="18" height="18" rx="4" />
+                  <rect class="visual-panel" x="23" y="37" width="18" height="18" rx="4" />
+                  <path class="visual-line" d="M26 22h12M32 31v6M38 46H26" />
+                  <circle class="visual-mid" cx="32" cy="22" r="4" />
+                </>
+              )}
             </svg>
-            <h3>{skill}</h3>
+            <h3>{skill.title}</h3>
+            <p>{skill.text}</p>
           </article>
         </div>
       ))}
@@ -180,17 +263,6 @@ const structuredData = {
 
   .visual-dark {
     fill: #0072bc;
-  }
-
-  .owner-note {
-    background: #fff59d;
-    color: #7a5a00;
-    display: inline;
-    font-weight: 700;
-    line-height: 1.5;
-    padding: 0.1rem 0.25rem;
-    box-decoration-break: clone;
-    -webkit-box-decoration-break: clone;
   }
 
   @media (max-width: 991.98px) {

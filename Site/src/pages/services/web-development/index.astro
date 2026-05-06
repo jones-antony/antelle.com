@@ -1,5 +1,7 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
+import OtherServices from '../../../components/OtherServices.astro';
+import ServiceCompletedProjects from '../../../components/ServiceCompletedProjects.astro';
 
 const structuredData = {
   '@context': 'https://schema.org',
@@ -7,15 +9,15 @@ const structuredData = {
   name: 'Antelle IT Ltd',
   url: 'https://www.antelle.com/services/web-development/',
   areaServed: 'Isle of Man',
-  serviceType: ['Web development', 'Web applications', 'Static site development', 'Website integration'],
+  serviceType: ['Web development', 'Web applications', 'Static site development', 'Power Pages', 'Website integration'],
   description:
-    'Web development consultancy and delivery for maintainable websites, web applications and integrations.'
+    'Web development consultancy and delivery for maintainable websites, secure web applications, Power Pages and integrations.'
 };
 ---
 
 <BaseLayout
   title="Web Development | Antelle IT Ltd"
-  description="Web development from Antelle IT Ltd, covering maintainable websites, web applications and integrations."
+  description="Web development from Antelle IT Ltd, covering maintainable websites, secure web applications, Power Pages and integrations."
   pageClass="services"
   canonicalUrl="https://www.antelle.com/services/web-development/"
   structuredData={structuredData}
@@ -25,7 +27,7 @@ const structuredData = {
       <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
         <h1 class="subheader-text">Web Development</h1>
         <p class="header-text light">
-          Maintainable web applications, websites and integrations built around practical hosting and support requirements.
+          Secure, maintainable web applications, websites, Power Pages and integrations built around practical hosting and support requirements.
         </p>
         <a href="/contact/" class="cta cta-large">Discuss a Web Requirement</a>
       </div>
@@ -45,44 +47,87 @@ const structuredData = {
       </div>
     </section>
 
-    <section class="overview row">
-      <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
-        <h2 class="light">Overview</h2>
-        <p class="text-big">
-          Web work should be driven by the job the site or application needs to perform: publishing content, supporting
-          a business process, integrating systems, or giving customers a reliable online service.
+    <section class="sector row web-overview" id="overview">
+      <div class="col-12">
+        <h2>Overview</h2>
+      </div>
+      <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+        <h3 class="header-2-text light">Websites and applications built for operational use.</h3>
+        <p>
+          Web work should be driven by the job the site or application needs to perform: publishing content, supporting a
+          business process, integrating systems, or giving customers a reliable online service.
         </p>
-        <p class="text-big">
-          We can help with maintainable web applications, static site delivery, integrations and practical hosting
-          decisions.
+        <p>
+          We can help with maintainable web applications, static site delivery, Microsoft Power Pages, integrations and
+          practical hosting decisions.
+        </p>
+      </div>
+      <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+        <p>
+          Our approach considers security, accessibility, data handling, performance, maintainability and operational
+          support from the outset rather than treating them as late-stage checks.
+        </p>
+        <p>
+          That includes secure coding practices, sensible authentication and authorisation models, careful handling of
+          personal or business-critical data, structured testing and deployment processes, and clear ownership of how the
+          site or application will be updated after launch.
         </p>
         <p class="owner-note">OWNER INPUT REQUIRED: confirm whether Umbraco should remain a promoted capability or be reduced on this page.</p>
       </div>
-      <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
-        <div class="rectangle-graphic-bg"><span class="rectangle-graphic img-fluid"></span></div>
-      </div>
     </section>
 
-    <section class="sector row" id="key-areas">
-      <div class="col-12 row">
-        <div class="col-sub-header col-12">
-          <span class="header-icon"><svg class="icon content-icon" aria-hidden="true" focusable="false" viewBox="0 0 64 64"><rect class="visual-panel" x="8" y="12" width="48" height="38" rx="4" /><path class="visual-line" d="M8 24h48M20 38h24" /></svg></span>
-          <h2>Key Areas</h2>
-        </div>
-        <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
+    <section class="solutions service-card-grid row" id="key-areas">
+      <div class="col-12">
+        <h2>Key Areas</h2>
+      </div>
+      <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+        <div class="item service-focus-card">
           <svg class="content-icon" aria-hidden="true" focusable="false" viewBox="0 0 64 64"><rect class="visual-panel" x="8" y="12" width="48" height="40" rx="5" /><path class="visual-line" d="M8 25h48" /><rect class="visual-mid" x="17" y="34" width="30" height="9" rx="2" /></svg>
-          <h4>Web Applications</h4>
-          <p>Application-style web interfaces for controlled data capture, workflow and operational processes.</p>
+          <h3>Web Applications</h3>
+          <p>
+            Application-style web interfaces for controlled data capture, workflow and operational processes. These may
+            support internal teams, customer-facing services or back-office administration where reliability, validation
+            and clear user journeys matter.
+          </p>
         </div>
-        <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
+      </div>
+      <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+        <div class="item service-focus-card">
           <svg class="content-icon" aria-hidden="true" focusable="false" viewBox="0 0 64 64"><rect class="visual-dark" x="11" y="11" width="42" height="42" rx="4" /><path class="visual-code" d="M25 25l-8 7 8 7M39 25l8 7-8 7" /></svg>
-          <h4>Static Sites</h4>
-          <p>Static website delivery where simplicity, security, performance and low operational overhead are priorities.</p>
+          <h3>Static Sites</h3>
+          <p>
+            Static website delivery where simplicity, security, performance and low operational overhead are priorities.
+            This is often a good fit for brochure, service and information-led sites where content can be managed through
+            a controlled build and release process.
+          </p>
         </div>
-        <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
+      </div>
+      <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+        <div class="item service-focus-card">
           <svg class="content-icon" aria-hidden="true" focusable="false" viewBox="0 0 64 64"><circle class="visual-mid" cx="16" cy="18" r="8" /><circle class="visual-accent" cx="48" cy="18" r="8" /><circle class="visual-dark" cx="32" cy="48" r="8" /><path class="visual-line" d="M23 22l7 18M41 22l-7 18M24 18h16" /></svg>
-          <h4>Integration</h4>
-          <p>Connecting web experiences to databases, APIs, Microsoft services and other operational systems.</p>
+          <h3>Integration</h3>
+          <p>
+            Connecting web experiences to databases, APIs, Microsoft services and other operational systems. We focus on
+            practical integration patterns, error handling, data ownership and supportability so the website is not an
+            isolated front end.
+          </p>
+        </div>
+      </div>
+      <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+        <div class="item service-focus-card">
+          <svg class="content-icon" aria-hidden="true" focusable="false" viewBox="0 0 64 64">
+            <rect class="visual-panel" x="8" y="12" width="48" height="40" rx="5" />
+            <path class="visual-line" d="M8 25h48M22 40h20" />
+            <rect class="visual-dark" x="16" y="32" width="12" height="12" rx="2" />
+            <rect class="visual-mid" x="36" y="32" width="12" height="12" rx="2" />
+            <path class="visual-accent-line" d="M28 38h8" />
+          </svg>
+          <h3>Power Pages</h3>
+          <p>
+            Microsoft Power Pages for secure, externally-facing portals backed by Dataverse and the wider Power Platform.
+            This can be useful where portal users need structured access to forms, records, status information or
+            business processes without building every element from scratch.
+          </p>
         </div>
       </div>
     </section>
@@ -94,14 +139,28 @@ const structuredData = {
           We start by clarifying the audience, content ownership, data flows, hosting model and support requirements,
           then select the simplest technical approach that can meet those needs.
         </p>
+        <p>
+          Delivery is collaborative and iterative. We prefer short feedback loops, early working versions and regular
+          review points so stakeholders can shape the detail while there is still room to adapt. That helps keep scope,
+          security, usability and business value aligned throughout the work.
+        </p>
+        <p>
+          Where requirements are still emerging, we can work in an agile way: agreeing the first useful slice, validating
+          assumptions with users, then extending the site or application in controlled increments. The aim is to make
+          progress visible without losing sight of quality, governance or long-term maintenance.
+        </p>
         <p class="owner-note">OWNER INPUT REQUIRED: add approved current web examples and hosting position before go live.</p>
       </div>
     </section>
+
+    <ServiceCompletedProjects />
+
+    <OtherServices currentPath="/services/web-development/" />
   </div>
 </BaseLayout>
 
 <style>
-  .web-hero,.content-icon{display:block;height:auto}.web-hero{width:100%}.content-icon{height:4rem;margin-bottom:1rem;width:4rem}.visual-panel{fill:#fff;stroke:#8dd8f8;stroke-width:2}.visual-line{fill:none;stroke:#0072bc;stroke-linecap:round;stroke-linejoin:round;stroke-width:5}.visual-accent-line{fill:none;stroke:#8dd8f8;stroke-linecap:round;stroke-width:5}.visual-code{fill:none;stroke:#fff;stroke-linecap:round;stroke-linejoin:round;stroke-width:6}.visual-accent{fill:#8dd8f8}.visual-mid{fill:#00baf2}.visual-dark{fill:#0072bc}.owner-note{background:#fff59d;color:#7a5a00;display:inline;font-weight:700;line-height:1.5;padding:.1rem .25rem;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+  .web-hero,.content-icon{display:block;height:auto}.web-hero{width:100%}.content-icon{height:4rem;margin-bottom:1rem;width:4rem}.web-overview{padding-top:4rem!important}.service-card-grid{padding-top:3rem!important}.service-card-grid>div{margin-bottom:2rem}.service-focus-card{min-height:auto;padding:2rem}.service-focus-card p:last-of-type{margin-bottom:0}.visual-panel{fill:#fff;stroke:#8dd8f8;stroke-width:2}.visual-line{fill:none;stroke:#0072bc;stroke-linecap:round;stroke-linejoin:round;stroke-width:5}.visual-accent-line{fill:none;stroke:#8dd8f8;stroke-linecap:round;stroke-width:5}.visual-code{fill:none;stroke:#fff;stroke-linecap:round;stroke-linejoin:round;stroke-width:6}.visual-accent{fill:#8dd8f8}.visual-mid{fill:#00baf2}.visual-dark{fill:#0072bc}.owner-note{background:#fff59d;color:#7a5a00;display:inline;font-weight:700;line-height:1.5;padding:.1rem .25rem;box-decoration-break:clone;-webkit-box-decoration-break:clone}
   @media (max-width:991.98px){section.maintained-service-splash{min-height:auto;padding-bottom:2rem!important;padding-top:2.5rem!important}section.maintained-service-splash>div:nth-of-type(1){max-width:100%;order:2;position:static!important;width:100%!important}section.maintained-service-splash>div:nth-of-type(2){margin-bottom:.75rem;max-width:100%;opacity:1;order:1;position:static!important;text-align:right;width:100%!important}.web-hero{display:inline-block;max-width:20rem;width:50%}}
   @media (max-width:576px){section.maintained-service-splash .header-text{font-size:1.6em}section.maintained-service-splash .cta{min-width:0;width:100%}.web-hero{max-width:13rem;width:50%}}
 </style>

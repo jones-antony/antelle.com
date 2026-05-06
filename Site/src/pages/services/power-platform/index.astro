@@ -1,5 +1,7 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
+import OtherServices from '../../../components/OtherServices.astro';
+import ServiceCompletedProjects from '../../../components/ServiceCompletedProjects.astro';
 
 const structuredData = {
   '@context': 'https://schema.org',
@@ -16,13 +18,13 @@ const structuredData = {
     'Dataverse'
   ],
   description:
-    'Microsoft Power Platform consultancy covering model-driven apps, canvas apps, Power Automate, Power Pages and Dataverse for practical business process improvement.'
+    'Microsoft Power Platform consultancy covering model-driven apps, canvas apps, Power Automate, Power Pages and Dataverse, backed by long-term Dynamics CRM experience.'
 };
 ---
 
 <BaseLayout
   title="Power Platform | Antelle IT Ltd"
-  description="Microsoft Power Platform consultancy from Antelle IT Ltd, covering model-driven apps, canvas apps, Power Automate, Power Pages and Dataverse for practical business process improvement."
+  description="Microsoft Power Platform consultancy from Antelle IT Ltd, covering model-driven apps, canvas apps, Power Automate, Power Pages and Dataverse, backed by long-term Dynamics CRM experience."
   pageClass="services"
   canonicalUrl="https://www.antelle.com/services/power-platform/"
   structuredData={structuredData}
@@ -32,7 +34,7 @@ const structuredData = {
       <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
         <h1 class="subheader-text">Power Platform</h1>
         <p class="header-text light">
-          Practical Microsoft Power Platform support for model-driven apps, canvas apps, automation, Power Pages and Dataverse-backed solutions.
+          Power Platform is familiar territory for us: model-driven apps, canvas apps, automation, Power Pages and Dataverse-backed solutions built on years of Dynamics CRM experience.
         </p>
         <a href="/contact/" class="cta cta-large">Discuss a Power Platform Requirement</a>
       </div>
@@ -57,74 +59,83 @@ const structuredData = {
       </div>
     </section>
 
-    <section class="overview row">
-      <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
-        <h2 class="light">Overview</h2>
-        <p class="text-big">
-          Power Platform can be a good fit where a business process needs to be captured, automated or improved without
-          starting a full bespoke software project.
+    <section class="sector row power-platform-overview" id="overview">
+      <div class="col-12">
+        <h2>Overview</h2>
+      </div>
+      <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+        <h3 class="header-2-text light">Power Platform builds naturally on our Microsoft business application work.</h3>
+        <p>
+          Power Platform is a strong fit where a business process needs to be captured, automated or improved without
+          starting every element as a full bespoke software project. It works best when the data model, security model,
+          integration points and support approach are thought through properly.
         </p>
-        <p class="text-big">
-          We can help assess whether Power Apps, Power Automate and Dataverse are suitable for the requirement, and how
-          they should sit alongside existing Microsoft 365, Dynamics 365, Power Pages, database and reporting systems.
+        <p>
+          This is home territory for us. Our long-running Dynamics CRM experience gives us a practical understanding of
+          Dataverse, model-driven application design, process-led configuration, reporting and the Microsoft ecosystem
+          around business applications.
+        </p>
+      </div>
+      <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+        <p>
+          We can help assess whether Power Apps, Power Automate, Power Pages and Dataverse are suitable for the
+          requirement, and how they should sit alongside existing Microsoft 365, Dynamics 365, Azure SQL, databases,
+          reporting tools and line-of-business systems.
+        </p>
+        <p>
+          The aim is to use Power Platform confidently, but not blindly. Where low-code is the right fit, it can reduce
+          friction and speed up delivery. Where a bespoke or hybrid approach is stronger, we will say so.
         </p>
         <p class="owner-note">OWNER INPUT REQUIRED: confirm the exact Power Platform services and priority order before this page goes live.</p>
       </div>
-      <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
-        <div class="rectangle-graphic-bg">
-          <span class="rectangle-graphic img-fluid"></span>
-        </div>
-      </div>
     </section>
 
-    <section class="sector row" id="key-areas">
-      <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 row">
-        <div class="col-sub-header col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-          <span class="header-icon">
-            <svg class="icon section-icon" aria-hidden="true" focusable="false" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-              <rect class="visual-dark" x="7" y="8" width="22" height="22" rx="3" />
-              <rect class="visual-accent" x="35" y="8" width="22" height="22" rx="3" />
-              <rect class="visual-mid" x="7" y="36" width="22" height="22" rx="3" />
-              <rect class="visual-dark" x="35" y="36" width="22" height="22" rx="3" />
-            </svg>
-          </span>
-          <h2>Key Areas</h2>
-        </div>
-        <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
+    <section class="solutions service-card-grid row" id="key-areas">
+      <div class="col-12">
+        <h2>Key Areas</h2>
+      </div>
+      <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+        <div class="item service-focus-card">
           <svg class="content-icon" aria-hidden="true" focusable="false" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
             <rect class="visual-panel" x="11" y="6" width="42" height="52" rx="7" />
             <path class="visual-line" d="M21 20h22M21 30h22M21 40h14" />
           </svg>
-          <h4>Model-Driven Apps</h4>
+          <h3>Model-Driven Apps</h3>
           <p>
             Dataverse-backed business applications where structured data, role-based access, forms, views and process
             consistency are more important than a highly customised screen layout.
           </p>
         </div>
-        <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
+      </div>
+      <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+        <div class="item service-focus-card">
           <svg class="content-icon" aria-hidden="true" focusable="false" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
             <rect class="visual-panel" x="7" y="10" width="50" height="44" rx="5" />
             <rect class="visual-dark" x="15" y="18" width="15" height="12" rx="2" />
             <rect class="visual-accent" x="34" y="18" width="15" height="12" rx="2" />
             <rect class="visual-mid" x="15" y="35" width="34" height="10" rx="2" />
           </svg>
-          <h4>Canvas Apps</h4>
+          <h3>Canvas Apps</h3>
           <p>
             Task-focused apps with tailored screens for guided data capture, mobile-friendly internal tools and
             workflows that need a more controlled user experience.
           </p>
         </div>
-        <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
+      </div>
+      <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+        <div class="item service-focus-card">
           <svg class="content-icon" aria-hidden="true" focusable="false" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
             <circle class="visual-mid" cx="16" cy="16" r="8" />
             <circle class="visual-accent" cx="48" cy="16" r="8" />
             <circle class="visual-dark" cx="48" cy="48" r="8" />
             <path class="visual-line" d="M24 16h16M48 24v16M21 21l21 21" />
           </svg>
-          <h4>Power Automate</h4>
+          <h3>Power Automate</h3>
           <p>Workflow automation that connects Microsoft 365, line-of-business systems and repeatable operational tasks.</p>
         </div>
-        <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
+      </div>
+      <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+        <div class="item service-focus-card">
           <svg class="content-icon" aria-hidden="true" focusable="false" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
             <rect class="visual-panel" x="7" y="11" width="50" height="42" rx="5" />
             <path class="visual-line" d="M7 23h50" />
@@ -133,20 +144,39 @@ const structuredData = {
             <rect class="visual-dark" x="16" y="31" width="14" height="13" rx="2" />
             <path class="visual-line" d="M36 33h11M36 42h8" />
           </svg>
-          <h4>Power Pages</h4>
+          <h3>Power Pages</h3>
           <p>
             Externally-facing portals and self-service experiences where appropriate, with careful attention to access,
             content ownership and the Dataverse data model underneath.
           </p>
         </div>
-        <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
+      </div>
+      <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+        <div class="item service-focus-card">
           <svg class="content-icon" aria-hidden="true" focusable="false" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
             <ellipse class="visual-dark" cx="32" cy="15" rx="22" ry="9" />
             <path class="visual-accent" d="M10 15v26c0 5 10 9 22 9s22-4 22-9V15c0 5-10 9-22 9s-22-4-22-9Z" />
             <path class="visual-line" d="M10 28c0 5 10 9 22 9s22-4 22-9" />
           </svg>
-          <h4>Dataverse</h4>
+          <h3>Dataverse</h3>
           <p>Structured data models and reporting foundations for Power Platform and Dynamics 365-aligned work.</p>
+        </div>
+      </div>
+      <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+        <div class="item service-focus-card">
+          <svg class="content-icon" aria-hidden="true" focusable="false" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+            <path class="visual-panel" d="M15 7h25l11 11v39H15V7Z" />
+            <path class="visual-accent" d="M40 7v12h11L40 7Z" />
+            <path class="visual-line" d="M23 27h18M23 36h18M23 45h12" />
+            <path class="visual-dark" d="M41 41h12v12H41z" />
+            <path class="visual-tick" d="M44 47l3 3 7-9" />
+          </svg>
+          <h3>Document Generation</h3>
+          <p>
+            Document automation using Document Core Pack to generate consistent letters, agreements, reports and client
+            communications from Dynamics 365 or Dataverse data, with e-signature workflows such as DocuSign where
+            signing and approval steps need to be controlled.
+          </p>
         </div>
       </div>
     </section>
@@ -159,9 +189,23 @@ const structuredData = {
           From there, we can help decide whether Power Platform is the right route, or whether a bespoke or hybrid
           approach is more appropriate.
         </p>
+        <p>
+          Delivery is collaborative and iterative. We work with stakeholders, administrators and users to define the
+          first useful slice, validate the Dataverse model and user experience, then extend apps, flows, pages and
+          reporting in controlled increments.
+        </p>
+        <p>
+          We apply agile delivery patterns where they help, while keeping enough structure around security, governance,
+          environments, deployment and support. That matters because Power Platform solutions often become operational
+          systems very quickly, and they need to be maintainable after the first release.
+        </p>
         <p class="owner-note">OWNER INPUT REQUIRED: add examples of suitable Power Platform project types once agreed.</p>
       </div>
     </section>
+
+    <ServiceCompletedProjects />
+
+    <OtherServices currentPath="/services/power-platform/" />
   </div>
 </BaseLayout>
 
@@ -185,6 +229,27 @@ const structuredData = {
 
   .section-icon {
     width: 4rem;
+  }
+
+  .power-platform-overview {
+    padding-top: 4rem !important;
+  }
+
+  .service-card-grid {
+    padding-top: 3rem !important;
+  }
+
+  .service-card-grid > div {
+    margin-bottom: 2rem;
+  }
+
+  .service-focus-card {
+    min-height: auto;
+    padding: 2rem;
+  }
+
+  .service-focus-card p:last-of-type {
+    margin-bottom: 0;
   }
 
   .visual-panel {

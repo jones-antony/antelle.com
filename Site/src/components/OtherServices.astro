@@ -1,0 +1,32 @@
+---
+import { services } from '../content/services';
+
+const asset = (path: string) => `/assets/${path}`;
+
+type Props = {
+  currentPath: string;
+};
+
+const { currentPath } = Astro.props;
+const normalise = (path: string) => (path.endsWith('/') ? path : `${path}/`);
+const otherServices = services.filter((service) => normalise(service.href) !== normalise(currentPath));
+---
+
+<section class="other-services row">
+  <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+    <h2 class="subheader-text">Other Services</h2>
+  </div>
+  <div class="row">
+    {
+      otherServices.map((service) => (
+        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+          <a href={service.href} class="service">
+            <img class="icon img-fluid" src={asset(service.icon)} alt={service.title} />
+            <h3>{service.title}</h3>
+            <p>{service.summary}</p>
+          </a>
+        </div>
+      ))
+    }
+  </div>
+</section>

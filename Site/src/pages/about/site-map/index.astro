@@ -1,0 +1,226 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { services } from '../../../content/services';
+
+type SiteMapNode = {
+  title: string;
+  href?: string;
+  complete?: boolean;
+  children?: SiteMapNode[];
+};
+
+const completedProjects: SiteMapNode[] = [
+  ['Advanced Mailing and Data Transformation System', '/experience/completed-projects/advanced-mailing-and-data-transformation-system/'],
+  ['All Island Rates System', '/experience/completed-projects/all-island-rates-system/'],
+  ['Custom Share Register', '/experience/completed-projects/custom-share-register/'],
+  ['HMRC P11D Generation', '/experience/completed-projects/hmrc-p11d-generation/'],
+  ['Laserfiche Email Archiving', '/experience/completed-projects/laserfiche-email-archiving/'],
+  ['Legal Practice Application Migration', '/experience/completed-projects/legal-practice-application-migration/'],
+  ['Microsoft Retail Management Implementation', '/experience/completed-projects/microsoft-retail-management-implementation/'],
+  ['Microsoft RMS Postcode Lookup', '/experience/completed-projects/microsoft-rms-postcode-lookup/'],
+  ['Outsourced Payroll Systems', '/experience/completed-projects/outsourced-payroll-systems/'],
+  ['Prepaid Credit Card MIS', '/experience/completed-projects/prepaid-credit-card-mis/'],
+  ['Property and Tenant Management', '/experience/completed-projects/property-and-tenant-management/'],
+  ['RMS Real-time Stock Lookup', '/experience/completed-projects/rms-real-time-stock-lookup/'],
+  ['Time Recording System', '/experience/completed-projects/time-recording-system/'],
+  ['Unified Address Lookup Service', '/experience/completed-projects/unified-address-lookup-service/'],
+  ['Wealth Management MIS', '/experience/completed-projects/wealth-management-mis/'],
+  ['Windows Mobile Stock Management', '/experience/completed-projects/windows-mobile-stock-management/']
+].map(([title, href]) => ({ title, href }));
+
+const nodes: SiteMapNode[] = [
+  { title: 'Home', href: '/' },
+  {
+    title: 'Services',
+    children: services.map((service) => ({
+      title: service.title,
+      href: service.href
+    }))
+  },
+  {
+    title: 'Experience',
+    children: [
+      { title: 'Past Experience', href: '/experience/past-experience/' },
+      { title: 'Core Skills', href: '/experience/core-skills/' },
+      {
+        title: 'Completed Projects',
+        href: '/experience/completed-projects/',
+        children: completedProjects
+      }
+    ]
+  },
+  { title: 'Careers', href: '/careers/' },
+  {
+    title: 'About',
+    children: [
+      { title: 'About Antelle', href: '/about/' },
+      { title: 'Site Map', href: '/about/site-map/' }
+    ]
+  },
+  { title: 'Contact', href: '/contact/' },
+  { title: 'Information Security', href: '/iso-27001/' },
+  { title: 'Privacy Policy', href: '/privacy-policy/', complete: true }
+];
+
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name: 'Site Map',
+  url: 'https://www.antelle.com/about/site-map/',
+  description: 'Development sitemap for the Antelle website rebuild.'
+};
+---
+
+<BaseLayout
+  title="Site Map | Antelle IT Ltd"
+  description="Development sitemap for the Antelle website rebuild."
+  pageClass="about sitemap-page"
+  canonicalUrl="https://www.antelle.com/about/site-map/"
+  structuredData={structuredData}
+>
+  <div class="container">
+    <section class="splash row">
+      <div class="col-12 col-sm-12 col-md-12 col-lg-8 col-xl-8">
+        <h1 class="subheader-text">Site Map</h1>
+        <p class="header-text light">
+          A development view of the rebuilt site structure and page sign-off status.
+        </p>
+      </div>
+    </section>
+
+    <section class="sector row sitemap-status" aria-label="Completion status legend">
+      <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+        <h2>Rebuild Status</h2>
+        <p>
+          This page is being used as a temporary visual tool during the rebuild. A tick means the page has been signed
+          off. A cross means the page still needs review or further editing.
+        </p>
+      </div>
+      <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 legend">
+        <span class="status-pill complete"><span aria-hidden="true">✓</span> Signed off</span>
+        <span class="status-pill incomplete"><span aria-hidden="true">×</span> Needs review</span>
+      </div>
+    </section>
+
+    <section class="sector row sitemap-tree" id="site-structure">
+      <div class="col-12">
+        <h2>Site Structure</h2>
+        <ul class="site-node-list root-list">
+          {
+            nodes.map((node) => (
+              <li>
+                <span class={node.complete ? 'status-icon complete' : 'status-icon incomplete'} aria-label={node.complete ? 'Signed off' : 'Needs review'}>
+                  {node.complete ? '✓' : '×'}
+                </span>
+                {node.href ? <a href={node.href}>{node.title}</a> : <span class="node-label">{node.title}</span>}
+                {node.children && (
+                  <ul class="site-node-list">
+                    {node.children.map((child) => (
+                      <li>
+                        <span
+                          class={child.complete ? 'status-icon complete' : 'status-icon incomplete'}
+                          aria-label={child.complete ? 'Signed off' : 'Needs review'}
+                        >
+                          {child.complete ? '✓' : '×'}
+                        </span>
+                        {child.href ? <a href={child.href}>{child.title}</a> : <span class="node-label">{child.title}</span>}
+                        {child.children && (
+                          <ul class="site-node-list">
+                            {child.children.map((grandchild) => (
+                              <li>
+                                <span
+                                  class={grandchild.complete ? 'status-icon complete' : 'status-icon incomplete'}
+                                  aria-label={grandchild.complete ? 'Signed off' : 'Needs review'}
+                                >
+                                  {grandchild.complete ? '✓' : '×'}
+                                </span>
+                                {grandchild.href ? (
+                                  <a href={grandchild.href}>{grandchild.title}</a>
+                                ) : (
+                                  <span class="node-label">{grandchild.title}</span>
+                                )}
+                              </li>
+                            ))}
+                          </ul>
+                        )}
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </section>
+  </div>
+</BaseLayout>
+
+<style>
+  .sitemap-page .sitemap-status {
+    padding-top: 4rem;
+  }
+
+  .sitemap-page .legend {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    justify-content: center;
+  }
+
+  .sitemap-page .status-pill {
+    align-items: center;
+    border: 1px solid rgba(0, 114, 188, 0.2);
+    display: inline-flex;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+  }
+
+  .sitemap-page .site-node-list {
+    list-style: none;
+    margin: 0.75rem 0 0 1.5rem;
+    padding: 0;
+  }
+
+  .sitemap-page .root-list {
+    margin-left: 0;
+  }
+
+  .sitemap-page .site-node-list li {
+    color: #343f4b;
+    margin: 0;
+    padding: 0.45rem 0;
+  }
+
+  .sitemap-page .site-node-list li::before {
+    content: '';
+    display: none;
+  }
+
+  .sitemap-page .status-icon {
+    align-items: center;
+    border-radius: 999px;
+    display: inline-flex;
+    font-family: 'UniversNextPro-Bold', arial, sans-serif;
+    height: 1.45rem;
+    justify-content: center;
+    margin-right: 0.75rem;
+    width: 1.45rem;
+  }
+
+  .sitemap-page .complete {
+    background: rgba(0, 186, 242, 0.18);
+    color: #0072bc;
+  }
+
+  .sitemap-page .incomplete {
+    background: rgba(52, 63, 75, 0.1);
+    color: #343f4b;
+  }
+
+  .sitemap-page .node-label {
+    color: #343f4b;
+    font-family: 'UniversNextPro-Bold', arial, sans-serif;
+  }
+</style>

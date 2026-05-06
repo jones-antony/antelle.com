@@ -21,6 +21,12 @@ const sectors = [
       'Support for CRM, reporting, data transformation, migration, Faster Payments, bank-grade payments, agency bank payment solutions, Confirmation of Payee (COP), returns processing, bulk statement generation, automated regulatory returns and general consultancy services.'
   },
   {
+    icon: 'platform',
+    title: 'Investment Platforms',
+    text:
+      'Back-office administration systems for investment platforms, including Dynamics CRM foundations, API integration with investment portals, automated client screening, operational workflows and ongoing platform support.'
+  },
+  {
     icon: 'assurance',
     title: 'Life Assurance',
     text:
@@ -114,11 +120,9 @@ const structuredData = {
         </div>
         <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
           <p>
-            This page is now maintained in Astro and ready for further editing. The content below keeps the existing
-            sector structure while making the claims easier to review and update.
-          </p>
-          <p>
-            <span class="owner-note">FACT CHECK REQUIRED: confirm sector wording and any public client/project references before go-live.</span>
+            Much of our work sits behind the scenes: back-office systems, integrations, reporting, workflow automation
+            and long-term platform support. Those systems are often business-critical, so our focus is on practical
+            delivery, clear ownership and maintainable technology.
           </p>
         </div>
       </div>
@@ -148,10 +152,19 @@ const structuredData = {
               )}
               {item.icon === 'banking' && (
                 <>
-                  <rect class="visual-panel" x="8" y="13" width="48" height="38" rx="5" />
-                  <rect class="visual-dark" x="15" y="21" width="18" height="7" rx="2" />
-                  <rect class="visual-accent" x="37" y="21" width="10" height="7" rx="2" />
-                  <path class="visual-line" d="M16 39h27M35 33l8 6-8 6M48 32H21M29 26l-8 6 8 6" />
+                  <rect class="visual-panel" x="10" y="14" width="33" height="23" rx="4" />
+                  <path class="visual-dark" d="M10 21h33v6H10v-6Z" />
+                  <path class="visual-line" d="M17 32h12M38 45h13M45 38l8 7-8 7M52 24H39M45 17l-8 7 8 7" />
+                  <circle class="visual-mid" cx="51" cy="45" r="4" />
+                </>
+              )}
+              {item.icon === 'platform' && (
+                <>
+                  <rect class="visual-panel" x="9" y="12" width="46" height="34" rx="5" />
+                  <path class="visual-line" d="M19 23h13M19 34h10M39 23h6M39 34h6M32 23l7 11M32 34l7-11" />
+                  <circle class="visual-dark" cx="18" cy="52" r="5" />
+                  <circle class="visual-mid" cx="32" cy="52" r="5" />
+                  <circle class="visual-accent" cx="46" cy="52" r="5" />
                 </>
               )}
               {item.icon === 'assurance' && (

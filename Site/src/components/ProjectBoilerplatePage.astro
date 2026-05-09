@@ -1,0 +1,96 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { completedProjects, getProjectHref } from '../content/projects';
+
+interface Props {
+  slug: string;
+  category: string;
+}
+
+const { slug, category } = Astro.props;
+const project = completedProjects.find((item) => item.slug === slug);
+
+if (!project) {
+  throw new Error(`Unknown completed project: ${slug}`);
+}
+
+const canonicalUrl = `https://www.antelle.com${getProjectHref(project)}`;
+const description = `${project.title} completed project placeholder for Antelle IT Ltd.`;
+
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'CreativeWork',
+  name: project.title,
+  url: canonicalUrl,
+  description
+};
+---
+
+<BaseLayout
+  title={`${project.title} | Antelle IT Ltd`}
+  description={description}
+  pageClass="experience project"
+  canonicalUrl={canonicalUrl}
+  structuredData={structuredData}
+>
+  <div class="container project-content">
+    <section class="project-header row">
+      <div class="col-12">
+        <a class="back-control" href="/experience/completed-projects/">
+          <span class="nc-icon nc-arrow-left" aria-hidden="true"></span>
+          Completed Projects
+        </a>
+        <h1>{project.title}</h1>
+        <p class="header-text light">{project.summary}</p>
+      </div>
+    </section>
+
+    <section class="row">
+      <div class="col-12 col-md-6">
+        <h2>Project Brief</h2>
+        <p>
+          This page has been added as a placeholder for a completed {category} project. The final wording should confirm
+          the client context, business problem, scope and measurable outcome before publication.
+        </p>
+        <p>
+          <span class="owner-note">[OWNER INPUT REQUIRED: confirm project brief and whether this page should be public.]</span>
+        </p>
+      </div>
+      <div class="col-12 col-md-6">
+        <h2>Our Solution</h2>
+        <p>
+          Antelle's role, technical approach and delivery responsibilities are to be confirmed. Final copy should remain
+          factual, avoid naming clients unless approved, and describe the practical business value delivered.
+        </p>
+        <p>
+          <span class="owner-note">[OWNER INPUT REQUIRED: confirm solution summary, technologies and support model.]</span>
+        </p>
+      </div>
+    </section>
+
+    <section class="services-provided row">
+      <div class="col-12">
+        <h2>Services Provided</h2>
+        <ul>
+          <li><span>Requirements review and scope confirmation</span></li>
+          <li><span>Solution design and technical delivery</span></li>
+          <li><span>Integration, data or workflow support where applicable</span></li>
+          <li><span>Testing, handover and post-delivery support</span></li>
+        </ul>
+      </div>
+    </section>
+  </div>
+</BaseLayout>
+
+<style>
+  .owner-note {
+    background: #fff59d;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+    color: #7a5a00;
+    display: inline;
+    font-weight: 700;
+    line-height: 1.5;
+    padding: 0.1rem 0.25rem;
+  }
+</style>

@@ -40,37 +40,32 @@ const structuredData = {
       <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
         <img
           class="img-splash img-fluid careers-hero"
-          src={asset('svg/graphics/splash-careers.svg')}
+          src={asset('images/heroes/splash-careers.svg')}
           alt="Career planning graphic"
         />
       </div>
     </section>
 
-    <section class="sector row" id="current-vacancies">
-      <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 row">
-        <div class="col-sub-header col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-          <h2>Current Vacancies</h2>
-        </div>
-        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+    <section class="sector row vacancies-section" id="current-vacancies">
+      <div class="col-12">
+        <h2>Current Vacancies</h2>
+      </div>
+      <div class="col-12">
+        <article class="vacancy-status">
+          <span class="status-label">Recruitment Status</span>
           <h3 class="header-2-text light">No current vacancies.</h3>
           <p>
             We are not actively recruiting at the moment. When suitable roles become available, we will update this page
             with clear details about the position, skills required and how to apply.
           </p>
+        </article>
+      </div>
+      <div class="col-12">
+        <article class="future-opportunities">
+          <h3>Speculative Applications</h3>
           <p>
-            In the meantime, we are happy to retain CVs on file should a suitable position arise in future.
-          </p>
-        </div>
-        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
-          <svg class="content-icon" aria-hidden="true" focusable="false" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-            <rect class="visual-panel" x="10" y="8" width="44" height="50" rx="5" />
-            <path class="visual-line" d="M21 24h22M21 34h22M21 44h14" />
-            <circle class="visual-mid" cx="43" cy="16" r="8" />
-          </svg>
-          <h4>Future Opportunities</h4>
-          <p>
-            If you would like us to keep your details for future consideration, please get in touch with a brief note
-            about the type of work you are interested in and attach your CV.
+            We are happy to retain CVs on file should a suitable position arise in future. Please get in touch with a
+            brief note about the type of work you are interested in and attach your CV.
           </p>
           <p>
             We will keep speculative CVs for up to 12 months, unless you ask us to delete your details sooner. After
@@ -81,7 +76,8 @@ const structuredData = {
             By sending us your CV, you agree that Antelle may use your details to assess potential future roles. You can
             ask us to delete your details at any time by contacting <a href="mailto:hello@antelle.com">hello@antelle.com</a>.
           </p>
-        </div>
+          <a href="/contact/" class="cta">Send Us Your Details</a>
+        </article>
       </div>
     </section>
 
@@ -145,6 +141,61 @@ const structuredData = {
     height: 4rem;
     margin-bottom: 1rem;
     width: 4rem;
+  }
+
+  .vacancies-section {
+    align-items: stretch;
+    padding-bottom: 2rem;
+  }
+
+  .vacancies-section h2 {
+    margin-bottom: 1.5rem;
+  }
+
+  .vacancy-status,
+  .future-opportunities {
+    height: 100%;
+    margin-bottom: 1.5rem;
+    max-width: 58rem;
+  }
+
+  .vacancy-status {
+    background: rgba(141, 216, 248, 0.18);
+    border-left: 6px solid #0072bc;
+    padding: 2rem;
+  }
+
+  .vacancy-status .status-label {
+    color: #0072bc;
+    display: block;
+    font-family: 'UniversNextPro-Bold', arial, sans-serif;
+    letter-spacing: 0;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+  }
+
+  .vacancy-status p:last-child,
+  .future-opportunities p:last-of-type {
+    margin-bottom: 0;
+  }
+
+  .future-opportunities {
+    background: #ffffff;
+    box-shadow: 0 8px 14px 0 rgba(52, 64, 75, 0.12);
+    padding: 2rem;
+  }
+
+  #working-with-antelle {
+    padding-top: 2rem;
+  }
+
+  .future-opportunities h3 {
+    color: #0072bc;
+    margin-bottom: 1.5rem;
+  }
+
+  .future-opportunities .cta {
+    margin-top: 1rem;
   }
 
   .visual-panel {
@@ -237,5 +288,11 @@ const structuredData = {
       max-width: 13rem;
       width: 50%;
     }
+
+    .vacancy-status,
+    .future-opportunities {
+      padding: 1.5rem;
+    }
+
   }
 </style>

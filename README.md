@@ -10,21 +10,24 @@ The initial objective is to preserve the existing public site as a static baseli
 
 ```text
 Repository:
-D:\Source\AI\antelle.com
+<repository root>
 
 Static mirror:
-D:\Source\AI\antelle.com\Mirror\www.antelle.com
+<repository root>\Mirror\www.antelle.com
+
+Astro site:
+<repository root>\Site
 ```
 
 ## Target architecture
 
 ```text
 Astro static site
-        ↓
+        |
 Static HTML/CSS/JS build output
-        ↓
+        |
 IIS static hosting
-        ↓
+        |
 Azure Function for contact form only
 ```
 
@@ -55,27 +58,28 @@ No CMS should be introduced.
 
 ## Useful documents
 
-- `AGENTS.md` — standing Codex instructions
-- `MIGRATION_PLAN.md` — phased migration plan
-- `SITE_AUDIT_PROMPT.md` — first Codex audit task
-- `STATIC_MIRROR_CHECKLIST.md` — mirror verification checklist
-- `ASTRO_CONVERSION_PROMPT.md` — Astro conversion instructions
-- `CONTENT_REFRESH_BRIEF.md` — content direction
-- `CONTACT_FORM_BRIEF.md` — contact form requirements
-- `SEO_REDIRECTS_CHECKLIST.md` — SEO and URL preservation checks
-- `CODING_STANDARDS.md` — project coding standards
-- `IIS_DEPLOYMENT_NOTES.md` — IIS deployment considerations
-- `CODEX_PR_TEMPLATE.md` — pull request template
+- `AGENTS.md` - standing Codex instructions
+- `MIGRATION_PLAN.md` - phased migration plan
+- `SITE_AUDIT_PROMPT.md` - first Codex audit task
+- `STATIC_MIRROR_CHECKLIST.md` - mirror verification checklist
+- `ASTRO_CONVERSION_PROMPT.md` - Astro conversion instructions
+- `CONTENT_REFRESH_BRIEF.md` - content direction
+- `CONTACT_FORM_BRIEF.md` - contact form requirements
+- `SEO_REDIRECTS_CHECKLIST.md` - SEO and URL preservation checks
+- `CODING_STANDARDS.md` - project coding standards
+- `IIS_DEPLOYMENT_NOTES.md` - IIS deployment considerations
+- `CODEX_PR_TEMPLATE.md` - pull request template
 
 ## Build commands
 
-Once Astro has been created:
+From the Astro site directory:
 
 ```powershell
+cd Site
 npm install
 npm run dev
 npm run build
 npm run preview
 ```
 
-The production deployment should use the static build output, normally the `dist` folder.
+The production deployment should use the static build output, normally the `Site/dist` folder.

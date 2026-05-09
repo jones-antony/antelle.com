@@ -100,7 +100,9 @@ function resolveInternalUrl(value: string, currentSlug: string): string {
   const resolved = new URL(value, `https://antelle.local${currentPath}`);
   let pathname = resolved.pathname.replace(/\/index\.html$/i, '/');
 
-  if (pathname.startsWith('/media/') || pathname.startsWith('/svg/') || pathname.startsWith('/fonts/')) {
+  if (pathname.startsWith('/media/')) {
+    pathname = `/assets/images/legacy-mirror${pathname.slice('/media'.length)}`;
+  } else if (pathname.startsWith('/svg/') || pathname.startsWith('/fonts/')) {
     pathname = `/assets${pathname}`;
   }
 

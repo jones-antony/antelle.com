@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title">
+  <title id="title">AI and Agentic Services</title>
+  <rect x="8" y="10" width="48" height="38" rx="7" fill="#0072bc" />
+  <circle cx="22" cy="29" r="4" fill="#ffffff" />
+  <circle cx="42" cy="29" r="4" fill="#ffffff" />
+  <path d="M24 40h16" fill="none" stroke="#8dd8f8" stroke-linecap="round" stroke-width="4" />
+  <path d="M32 10V5M20 54h24M16 48v6M48 48v6" fill="none" stroke="#00baf2" stroke-linecap="round" stroke-width="4" />
+</svg>

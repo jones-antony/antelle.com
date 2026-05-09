@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { completedProjects as projectEntries, getProjectHref } from '../../../content/projects';
 import { services } from '../../../content/services';
 
 type SiteMapNode = {
@@ -9,24 +10,10 @@ type SiteMapNode = {
   children?: SiteMapNode[];
 };
 
-const completedProjects: SiteMapNode[] = [
-  ['Advanced Mailing and Data Transformation System', '/experience/completed-projects/advanced-mailing-and-data-transformation-system/'],
-  ['All Island Rates System', '/experience/completed-projects/all-island-rates-system/'],
-  ['Custom Share Register', '/experience/completed-projects/custom-share-register/'],
-  ['HMRC P11D Generation', '/experience/completed-projects/hmrc-p11d-generation/'],
-  ['Laserfiche Email Archiving', '/experience/completed-projects/laserfiche-email-archiving/'],
-  ['Legal Practice Application Migration', '/experience/completed-projects/legal-practice-application-migration/'],
-  ['Microsoft Retail Management Implementation', '/experience/completed-projects/microsoft-retail-management-implementation/'],
-  ['Microsoft RMS Postcode Lookup', '/experience/completed-projects/microsoft-rms-postcode-lookup/'],
-  ['Outsourced Payroll Systems', '/experience/completed-projects/outsourced-payroll-systems/'],
-  ['Prepaid Credit Card MIS', '/experience/completed-projects/prepaid-credit-card-mis/'],
-  ['Property and Tenant Management', '/experience/completed-projects/property-and-tenant-management/'],
-  ['RMS Real-time Stock Lookup', '/experience/completed-projects/rms-real-time-stock-lookup/'],
-  ['Time Recording System', '/experience/completed-projects/time-recording-system/'],
-  ['Unified Address Lookup Service', '/experience/completed-projects/unified-address-lookup-service/'],
-  ['Wealth Management MIS', '/experience/completed-projects/wealth-management-mis/'],
-  ['Windows Mobile Stock Management', '/experience/completed-projects/windows-mobile-stock-management/']
-].map(([title, href]) => ({ title, href }));
+const completedProjects: SiteMapNode[] = projectEntries.map((project) => ({
+  title: project.title,
+  href: getProjectHref(project)
+}));
 
 const nodes: SiteMapNode[] = [
   { title: 'Home', href: '/' },
@@ -40,20 +27,21 @@ const nodes: SiteMapNode[] = [
   {
     title: 'Experience',
     children: [
-      { title: 'Past Experience', href: '/experience/past-experience/' },
-      { title: 'Core Skills', href: '/experience/core-skills/' },
+      { title: 'Past Experience', href: '/experience/past-experience/', complete: true },
+      { title: 'Core Skills', href: '/experience/core-skills/', complete: true },
       {
         title: 'Completed Projects',
         href: '/experience/completed-projects/',
+        complete: true,
         children: completedProjects
       }
     ]
   },
-  { title: 'Careers', href: '/careers/' },
+  { title: 'Careers', href: '/careers/', complete: true },
   {
     title: 'About',
     children: [
-      { title: 'About Antelle', href: '/about/' },
+      { title: 'About Antelle', href: '/about/', complete: true },
       { title: 'Site Map', href: '/about/site-map/' }
     ]
   },
@@ -156,7 +144,7 @@ const structuredData = {
   </div>
 </BaseLayout>
 
-<style>
+<style is:global>
   .sitemap-page .sitemap-status {
     padding-top: 4rem;
   }
@@ -199,24 +187,22 @@ const structuredData = {
   }
 
   .sitemap-page .status-icon {
-    align-items: center;
-    border-radius: 999px;
     display: inline-flex;
     font-family: 'UniversNextPro-Bold', arial, sans-serif;
-    height: 1.45rem;
-    justify-content: center;
+    font-size: 1.5em;
+    line-height: 1;
     margin-right: 0.75rem;
-    width: 1.45rem;
+    width: 1.1em;
   }
 
   .sitemap-page .complete {
-    background: rgba(0, 186, 242, 0.18);
-    color: #0072bc;
+    background: transparent;
+    color: #2e7d32;
   }
 
   .sitemap-page .incomplete {
-    background: rgba(52, 63, 75, 0.1);
-    color: #343f4b;
+    background: transparent;
+    color: #c62828;
   }
 
   .sitemap-page .node-label {

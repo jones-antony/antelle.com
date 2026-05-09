@@ -127,6 +127,18 @@ Every pull request should include:
 - Manual verification steps
 - Screenshots if visual layout changed
 
+## Handover expectations
+
+Before pushing meaningful changes to GitHub, Codex should update `docs/CODEX_HANDOVER.md` with:
+
+- current branch and latest relevant commit context
+- recent changes made
+- verification/build commands run
+- known limitations or follow-up work
+- any important resume notes for the next machine or session
+
+This handover document is the durable project memory; do not rely on chat history alone.
+
 ## Task completion notes
 
 When Codex completes a local site task, include a clickable URL to the running site or relevant page, where the local dev server is available.

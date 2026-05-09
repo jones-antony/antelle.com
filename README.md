@@ -69,6 +69,7 @@ No CMS should be introduced.
 - `CODING_STANDARDS.md` - project coding standards
 - `IIS_DEPLOYMENT_NOTES.md` - IIS deployment considerations
 - `CODEX_PR_TEMPLATE.md` - pull request template
+- `docs/CODEX_HANDOVER.md` - current Codex handover and resume notes
 
 ## Build commands
 
@@ -83,3 +84,9 @@ npm run preview
 ```
 
 The production deployment should use the static build output, normally the `Site/dist` folder.
+
+## Codex handover workflow
+
+Before pushing meaningful site changes to GitHub, update `docs/CODEX_HANDOVER.md` with the current branch state, recent changes, verification run and any known follow-up work.
+
+This keeps Codex sessions resumable across machines and avoids relying on chat history as the only project memory.

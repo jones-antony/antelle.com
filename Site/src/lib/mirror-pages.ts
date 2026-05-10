@@ -1,5 +1,10 @@
 import { existsSync, readdirSync, readFileSync, statSync } from 'node:fs';
 import { dirname, join, relative, sep } from 'node:path';
+import {
+  completedProjectIconMap,
+  completedProjectSubNavIconMap,
+  projectIconRoot as completedProjectIconRoot
+} from '../data/projectIcons';
 
 const mirrorRoot = join(process.cwd(), '..', 'Mirror', 'www.antelle.com');
 
@@ -20,6 +25,7 @@ const overriddenSlugs = new Set([
   'experience/completed-projects',
   'experience/core-skills',
   'experience/past-experience',
+  'informationsecurity',
   'iso-27001',
   'privacy-policy',
   'services/ai-agentic-services',
@@ -100,7 +106,16 @@ function resolveInternalUrl(value: string, currentSlug: string): string {
   const resolved = new URL(value, `https://antelle.local${currentPath}`);
   let pathname = resolved.pathname.replace(/\/index\.html$/i, '/');
 
-  if (pathname.startsWith('/media/')) {
+  if (currentSlug.startsWith('experience/completed-projects/') && pathname.startsWith('/media/')) {
+    const mediaPath = pathname.slice('/media/'.length);
+    const completedProjectIcon = completedProjectIconMap.get(mediaPath);
+
+    if (completedProjectIcon) {
+      pathname = `${completedProjectIconRoot}/${completedProjectIcon}`;
+    } else {
+      pathname = `/assets/images/legacy-mirror/${mediaPath}`;
+    }
+  } else if (pathname.startsWith('/media/')) {
     pathname = `/assets/images/legacy-mirror${pathname.slice('/media'.length)}`;
   } else if (pathname.startsWith('/svg/') || pathname.startsWith('/fonts/')) {
     pathname = `/assets${pathname}`;
@@ -118,7 +133,24 @@ function normaliseContent(html: string, currentSlug: string): string {
         )
       : html;
 
-  return withoutParkedBlog
+  const withCompletedProjectSubNavIcons = currentSlug.startsWith('experience/completed-projects/')
+    ? Array.from(completedProjectSubNavIconMap.entries()).reduce((content, [iconClass, iconFile]) => {
+        const pattern = new RegExp(`<span class="nc-icon ${iconClass}"></span>`, 'g');
+        return content.replace(
+          pattern,
+          `<img class="project-section-icon" src="${completedProjectIconRoot}/${iconFile}" alt="" aria-hidden="true" />`
+        );
+      }, withoutParkedBlog)
+    : withoutParkedBlog;
+
+  const withCompletedProjectBackLink = currentSlug.startsWith('experience/completed-projects/')
+    ? withCompletedProjectSubNavIcons.replace(
+        /<a href="\.\.\/index\.html" class="text-center back-control">[\s\S]*?<\/a>/,
+        `<a href="../index.html" class="back-control project-list-back"><span class="back-arrow" aria-hidden="true">&larr;</span><span>Back to all completed projects</span></a>`
+      )
+    : withCompletedProjectSubNavIcons;
+
+  return withCompletedProjectBackLink
     .replace(/\u00c2\u00a0/g, '&nbsp;')
     .replace(/\u00c2/g, '')
     .replace(/\s(data-toggle|data-target)=["'][^"']*["']/g, '')

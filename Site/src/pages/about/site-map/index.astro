@@ -12,11 +12,12 @@ type SiteMapNode = {
 
 const completedProjects: SiteMapNode[] = projectEntries.map((project) => ({
   title: project.title,
-  href: getProjectHref(project)
+  href: getProjectHref(project),
+  complete: project.collection === 'earlier'
 }));
 
 const nodes: SiteMapNode[] = [
-  { title: 'Home', href: '/' },
+  { title: 'Home', href: '/', complete: true },
   {
     title: 'Services',
     children: services.map((service) => ({
@@ -46,7 +47,7 @@ const nodes: SiteMapNode[] = [
     ]
   },
   { title: 'Contact', href: '/contact/' },
-  { title: 'Information Security', href: '/iso-27001/' },
+  { title: 'Information Security', href: '/informationsecurity/', complete: true },
   { title: 'Privacy Policy', href: '/privacy-policy/', complete: true }
 ];
 

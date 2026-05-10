@@ -15,3 +15,54 @@ const { page } = Astro.props;
 <BaseLayout title={page.title} description={page.description} pageClass={page.pageClass}>
   <div class="container" set:html={page.content} />
 </BaseLayout>
+
+<style is:global>
+  .experience.project .project-section-icon {
+    height: 2rem;
+    width: 2rem;
+  }
+
+  .experience.project .project-content .icon-img {
+    height: 2.5rem;
+    margin-right: 1.25rem;
+    vertical-align: middle;
+    width: 2.5rem;
+  }
+
+  .experience.project .project-header a.back-control {
+    align-items: center;
+    background: #0072bc;
+    border: 2px solid #0072bc;
+    border-radius: 3px;
+    box-shadow: 0 6px 14px rgba(52, 64, 75, 0.12);
+    color: #ffffff;
+    display: inline-flex;
+    font-family: 'UniversNextPro-Bold', arial, sans-serif;
+    gap: 0.5rem;
+    margin: 0 0 2.5rem;
+    padding: 0.7rem 1rem;
+    text-align: left;
+  }
+
+  .experience.project .project-header a.back-control:hover,
+  .experience.project .project-header a.back-control:focus {
+    background: rgba(0, 114, 188, 0.75);
+    border-color: transparent;
+    color: #ffffff;
+  }
+
+  .experience.project .project-header a.back-control .nc-icon {
+    margin-right: 0;
+  }
+
+  .experience.project .project-header a.back-control .back-arrow {
+    font-size: 1.2rem;
+    line-height: 1;
+  }
+
+  @media (max-width: 576px) {
+    .experience.project .project-header a.back-control {
+      width: 100%;
+    }
+  }
+</style>

@@ -5,34 +5,84 @@ interface Props {
   projects: CompletedProject[];
   withArrow?: boolean;
   includeBreaks?: boolean;
+  wholeTileLink?: boolean;
+  showRelevance?: boolean;
 }
 
-const { projects, withArrow = false, includeBreaks = false } = Astro.props;
+const {
+  projects,
+  withArrow = false,
+  includeBreaks = false,
+  wholeTileLink = false,
+  showRelevance = true
+} = Astro.props;
 ---
 
 {
   projects.map((project) => (
     <div class={withArrow ? 'col-12 col-sm-12 col-md-6 col-lg-4' : 'col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4'}>
-      <article class="project">
-        <h3>{project.title}</h3>
-        <p>Project Brief:</p>
-        {includeBreaks && <br />}
-        <p>{project.summary}</p>
-        {project.relevance && <p><strong>Why it is relevant:</strong> {project.relevance}</p>}
-        {includeBreaks && <br />}
-        <a href={getProjectHref(project)}>
-          Our Solution
-          {
-            withArrow && (
-              <svg class="icon-arrow" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                <g class="nc-icon-wrapper" fill="#000000">
-                  <path d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z" />
-                </g>
-              </svg>
-            )
-          }
-        </a>
-      </article>
+      {
+        wholeTileLink ? (
+          <a class="project project-tile-link" href={getProjectHref(project)} aria-label={`View ${project.title}`}>
+            <h3>{project.title}</h3>
+            <p class="project-brief-label">Project Brief:</p>
+            {includeBreaks && <br />}
+            <p>{project.summary}</p>
+            {showRelevance && project.relevance && <p><strong>Why it is relevant:</strong> {project.relevance}</p>}
+          </a>
+        ) : (
+          <article class="project">
+            <h3>{project.title}</h3>
+            <p class="project-brief-label">Project Brief:</p>
+            {includeBreaks && <br />}
+            <p>{project.summary}</p>
+            {showRelevance && project.relevance && <p><strong>Why it is relevant:</strong> {project.relevance}</p>}
+            {includeBreaks && <br />}
+            <a href={getProjectHref(project)}>
+              Our Solution
+              {
+                withArrow && (
+                  <svg class="icon-arrow" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                    <g class="nc-icon-wrapper" fill="#000000">
+                      <path d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z" />
+                    </g>
+                  </svg>
+                )
+              }
+            </a>
+          </article>
+        )
+      }
     </div>
   ))
 }
+
+<style is:global>
+  section.completed-projects .project-tile-link {
+    color: #343f4b;
+    font-family: 'UniversNextPro-Regular', arial, sans-serif;
+    font-weight: 400;
+    text-decoration: none;
+    transition:
+      box-shadow 0.2s linear,
+      transform 0.2s linear;
+  }
+
+  section.completed-projects .project-tile-link:hover,
+  section.completed-projects .project-tile-link:focus {
+    box-shadow: 0 12px 22px 0 rgba(52, 64, 75, 0.22);
+    color: #343f4b;
+    text-decoration: none;
+    transform: translateY(-2px);
+  }
+
+  section.completed-projects .project-tile-link:focus {
+    outline: 3px solid #00baf2;
+    outline-offset: 4px;
+  }
+
+  section.completed-projects .project-brief-label {
+    font-family: 'UniversNextPro-Bold', arial, sans-serif;
+    font-weight: 700;
+  }
+</style>

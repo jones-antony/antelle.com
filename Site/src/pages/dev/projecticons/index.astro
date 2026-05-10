@@ -1,0 +1,158 @@
+---
+import { projectIconRoot, projectIcons, type ProjectIconContext } from '../../../data/projectIcons';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+
+const groups: ProjectIconContext[] = [
+  'Completed project sub-navigation',
+  'Services Provided',
+  'Technologies Used'
+];
+
+const iconUsage = projectIcons.reduce<Record<string, string[]>>((usage, icon) => {
+  usage[icon.icon] = [...(usage[icon.icon] ?? []), icon.label];
+  return usage;
+}, {});
+
+const isDuplicate = (icon: string) => iconUsage[icon].length > 1;
+const duplicateLabels = (icon: string, currentLabel: string) =>
+  iconUsage[icon].filter((label) => label !== currentLabel).join(', ');
+---
+
+<BaseLayout
+  title="Project Icons | Antelle IT Ltd"
+  description="Development catalogue of icons and labels used across completed project pages."
+  pageClass="about project-icons-page"
+>
+  <div class="container project-icons-page-root">
+    <section class="splash row">
+      <div class="col-12 col-lg-9">
+        <h1 class="subheader-text">Project Icons</h1>
+        <p class="header-text light">
+          Development catalogue for the icons and display text used on completed project pages.
+        </p>
+        <p>
+          When a completed-project skill, service surface or technology label is added or amended, update this page and
+          the shared project icon catalogue at the same time.
+        </p>
+      </div>
+    </section>
+
+    {
+      groups.map((group) => (
+        <section class="sector row icon-section">
+          <div class="col-12">
+            <h2>{group}</h2>
+            <div class="icon-list">
+              {projectIcons
+                .filter((icon) => icon.context === group)
+                .map((icon) => (
+                  <article class={`icon-row${isDuplicate(icon.icon) ? ' duplicate-icon' : ''}`}>
+                    <div class="icon-preview" aria-hidden="true">
+                      <img src={`${projectIconRoot}/${icon.icon}`} alt="" loading="lazy" />
+                    </div>
+                    <div>
+                      <h3>{icon.label}</h3>
+                      <p>{icon.context}</p>
+                      {isDuplicate(icon.icon) && (
+                        <p class="duplicate-note">
+                          <span>Duplicate icon</span>
+                          also used for: {duplicateLabels(icon.icon, icon.label)}
+                        </p>
+                      )}
+                    </div>
+                  </article>
+                ))}
+            </div>
+          </div>
+        </section>
+      ))
+    }
+  </div>
+</BaseLayout>
+
+<style>
+  .project-icons-page-root .splash {
+    padding-bottom: 2rem;
+  }
+
+  .project-icons-page-root .splash p {
+    max-width: 54rem;
+  }
+
+  .project-icons-page-root .icon-section {
+    padding-top: 1.5rem;
+  }
+
+  .project-icons-page-root .icon-list {
+    display: grid;
+    gap: 0.75rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .project-icons-page-root .icon-row {
+    align-items: center;
+    background: rgba(141, 216, 248, 0.14);
+    border: 1px solid rgba(0, 114, 188, 0.16);
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: 4.5rem minmax(0, 1fr);
+    min-height: 6rem;
+    padding: 1rem;
+  }
+
+  .project-icons-page-root .icon-row.duplicate-icon {
+    background: linear-gradient(90deg, rgba(255, 245, 157, 0.42), rgba(141, 216, 248, 0.14));
+    border-color: rgba(122, 90, 0, 0.35);
+  }
+
+  .project-icons-page-root .icon-row.duplicate-icon .icon-preview {
+    border-color: rgba(122, 90, 0, 0.35);
+  }
+
+  .project-icons-page-root .icon-preview {
+    align-items: center;
+    background: #ffffff;
+    border: 1px solid rgba(0, 114, 188, 0.14);
+    display: flex;
+    height: 4.5rem;
+    justify-content: center;
+    width: 4.5rem;
+  }
+
+  .project-icons-page-root .icon-preview img {
+    display: block;
+    height: 3rem;
+    width: 3rem;
+  }
+
+  .project-icons-page-root h3 {
+    color: #343f4b;
+    font-size: 1.15rem;
+    margin-bottom: 0.15rem;
+  }
+
+  .project-icons-page-root .icon-row p {
+    color: rgba(52, 63, 75, 0.72);
+    font-size: 0.9rem;
+    margin: 0;
+  }
+
+  .project-icons-page-root .duplicate-note {
+    color: #7a5a00;
+    margin-top: 0.4rem;
+  }
+
+  .project-icons-page-root .duplicate-note span {
+    background: #fff59d;
+    display: inline-block;
+    font-family: 'UniversNextPro-Bold', arial, sans-serif;
+    margin-right: 0.35rem;
+    padding: 0.1rem 0.3rem;
+  }
+
+  @media (max-width: 768px) {
+    .project-icons-page-root .icon-list {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

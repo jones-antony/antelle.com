@@ -28,6 +28,10 @@ const structuredData = {
         <p class="header-text light">
           Practical delivery experience across regulated, operational and service-led organisations.
         </p>
+        <div class="hero-actions">
+          <a href="/contact/" class="cta cta-large">Contact Us</a>
+          <a href="/experience/completed-projects/" class="cta cta-secondary cta-large">Explore Projects</a>
+        </div>
       </div>
       <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
         <svg
@@ -109,12 +113,12 @@ const structuredData = {
         </div>
       ))}
     </section>
+
   </div>
 </BaseLayout>
 
 <style>
-  .experience-hero,
-  .content-icon {
+  .experience-hero {
     display: block;
     height: auto;
   }
@@ -123,14 +127,19 @@ const structuredData = {
     width: 100%;
   }
 
-  .content-icon {
-    height: 4rem;
-    margin-bottom: 1rem;
-    width: 4rem;
-  }
-
   .experience-card {
     margin-bottom: 2rem;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+  }
+
+  .hero-actions .cta {
+    text-align: center;
   }
 
   .visual-panel {
@@ -260,6 +269,11 @@ const structuredData = {
   @media (max-width: 576px) {
     section.maintained-experience-splash .header-text {
       font-size: 1.6em;
+    }
+
+    section.maintained-experience-splash .cta {
+      min-width: 0;
+      width: 100%;
     }
 
     .experience-hero {

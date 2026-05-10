@@ -1,0 +1,116 @@
+Antelle.com - New Development Machine Setup
+==========================================
+
+Repository
+----------
+GitHub repository:
+https://github.com/jones-antony/antelle.com.git
+
+Local project structure after clone:
+antelle.com\
+  Site\        Astro static site
+  Mirror\      Static mirror reference, if present in the repository
+  docs\        Project notes
+
+
+Required Software
+-----------------
+1. Git for Windows
+   URL: https://git-scm.com/download/win
+   Used for cloning, branching, committing and pushing source changes.
+
+2. Node.js LTS
+   URL: https://nodejs.org/
+   Installs Node.js and npm. Required for Astro.
+
+3. Visual Studio Code
+   URL: https://code.visualstudio.com/
+   Recommended editor for the site source.
+
+4. Modern browser
+   Recommended: Microsoft Edge or Google Chrome.
+   Used for reviewing the local Astro development site.
+
+5. GitHub authentication
+   Use one of:
+   - Git Credential Manager, included with Git for Windows
+   - GitHub CLI: https://cli.github.com/
+   - SSH keys: https://docs.github.com/en/authentication/connecting-to-github-with-ssh
+
+
+Optional Software
+-----------------
+GitHub CLI
+URL: https://cli.github.com/
+Useful for checking GitHub authentication, branches, pull requests and remotes.
+
+
+PowerShell Setup Commands
+-------------------------
+Choose a parent folder for the source code, for example:
+
+cd D:\Source\AI
+
+Clone the repository:
+
+git clone https://github.com/jones-antony/antelle.com.git
+
+Move into the Astro site:
+
+cd .\antelle.com\Site
+
+Install dependencies:
+
+npm install
+
+Start the local development server:
+
+npm run dev
+
+Open the local site:
+
+http://127.0.0.1:4321/
+
+
+Build Check
+-----------
+Run this before committing substantial changes:
+
+npm run build
+
+The built static site is generated in:
+
+Site\dist\
+
+
+Useful Git Commands
+-------------------
+Check current branch and local changes:
+
+git status --short --branch
+
+Show configured remotes:
+
+git remote -v
+
+Commit changes:
+
+git add Site/src docs
+git commit -m "Your commit message"
+
+Push the current working branch to the Antelle repository:
+
+git push jones-origin HEAD
+
+If the remote is not named jones-origin on the new machine, use:
+
+git push origin HEAD
+
+
+Notes
+-----
+- Production target is static IIS hosting.
+- Do not commit secrets or local environment files.
+- The site is maintained as Astro source under Site\src.
+- Run npm commands from the Site folder, not the repository root.
+- Current local review URL is normally http://127.0.0.1:4321/.

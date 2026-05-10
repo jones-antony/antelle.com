@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img">
+  <path d="M16 7h24l10 10v40H16Z" fill="#fff" stroke="#8dd8f8" stroke-linejoin="round" stroke-width="2"/>
+  <path d="M40 7v11h10" fill="#8dd8f8"/>
+  <text x="33" y="39" text-anchor="middle" fill="#0072bc" font-family="Arial, sans-serif" font-size="12" font-weight="700">XML</text>
+</svg>

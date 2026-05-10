@@ -1,11 +1,11 @@
 # Codex handover
 
-Last updated: 2026-05-09
+Last updated: 2026-05-10
 
 ## Current branch
 
 - Branch: `codex/consultancy-bi-page-updates`
-- Baseline working-state commit before this handover was added: `ceef958 Refresh site content and organise assets`
+- Baseline working-state commit before this handover was updated: `ceef958 Refresh site content and organise assets`
 - Repository: `https://github.com/jones-antony/antelle.com`
 
 ## Handover rule
@@ -44,6 +44,21 @@ npm run build
 
 ## Recent changes
 
+- Added the completed-project icon catalogue in `Site/src/data/projectIcons.ts` and the development review page at `/dev/projecticons/`.
+- Replaced completed-project legacy sprite icons with maintained SVG icons under `Site/public/assets/images/icons/completed-projects/`.
+- Updated completed-project detail pages so the “Back to all completed projects” control is a clearer Antelle-styled button.
+- Updated `/experience/completed-projects/` so project tiles are full-card links and tile summaries no longer show “Why it is relevant”.
+- Added the shared completed-project tile styling rule to `ProjectCards.astro`; service-page project tiles should use the same pattern if reintroduced later.
+- Removed completed-project card sections from maintained service pages and replaced them with a shared `Explore Projects` CTA.
+- Added `ExploreProjectsCta.astro` and used it across maintained service pages.
+- Reworked service pages during the current pass, including Power Platform, AI and Agentic Services, Dynamics CRM, Software Development and Web Development copy/layout updates.
+- Added Portal Development as a Web Development key area.
+- Renamed the ISO 27001 page to `/informationsecurity/`, retained `/iso-27001/` as a redirect, and fixed the Information Security page icon rendering.
+- Marked `/informationsecurity/` complete in the development site map.
+- Marked the Earlier Work completed-project entries complete in the development site map.
+- Adjusted `/experience/past-experience/` icon sizing and added `Contact Us` / `Explore Projects` buttons near the overview content.
+- Replaced homepage client logo slots using the supplied client logos and marked the home page complete in the site map.
+- Added `docs/new-machine-setup.txt` with new-machine prerequisites and clone instructions.
 - Added seven new completed project pages with boilerplate wording:
   - Dynamics CRM - Grants and Awards
   - Dynamics CRM - Regulatory System
@@ -99,19 +114,19 @@ The development site map is at:
 
 Pages currently marked complete:
 
+- Home
 - Past Experience
 - Core Skills
 - Completed Projects
 - Careers
 - About Antelle
 - Privacy Policy
+- Information Security
 
 Pages still needing review or completion include:
 
-- Home
 - Services and service detail pages
 - Contact
-- Information Security
 - Site Map itself
 - Individual completed project detail pages, unless the owner later signs off the boilerplate pages
 
@@ -125,13 +140,13 @@ Pages still needing review or completion include:
 
 ## Known follow-ups
 
-- Review and place the five new customer logo PNG files when the owner confirms which placeholders they replace.
 - Continue page-by-page review from the development site map.
 - The contact form remains static/mirrored and still needs the planned Azure Function backend.
 - Blog pages are still parked and not generated.
 - SEO redirects for retired blog/content paths still need definition before production deployment.
 - Some mirror-generated pages still contain old wording and should be reviewed before launch.
 - Consider checking the site map tick/cross characters in-browser after pulling on another machine; if any encoding issue appears, replace them with plain accessible inline SVG or CSS-generated symbols.
+- `gh` is not installed on this machine, so GitHub PR creation/auth checks were not available from the CLI during this push.
 
 ## Verification already run
 

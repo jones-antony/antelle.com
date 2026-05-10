@@ -100,6 +100,16 @@ Antelle should be positioned as a professional Microsoft technology software con
 
 Avoid exaggerated marketing claims. Prefer grounded, credible, professional language.
 
+## Completed project icons
+
+The development icon catalogue for completed project pages is available at `/dev/projecticons/`.
+
+When any completed-project skill, service surface or technology label is added or amended, update `Site/src/data/projectIcons.ts` so the completed project pages and `/dev/projecticons/` stay aligned.
+
+## Completed project cards
+
+Completed project tiles must use the shared `ProjectCards.astro` card pattern used by `/experience/completed-projects/`. When completed projects are surfaced on service pages, use the same whole-tile click behaviour and visual styling rather than a separate inline “Our Solution” link pattern.
+
 ## Safety and accuracy rules
 
 Do not fabricate facts. Where content is missing or uncertain, mark it clearly as needing owner input.

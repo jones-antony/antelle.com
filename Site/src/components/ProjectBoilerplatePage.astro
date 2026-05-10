@@ -16,6 +16,7 @@ if (!project) {
 
 const canonicalUrl = `https://www.antelle.com${getProjectHref(project)}`;
 const description = `${project.title} completed project placeholder for Antelle IT Ltd.`;
+const iconRoot = '/assets/images/icons/completed-projects';
 
 const structuredData = {
   '@context': 'https://schema.org',
@@ -37,8 +38,8 @@ const structuredData = {
     <section class="project-header row">
       <div class="col-12">
         <a class="back-control" href="/experience/completed-projects/">
-          <span class="nc-icon nc-arrow-left" aria-hidden="true"></span>
-          Completed Projects
+          <span class="back-arrow" aria-hidden="true">&larr;</span>
+          <span>Back to all completed projects</span>
         </a>
         <h1>{project.title}</h1>
         <p class="header-text light">{project.summary}</p>
@@ -47,7 +48,10 @@ const structuredData = {
 
     <section class="row">
       <div class="col-12 col-md-6">
-        <h2>Project Brief</h2>
+        <h2 class="project-section-heading">
+          <img src={`${iconRoot}/project-brief.svg`} alt="" aria-hidden="true" />
+          Project Brief
+        </h2>
         <p>
           This page has been added as a placeholder for a completed {category} project. The final wording should confirm
           the client context, business problem, scope and measurable outcome before publication.
@@ -57,7 +61,10 @@ const structuredData = {
         </p>
       </div>
       <div class="col-12 col-md-6">
-        <h2>Our Solution</h2>
+        <h2 class="project-section-heading">
+          <img src={`${iconRoot}/solution-implemented.svg`} alt="" aria-hidden="true" />
+          Our Solution
+        </h2>
         <p>
           Antelle's role, technical approach and delivery responsibilities are to be confirmed. Final copy should remain
           factual, avoid naming clients unless approved, and describe the practical business value delivered.
@@ -72,10 +79,22 @@ const structuredData = {
       <div class="col-12">
         <h2>Services Provided</h2>
         <ul>
-          <li><span>Requirements review and scope confirmation</span></li>
-          <li><span>Solution design and technical delivery</span></li>
-          <li><span>Integration, data or workflow support where applicable</span></li>
-          <li><span>Testing, handover and post-delivery support</span></li>
+          <li>
+            <img class="icon-img" src={`${iconRoot}/analysis-design.svg`} alt="" aria-hidden="true" />
+            <span>Requirements review and scope confirmation</span>
+          </li>
+          <li>
+            <img class="icon-img" src={`${iconRoot}/development.svg`} alt="" aria-hidden="true" />
+            <span>Solution design and technical delivery</span>
+          </li>
+          <li>
+            <img class="icon-img" src={`${iconRoot}/jigsaw-integration.svg`} alt="" aria-hidden="true" />
+            <span>Integration, data or workflow support where applicable</span>
+          </li>
+          <li>
+            <img class="icon-img" src={`${iconRoot}/project-management.svg`} alt="" aria-hidden="true" />
+            <span>Testing, handover and post-delivery support</span>
+          </li>
         </ul>
       </div>
     </section>
@@ -92,5 +111,60 @@ const structuredData = {
     font-weight: 700;
     line-height: 1.5;
     padding: 0.1rem 0.25rem;
+  }
+
+  .project-header a.back-control {
+    align-items: center;
+    background: #0072bc;
+    border: 2px solid #0072bc;
+    border-radius: 3px;
+    box-shadow: 0 6px 14px rgba(52, 64, 75, 0.12);
+    color: #ffffff;
+    display: inline-flex;
+    font-family: 'UniversNextPro-Bold', arial, sans-serif;
+    gap: 0.5rem;
+    margin: 0 0 2.5rem;
+    padding: 0.7rem 1rem;
+    text-align: left;
+  }
+
+  .project-header a.back-control:hover,
+  .project-header a.back-control:focus {
+    background: rgba(0, 114, 188, 0.75);
+    border-color: transparent;
+    color: #ffffff;
+  }
+
+  .project-header a.back-control .nc-icon {
+    margin-right: 0;
+  }
+
+  .project-header a.back-control .back-arrow {
+    font-size: 1.2rem;
+    line-height: 1;
+  }
+
+  @media (max-width: 576px) {
+    .project-header a.back-control {
+      width: 100%;
+    }
+  }
+
+  .project-section-heading {
+    align-items: center;
+    display: flex;
+    gap: 0.75rem;
+  }
+
+  .project-section-heading img {
+    height: 2.5rem;
+    width: 2.5rem;
+  }
+
+  .services-provided .icon-img {
+    height: 2.5rem;
+    margin-right: 1.25rem;
+    vertical-align: middle;
+    width: 2.5rem;
   }
 </style>

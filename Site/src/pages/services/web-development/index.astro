@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import OtherServices from '../../../components/OtherServices.astro';
-import ServiceCompletedProjects from '../../../components/ServiceCompletedProjects.astro';
+import ExploreProjectsCta from '../../../components/ExploreProjectsCta.astro';
 
 const structuredData = {
   '@context': 'https://schema.org',
@@ -9,15 +9,22 @@ const structuredData = {
   name: 'Antelle IT Ltd',
   url: 'https://www.antelle.com/services/web-development/',
   areaServed: 'Isle of Man',
-  serviceType: ['Web development', 'Web applications', 'Static site development', 'Power Pages', 'Website integration'],
+  serviceType: [
+    'Web development',
+    'Web applications',
+    'Portal development',
+    'Static site development',
+    'Power Pages',
+    'Website integration'
+  ],
   description:
-    'Web development consultancy and delivery for maintainable websites, secure web applications, Power Pages and integrations.'
+    'Web development consultancy and delivery for maintainable websites, secure web applications, portals, Power Pages and integrations.'
 };
 ---
 
 <BaseLayout
   title="Web Development | Antelle IT Ltd"
-  description="Web development from Antelle IT Ltd, covering maintainable websites, secure web applications, Power Pages and integrations."
+  description="Web development from Antelle IT Ltd, covering maintainable websites, secure web applications, portals, Power Pages and integrations."
   pageClass="services"
   canonicalUrl="https://www.antelle.com/services/web-development/"
   structuredData={structuredData}
@@ -27,7 +34,7 @@ const structuredData = {
       <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
         <h1 class="subheader-text">Web Development</h1>
         <p class="header-text light">
-          Secure, maintainable web applications, websites, Power Pages and integrations built around practical hosting and support requirements.
+          Secure, maintainable web applications, websites, portals, Power Pages and integrations built around practical hosting and support requirements.
         </p>
         <a href="/contact/" class="cta cta-large">Discuss a Web Requirement</a>
       </div>
@@ -58,8 +65,8 @@ const structuredData = {
           business process, integrating systems, or giving customers a reliable online service.
         </p>
         <p>
-          We can help with maintainable web applications, static site delivery, Microsoft Power Pages, integrations and
-          practical hosting decisions.
+          We can help with maintainable web applications, portal development, static site delivery, Microsoft Power
+          Pages, integrations and practical hosting decisions.
         </p>
       </div>
       <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
@@ -88,6 +95,25 @@ const structuredData = {
             Application-style web interfaces for controlled data capture, workflow and operational processes. These may
             support internal teams, customer-facing services or back-office administration where reliability, validation
             and clear user journeys matter.
+          </p>
+        </div>
+      </div>
+      <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+        <div class="item service-focus-card">
+          <svg class="content-icon" aria-hidden="true" focusable="false" viewBox="0 0 64 64">
+            <rect class="visual-panel" x="8" y="11" width="48" height="42" rx="5" />
+            <path class="visual-accent-line" d="M8 24h48" />
+            <rect class="visual-dark" x="16" y="31" width="13" height="13" rx="2" />
+            <rect class="visual-mid" x="35" y="31" width="13" height="13" rx="2" />
+            <path class="visual-line" d="M22 18h1M31 18h1M40 18h1" />
+            <path class="visual-accent-line" d="M29 38h6" />
+          </svg>
+          <h3>Portal Development</h3>
+          <p>
+            B2C and B2B portal development for customers, partners, suppliers and operational users who need secure
+            self-service access to forms, documents, status information or business processes. We focus on clear user
+            journeys, sensible authentication, controlled permissions and integration with the systems that hold the
+            underlying data.
           </p>
         </div>
       </div>
@@ -153,7 +179,7 @@ const structuredData = {
       </div>
     </section>
 
-    <ServiceCompletedProjects />
+    <ExploreProjectsCta />
 
     <OtherServices currentPath="/services/web-development/" />
   </div>

@@ -83,7 +83,7 @@ const structuredData = {
           Current and more recent examples that are being prepared as maintained project summaries.
         </p>
       </div>
-      <ProjectCards projects={recentProjects} withArrow />
+      <ProjectCards projects={recentProjects} wholeTileLink showRelevance={false} />
     </section>
 
     <section class="completed-projects row" id="earlier-work">
@@ -93,7 +93,7 @@ const structuredData = {
           Earlier examples retained from the existing site while their public wording and long-term relevance are reviewed.
         </p>
       </div>
-      <ProjectCards projects={earlierProjects} withArrow />
+      <ProjectCards projects={earlierProjects} wholeTileLink showRelevance={false} />
     </section>
   </div>
 </BaseLayout>

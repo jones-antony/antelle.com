@@ -3,18 +3,73 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import { getMirrorPage, getMirrorPageSlugs } from '../lib/mirror-pages';
 
 export function getStaticPaths() {
-  return getMirrorPageSlugs().map((slug) => ({
-    params: { slug },
-    props: { page: getMirrorPage(slug) }
-  }));
+  const legacyRedirects = new Map<string, { destination: string; title: string }>([
+    ['experience/completed-projects/advanced-mailing-and-data-transformation-system', { destination: '/experience/completed-projects/', title: 'Completed Projects' }],
+    ['experience/completed-projects/all-island-rates-system', { destination: '/experience/completed-projects/', title: 'Completed Projects' }],
+    ['experience/completed-projects/custom-share-register', { destination: '/experience/completed-projects/', title: 'Completed Projects' }],
+    ['experience/completed-projects/hmrc-p11d-generation', { destination: '/experience/completed-projects/', title: 'Completed Projects' }],
+    ['experience/completed-projects/laserfiche-email-archiving', { destination: '/experience/completed-projects/', title: 'Completed Projects' }],
+    ['experience/completed-projects/legal-practice-application-migration', { destination: '/experience/completed-projects/', title: 'Completed Projects' }],
+    ['experience/completed-projects/microsoft-retail-management-implementation', { destination: '/experience/completed-projects/', title: 'Completed Projects' }],
+    ['experience/completed-projects/microsoft-rms-postcode-lookup', { destination: '/experience/completed-projects/', title: 'Completed Projects' }],
+    ['experience/completed-projects/outsourced-payroll-systems', { destination: '/experience/completed-projects/', title: 'Completed Projects' }],
+    ['experience/completed-projects/prepaid-credit-card-mis', { destination: '/experience/completed-projects/', title: 'Completed Projects' }],
+    ['experience/completed-projects/property-and-tenant-management', { destination: '/experience/completed-projects/', title: 'Completed Projects' }],
+    ['experience/completed-projects/rms-real-time-stock-lookup', { destination: '/experience/completed-projects/', title: 'Completed Projects' }],
+    ['experience/completed-projects/time-recording-system', { destination: '/experience/completed-projects/', title: 'Completed Projects' }],
+    ['experience/completed-projects/unified-address-lookup-service', { destination: '/experience/completed-projects/', title: 'Completed Projects' }],
+    ['experience/completed-projects/wealth-management-mis', { destination: '/experience/completed-projects/', title: 'Completed Projects' }],
+    ['experience/completed-projects/windows-mobile-stock-management', { destination: '/experience/completed-projects/', title: 'Completed Projects' }],
+    ['services/business-intelligence/crystal-reports', { destination: '/services/business-intelligence/', title: 'Business Intelligence' }],
+    ['services/business-intelligence/dashboards-dashboarding', { destination: '/services/business-intelligence/', title: 'Business Intelligence' }],
+    ['services/business-intelligence/microsoft-sql-reporting-services', { destination: '/services/business-intelligence/', title: 'Business Intelligence' }],
+    ['services/microsoft-dynamics-crm/clickdimensions-e-marketing', { destination: '/services/microsoft-dynamics-crm/', title: 'Microsoft Dynamics CRM' }],
+    ['services/microsoft-dynamics-crm/crm-in-financial-services', { destination: '/services/microsoft-dynamics-crm/', title: 'Microsoft Dynamics CRM' }],
+    ['services/microsoft-dynamics-crm/crm-in-the-public-sector', { destination: '/services/microsoft-dynamics-crm/', title: 'Microsoft Dynamics CRM' }],
+    ['services/microsoft-dynamics-crm/crm-upgrade-support', { destination: '/services/microsoft-dynamics-crm/', title: 'Microsoft Dynamics CRM' }],
+    ['services/software-development/microsoft-sql-server', { destination: '/services/software-development/', title: 'Software Development' }],
+    ['services/software-development/net-development', { destination: '/services/software-development/', title: 'Software Development' }],
+    ['services/software-development/sage-line-50-customisation', { destination: '/services/software-development/', title: 'Software Development' }],
+    ['services/software-development/systems-integration', { destination: '/services/software-development/', title: 'Software Development' }],
+    ['services/web-development/design-services', { destination: '/services/web-development/', title: 'Web Development' }],
+    ['services/web-development/hosting-domain-registration', { destination: '/services/web-development/', title: 'Web Development' }],
+    ['services/web-development/umbraco-cms', { destination: '/services/web-development/', title: 'Web Development' }]
+  ]);
+
+  return getMirrorPageSlugs().map((slug) => {
+    const redirect = legacyRedirects.get(slug);
+
+    return {
+      params: { slug },
+      props: redirect ? { redirect } : { page: getMirrorPage(slug) }
+    };
+  });
 }
 
-const { page } = Astro.props;
+const { page, redirect } = Astro.props;
 ---
 
-<BaseLayout title={page.title} description={page.description} pageClass={page.pageClass}>
-  <div class="container" set:html={page.content} />
-</BaseLayout>
+{
+  redirect ? (
+    <html lang="en-GB">
+      <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="refresh" content={`0; url=${redirect.destination}`} />
+        <link rel="canonical" href={`https://www.antelle.com${redirect.destination}`} />
+        <title>{redirect.title} | Antelle IT Ltd</title>
+      </head>
+      <body>
+        <p>
+          This page has moved to <a href={redirect.destination}>{redirect.title}</a>.
+        </p>
+      </body>
+    </html>
+  ) : (
+    <BaseLayout title={page.title} description={page.description} pageClass={page.pageClass}>
+      <div class="container" set:html={page.content} />
+    </BaseLayout>
+  )
+}
 
 <style is:global>
   .experience.project .project-section-icon {
@@ -82,7 +137,7 @@ const { page } = Astro.props;
     box-shadow: 0 6px 14px rgba(52, 64, 75, 0.12);
     color: #ffffff;
     display: inline-flex;
-    font-family: 'UniversNextPro-Bold', arial, sans-serif;
+    font-family: 'AntelleSans-Bold', arial, sans-serif;
     gap: 0.5rem;
     margin: 0 0 2.5rem;
     padding: 0.7rem 1rem;

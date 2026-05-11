@@ -5,7 +5,7 @@ Last updated: 2026-05-11
 ## Current branch
 
 - Branch: `codex/consultancy-bi-page-updates`
-- Baseline working-state commit before this handover was updated: `184aa2b Refresh service and project pages`
+- Baseline working-state commit before this handover was updated: `cb2aafe Refresh completed project pages`
 - Repository: `https://github.com/jones-antony/antelle.com`
 
 ## Handover rule
@@ -90,6 +90,17 @@ npm run build
 - Expanded `/dev/projecticons/` and `Site/src/data/projectIcons.ts` with new service/technology icons including App Modernisation, Power Platform, Dataverse, Power Apps, Power BI, SSIS, SFTP, SMTP Email Notifications, Azure Insights and Monitoring, and Azure Key Vault.
 - Renamed the project service label `Database Design` to `Data Modelling` while retaining the existing database icon.
 - Marked all current completed project detail pages complete in the development site map.
+- Redirected mirror-derived legacy exposure pages to maintained pages: old service child pages redirect to their parent service pages, old Earlier Work project detail pages redirect to the completed projects landing page, and the Business Improvement Scheme signposting page redirects to Consultancy. The contact page remains a real page for later rebuild work.
+- Marked `/services/consultancy/` complete again in the development site map after review.
+- Removed the broad legacy-content outstanding rows after replacing the exposed mirror pages with redirects.
+- Replaced active Univers Next Pro/MyFonts font usage with self-hosted Source Sans 3 and removed the active legacy Univers font files.
+- Added `Site/public/assets/fonts.css` and Source Sans 3 WOFF2 assets under `Site/public/assets/fonts/source-sans-3/`.
+- Added a postbuild cleanup script so development-only `/dev/*` output is removed from `dist/` after static builds.
+- Added the development-only site map at `/dev/site-map/`, including page sign-off state and the shared outstanding-items table from `Site/src/data/outstandingItems.ts`.
+- Restored the public site map as a plain sitemap without development ticks/crosses.
+- Removed AI and Agentic Services from the public nav/data while keeping a skeleton under `_ai-agentic-services` for future use.
+- Removed old Universal Analytics as a launch concern; added a planned follow-up to consider analytics options after launch if needed.
+- Restarted the local Astro dev server and verified `/contact/` is a real page again, with nav, sitemap and CTA links pointing to `/contact/`.
 
 ## Asset structure
 
@@ -123,7 +134,7 @@ Site/public/assets/legacy/
 
 The development site map is at:
 
-`/about/site-map/`
+`/dev/site-map/`
 
 Pages currently marked complete:
 
@@ -136,12 +147,14 @@ Pages currently marked complete:
 - About Antelle
 - Privacy Policy
 - Information Security
+- Consultancy
 
 Pages still needing review or completion include:
 
-- Services and service detail pages
 - Contact
-- Site Map itself
+- Public Site Map
+
+Known follow-up work is now also surfaced in the Outstanding Items table on `/dev/site-map/`. Maintain that table from `Site/src/data/outstandingItems.ts`.
 
 ## Content and accuracy rules
 
@@ -156,11 +169,8 @@ Pages still needing review or completion include:
 ## Known follow-ups
 
 - Continue page-by-page review from the development site map.
-- The contact form remains static/mirrored and still needs the planned Azure Function backend.
+- Track non-page follow-ups in `Site/src/data/outstandingItems.ts`, which renders the Outstanding Items table on `/dev/site-map/`.
 - Blog pages are still parked and not generated.
-- SEO redirects for retired blog/content paths still need definition before production deployment.
-- Some mirror-generated pages still contain old wording and should be reviewed before launch.
-- Consider checking the site map tick/cross characters in-browser after pulling on another machine; if any encoding issue appears, replace them with plain accessible inline SVG or CSS-generated symbols.
 - `gh` is not installed on this machine, so GitHub PR creation/auth checks were not available from the CLI during this push.
 
 ## Verification already run

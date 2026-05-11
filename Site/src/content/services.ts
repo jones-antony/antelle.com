@@ -7,13 +7,6 @@ export type ServiceLink = {
 
 export const services: ServiceLink[] = [
   {
-    title: 'AI and Agentic Services',
-    href: '/services/ai-agentic-services/',
-    icon: 'images/icons/services/icon-ai-agentic-services.svg',
-    summary:
-      'Practical advisory and implementation support for AI-assisted workflows, agentic services and Microsoft-aligned automation where governance and business fit are clear.'
-  },
-  {
     title: 'Power Platform',
     href: '/services/power-platform/',
     icon: 'images/icons/services/icon-power-platform.svg',

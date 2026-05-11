@@ -91,6 +91,14 @@ Before pushing meaningful site changes to GitHub, update `docs/CODEX_HANDOVER.md
 
 This keeps Codex sessions resumable across machines and avoids relying on chat history as the only project memory.
 
+## Development site map
+
+The rebuild status site map is a local development tool at `/dev/site-map/`. It is not part of the public site navigation and the build cleanup removes `Site/dist/dev` so development-only pages are not published.
+
+When a page is created or meaningfully changed, its development site map status should show as needing review unless it is explicitly marked as done, complete or signed off.
+
+Known follow-up work that is not tied to a single page is shown in the Outstanding Items table on `/dev/site-map/`. Maintain the source list in `Site/src/data/outstandingItems.ts`; when an item is resolved, remove it from that data file and update any matching doc note in the same change.
+
 ## Completed project pages
 
 Completed project detail pages should follow the established older-project template used by `/experience/completed-projects/windows-mobile-stock-management/`: project header, project subnavigation, `Project Brief`, `Solution Implemented`, `Services Provided` and `Technologies Used`.

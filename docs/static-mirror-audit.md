@@ -120,7 +120,7 @@ File type summary:
 | `.png` | 111 | Icons, page graphics, client logos and screenshots |
 | `.jpg` | 15 | Client logos and content images |
 | `.svg` | 6 | Logo and splash graphics |
-| `.woff`, `.woff2`, `.ttf`, `.eot` | 24 plus 6 `.eot@` files | Font set referenced by CSS |
+| `.woff`, `.woff2`, `.ttf`, `.eot` | Original mirror included 24 plus 6 `.eot@` files | Legacy Univers Next Pro font set from the mirrored site |
 | `.pdf` | 1 | `media/1589/information-security-policy-external.pdf` |
 | `.css` | 1 | Umbraco dependency-handler bundle |
 | `.txt` | 1 | `robots.txt` |
@@ -128,7 +128,7 @@ File type summary:
 
 The CSS bundle appears to include Bootstrap CSS and a custom stylesheet. The JavaScript bundle appears to include jQuery 3.2.1, Popper, Bootstrap, cookie warning script, browser warning script and custom scripts.
 
-The CSS references `https://hello.myfonts.net/count/34adca.css` and local font files under `fonts/`. The external MyFonts tracking/import should be reviewed before the static build is finalised.
+The original mirrored CSS referenced `https://hello.myfonts.net/count/34adca.css` and local Univers Next Pro font files. The maintained Astro site now replaces those active font assets with self-hosted Source Sans 3.
 
 ## Broken or Suspicious Links
 
@@ -308,7 +308,7 @@ Asset considerations:
 - Keep the original `media/` assets available during parity conversion.
 - Replace query-derived image filenames with normal filenames where the actual dimensions are acceptable.
 - Preserve `alt` text during conversion. A static scan did not find images without an `alt` attribute, but several images have empty `alt=""`, especially inline blog images. These should be reviewed for meaningful content images.
-- Preserve or replace the current font licensing/import arrangement. [OWNER INPUT REQUIRED: confirm whether Antelle has current rights to self-host the Univers Next Pro font files.]
+- Font licensing issue resolved for the maintained Astro site by replacing active Univers Next Pro assets with self-hosted Source Sans 3.
 
 ## Recommended Fixes Before Conversion
 
@@ -318,7 +318,7 @@ Asset considerations:
 4. Replace contact form behaviour with a documented Azure Function contract.
 5. Remove the Umbraco `ufprt` dependency from the future contact form.
 6. Confirm spam protection approach for the new form.
-7. Decide whether to retain Google Analytics UA tracking, migrate to GA4, or remove analytics. [OWNER INPUT REQUIRED: confirm analytics requirement.]
+7. Old Universal Analytics tracking should not be carried forward. Consider GA4 or a privacy-focused analytics option after launch if reporting needs justify it.
 8. Decide whether Google Maps embed should stay and whether the exposed API key is still valid and appropriately restricted.
 9. Replace or explicitly document all external dynamic blog images from `blog.antelle.com`.
 10. Fix malformed `https:twitter.com` share links if blog sharing is retained.
@@ -336,7 +336,6 @@ Asset considerations:
 - Should the old Google Analytics UA property be replaced with GA4?
 - Should Google reCAPTCHA be retained for the Azure Function contact form?
 - Is the current Google Maps API key restricted and approved for reuse?
-- Are the Univers Next Pro font files licensed for self-hosting in the new static site?
 - Are all named clients, partner references, Microsoft partner claims and accreditation references still approved for publication?
 - Should `/services/web-development/umbraco-cms/` remain as an active service page, an archived page, or be redirected later?
 - Is there access to production logs, Search Console or the old Umbraco sitemap to validate URLs not captured by this mirror?

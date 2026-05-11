@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
+    "postbuild": "node scripts/remove-dev-output.mjs",
     "preview": "astro preview"
   },
   "dependencies": {

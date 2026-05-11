@@ -6,18 +6,21 @@ import { services } from '../../../content/services';
 type SiteMapNode = {
   title: string;
   href?: string;
-  complete?: boolean;
   children?: SiteMapNode[];
 };
 
-const completedProjects: SiteMapNode[] = projectEntries.map((project) => ({
+const recentProjects: SiteMapNode[] = projectEntries.filter((project) => project.collection === 'recent').map((project) => ({
   title: project.title,
-  href: getProjectHref(project),
-  complete: true
+  href: getProjectHref(project)
+}));
+
+const earlierProjects: SiteMapNode[] = projectEntries.filter((project) => project.collection === 'earlier').map((project) => ({
+  title: project.title,
+  href: getProjectHref(project)
 }));
 
 const nodes: SiteMapNode[] = [
-  { title: 'Home', href: '/', complete: true },
+  { title: 'Home', href: '/' },
   {
     title: 'Services',
     children: services.map((service) => ({
@@ -28,27 +31,29 @@ const nodes: SiteMapNode[] = [
   {
     title: 'Experience',
     children: [
-      { title: 'Past Experience', href: '/experience/past-experience/', complete: true },
-      { title: 'Core Skills', href: '/experience/core-skills/', complete: true },
+      { title: 'Past Experience', href: '/experience/past-experience/' },
+      { title: 'Core Skills', href: '/experience/core-skills/' },
       {
         title: 'Completed Projects',
         href: '/experience/completed-projects/',
-        complete: true,
-        children: completedProjects
+        children: [
+          { title: 'Recent Work', children: recentProjects },
+          { title: 'Earlier Work', children: earlierProjects }
+        ]
       }
     ]
   },
-  { title: 'Careers', href: '/careers/', complete: true },
+  { title: 'Careers', href: '/careers/' },
   {
     title: 'About',
     children: [
-      { title: 'About Antelle', href: '/about/', complete: true },
+      { title: 'About Antelle', href: '/about/' },
       { title: 'Site Map', href: '/about/site-map/' }
     ]
   },
   { title: 'Contact', href: '/contact/' },
-  { title: 'Information Security', href: '/informationsecurity/', complete: true },
-  { title: 'Privacy Policy', href: '/privacy-policy/', complete: true }
+  { title: 'Information Security', href: '/informationsecurity/' },
+  { title: 'Privacy Policy', href: '/privacy-policy/' }
 ];
 
 const structuredData = {
@@ -56,13 +61,13 @@ const structuredData = {
   '@type': 'WebPage',
   name: 'Site Map',
   url: 'https://www.antelle.com/about/site-map/',
-  description: 'Development sitemap for the Antelle website rebuild.'
+  description: 'Site map for the Antelle website.'
 };
 ---
 
 <BaseLayout
   title="Site Map | Antelle IT Ltd"
-  description="Development sitemap for the Antelle website rebuild."
+  description="Site map for the Antelle website."
   pageClass="about sitemap-page"
   canonicalUrl="https://www.antelle.com/about/site-map/"
   structuredData={structuredData}
@@ -72,22 +77,8 @@ const structuredData = {
       <div class="col-12 col-sm-12 col-md-12 col-lg-8 col-xl-8">
         <h1 class="subheader-text">Site Map</h1>
         <p class="header-text light">
-          A development view of the rebuilt site structure and page sign-off status.
+          A straightforward guide to the main pages on the Antelle website.
         </p>
-      </div>
-    </section>
-
-    <section class="sector row sitemap-status" aria-label="Completion status legend">
-      <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
-        <h2>Rebuild Status</h2>
-        <p>
-          This page is being used as a temporary visual tool during the rebuild. A tick means the page has been signed
-          off. A cross means the page still needs review or further editing.
-        </p>
-      </div>
-      <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 legend">
-        <span class="status-pill complete"><span aria-hidden="true">✓</span> Signed off</span>
-        <span class="status-pill incomplete"><span aria-hidden="true">×</span> Needs review</span>
       </div>
     </section>
 
@@ -98,35 +89,33 @@ const structuredData = {
           {
             nodes.map((node) => (
               <li>
-                <span class={node.complete ? 'status-icon complete' : 'status-icon incomplete'} aria-label={node.complete ? 'Signed off' : 'Needs review'}>
-                  {node.complete ? '✓' : '×'}
-                </span>
                 {node.href ? <a href={node.href}>{node.title}</a> : <span class="node-label">{node.title}</span>}
                 {node.children && (
                   <ul class="site-node-list">
                     {node.children.map((child) => (
                       <li>
-                        <span
-                          class={child.complete ? 'status-icon complete' : 'status-icon incomplete'}
-                          aria-label={child.complete ? 'Signed off' : 'Needs review'}
-                        >
-                          {child.complete ? '✓' : '×'}
-                        </span>
                         {child.href ? <a href={child.href}>{child.title}</a> : <span class="node-label">{child.title}</span>}
                         {child.children && (
                           <ul class="site-node-list">
                             {child.children.map((grandchild) => (
                               <li>
-                                <span
-                                  class={grandchild.complete ? 'status-icon complete' : 'status-icon incomplete'}
-                                  aria-label={grandchild.complete ? 'Signed off' : 'Needs review'}
-                                >
-                                  {grandchild.complete ? '✓' : '×'}
-                                </span>
                                 {grandchild.href ? (
                                   <a href={grandchild.href}>{grandchild.title}</a>
                                 ) : (
                                   <span class="node-label">{grandchild.title}</span>
+                                )}
+                                {grandchild.children && (
+                                  <ul class="site-node-list">
+                                    {grandchild.children.map((greatGrandchild) => (
+                                      <li>
+                                        {greatGrandchild.href ? (
+                                          <a href={greatGrandchild.href}>{greatGrandchild.title}</a>
+                                        ) : (
+                                          <span class="node-label">{greatGrandchild.title}</span>
+                                        )}
+                                      </li>
+                                    ))}
+                                  </ul>
                                 )}
                               </li>
                             ))}
@@ -146,24 +135,8 @@ const structuredData = {
 </BaseLayout>
 
 <style is:global>
-  .sitemap-page .sitemap-status {
+  .sitemap-page .sitemap-tree {
     padding-top: 4rem;
-  }
-
-  .sitemap-page .legend {
-    align-items: flex-start;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    justify-content: center;
-  }
-
-  .sitemap-page .status-pill {
-    align-items: center;
-    border: 1px solid rgba(0, 114, 188, 0.2);
-    display: inline-flex;
-    gap: 0.75rem;
-    padding: 0.75rem 1rem;
   }
 
   .sitemap-page .site-node-list {
@@ -187,27 +160,8 @@ const structuredData = {
     display: none;
   }
 
-  .sitemap-page .status-icon {
-    display: inline-flex;
-    font-family: 'UniversNextPro-Bold', arial, sans-serif;
-    font-size: 1.5em;
-    line-height: 1;
-    margin-right: 0.75rem;
-    width: 1.1em;
-  }
-
-  .sitemap-page .complete {
-    background: transparent;
-    color: #2e7d32;
-  }
-
-  .sitemap-page .incomplete {
-    background: transparent;
-    color: #c62828;
-  }
-
   .sitemap-page .node-label {
     color: #343f4b;
-    font-family: 'UniversNextPro-Bold', arial, sans-serif;
+    font-family: 'AntelleSans-Bold', arial, sans-serif;
   }
 </style>

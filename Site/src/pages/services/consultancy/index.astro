@@ -6,6 +6,7 @@ import ExploreProjectsCta from '../../../components/ExploreProjectsCta.astro';
 const asset = (path: string) => `/assets/${path}`;
 
 const keyAreas = [
+  'Short-term, temporary and fractional CTO support',
   'Microsoft CRM design and implementation',
   'Power Automate workflow design',
   'Dataverse data model and reporting advice',
@@ -24,7 +25,13 @@ const structuredData = {
   name: 'Antelle IT Ltd',
   url: 'https://www.antelle.com/services/consultancy/',
   areaServed: 'Isle of Man',
-  serviceType: ['IT consultancy', 'Microsoft technology consultancy', 'Systems integration consultancy'],
+  serviceType: [
+    'IT consultancy',
+    'Microsoft technology consultancy',
+    'Systems integration consultancy',
+    'Fractional CTO support',
+    'Temporary CTO support'
+  ],
   description: 'Practical IT consultancy for Microsoft technology, systems integration and business process improvement.'
 };
 ---
@@ -89,6 +96,11 @@ const structuredData = {
             We can help with early-stage requirements, system reviews, data and database concerns, supplier or procurement
             support, and the practical steps needed to move from idea to deliverable work.
           </p>
+          <p>
+            We can also provide short-term, temporary or fractional CTO support where an organisation needs experienced
+            technology leadership for a defined period, a specific programme of change, or regular senior input into IT
+            strategy and governance without appointing a full-time technology lead.
+          </p>
         </div>
       </div>
     </section>
@@ -117,6 +129,24 @@ const structuredData = {
       <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
         <div class="item service-focus-card">
           <svg class="content-icon" aria-hidden="true" focusable="false" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+            <rect class="visual-panel" x="8" y="10" width="48" height="42" rx="5" />
+            <path class="visual-line" d="M20 24h24M20 34h16" />
+            <circle class="visual-mid" cx="45" cy="41" r="8" />
+            <path class="visual-tick" d="M41 41l3 3 7-9" />
+          </svg>
+          <h3>Short-Term and Fractional CTO Support</h3>
+          <p>
+            Some organisations need senior technology input before they need, or can justify, a permanent CTO. We can
+            help with technology planning, delivery oversight, supplier conversations, risk review, governance and
+            practical decision-making on a short-term, temporary or fractional basis. This can include regular
+            participation in technology planning and steering discussions where independent, experienced advice is
+            needed to keep IT activity aligned with business priorities.
+          </p>
+        </div>
+      </div>
+      <div class="col-12">
+        <div class="item service-focus-card">
+          <svg class="content-icon" aria-hidden="true" focusable="false" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
             <rect class="visual-dark" x="7" y="8" width="22" height="22" rx="3" />
             <rect class="visual-accent" x="35" y="8" width="22" height="22" rx="3" />
             <rect class="visual-mid" x="7" y="36" width="22" height="22" rx="3" />
@@ -128,20 +158,6 @@ const structuredData = {
             {keyAreas.map((area) => <li><span>{area}</span></li>)}
           </ul>
         </div>
-      </div>
-    </section>
-
-    <section class="sector row" id="grant-scheme-signposting">
-      <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-        <div class="col-sub-header col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-          <h2>Grant Scheme Signposting</h2>
-        </div>
-        <p>
-          Some Isle of Man businesses may be able to access external support schemes for qualifying improvement projects.
-          We have moved the Business Improvement Scheme information onto a separate signposting page so this Consultancy
-          page can stay focused on advisory work.
-        </p>
-        <a href="/services/consultancy/business-improvement-scheme/" class="cta cta-secondary">View Grant Scheme Signposting</a>
       </div>
     </section>
 
@@ -279,16 +295,5 @@ const structuredData = {
 
   .visual-dark {
     fill: #0072bc;
-  }
-
-  .owner-note {
-    background: #fff59d;
-    color: #7a5a00;
-    display: inline;
-    font-weight: 700;
-    line-height: 1.5;
-    padding: 0.1rem 0.25rem;
-    box-decoration-break: clone;
-    -webkit-box-decoration-break: clone;
   }
 </style>

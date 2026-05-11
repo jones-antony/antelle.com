@@ -100,6 +100,16 @@ Antelle should be positioned as a professional Microsoft technology software con
 
 Avoid exaggerated marketing claims. Prefer grounded, credible, professional language.
 
+## Development site map and sign-off
+
+The rebuild status site map is a development-only tool. Keep it under `/dev/site-map/` and do not link to it from public navigation, footer links or public pages.
+
+The production build must not publish development-only `/dev` pages. The Astro build is followed by a cleanup step that removes `Site/dist/dev`.
+
+When Codex creates a new page or makes meaningful content/layout changes to an existing page, the relevant item on the development site map should default to "Needs review" unless the user explicitly says to mark it as done, complete or signed off.
+
+Known follow-up work that is not tied to a single page should be surfaced in the Outstanding Items table on `/dev/site-map/`. The source data is `Site/src/data/outstandingItems.ts`. When a follow-up is resolved, remove it from that data file and remove or update any matching note in the docs during the same change.
+
 ## Completed project icons
 
 The development icon catalogue for completed project pages is available at `/dev/projecticons/`.

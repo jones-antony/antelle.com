@@ -1,0 +1,295 @@
+---
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import { completedProjects, getProjectHref } from '../../../../content/projects';
+
+const project = completedProjects.find(
+  (item) => item.slug === 'dynamics-crm-unified-regulatory-management-platform'
+);
+
+if (!project) {
+  throw new Error('Unified Regulatory Management Platform project metadata is missing.');
+}
+
+const projectHref = getProjectHref(project);
+const canonicalUrl = `https://www.antelle.com${projectHref}`;
+const description =
+  'A Dynamics CRM-based unified regulatory management platform delivered for Isle of Man regulatory authorities.';
+const iconRoot = '/assets/images/icons/completed-projects';
+
+const servicesProvided = [
+  ['consultancy.svg', 'Consultancy'],
+  ['development.svg', 'Development'],
+  ['training.svg', 'Hands On Training'],
+  ['reporting.svg', 'Management Reporting'],
+  ['data-conversion.svg', 'Data Conversion'],
+  ['database-design.svg', 'Data Modelling'],
+  ['jigsaw-integration.svg', 'Systems Integration'],
+  ['analysis-design.svg', 'Analysis and System Design'],
+  ['project-management.svg', 'Project Management'],
+  ['api-design.svg', 'API Design']
+];
+
+const technologiesUsed = [
+  ['dotnet.svg', 'Microsoft .NET Framework'],
+  ['visual-studio.svg', 'Microsoft Visual Studio'],
+  ['api.svg', 'Web Service'],
+  ['restful-api.svg', 'RESTful API'],
+  ['sql-server.svg', 'Microsoft SQL Server'],
+  ['reporting-services.svg', 'Microsoft Reporting Services'],
+  ['custom-controls.svg', 'Custom Controls and Libraries'],
+  ['document-management.svg', 'Laserfiche Integration'],
+  ['csharp.svg', 'Microsoft C# .Net'],
+  ['dynamics-crm.svg', 'Microsoft Dynamics CRM']
+];
+
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'CreativeWork',
+  name: project.title,
+  url: canonicalUrl,
+  description
+};
+---
+
+<BaseLayout
+  title={`${project.title} | Antelle IT Ltd`}
+  description={description}
+  pageClass="experience project"
+  canonicalUrl={canonicalUrl}
+  structuredData={structuredData}
+>
+  <div class="container">
+    <header class="project-header row">
+      <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 text-center">
+        <a href="/experience/completed-projects/" class="back-control project-list-back">
+          <span class="back-arrow" aria-hidden="true">&larr;</span>
+          <span>Back to all completed projects</span>
+        </a>
+        <h1 class="display-text light">{project.title}</h1>
+        <h2 class="header-2-text light">Isle of Man regulatory authorities</h2>
+      </div>
+    </header>
+
+    <nav class="navbar subnavbar navbar-expand-sm sticky-top">
+      <button
+        class="navbar-toggler cta tertiary small"
+        type="button"
+        aria-controls="navbarSubNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        Toggle SubNavigation
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSubNav">
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-link" href={`${projectHref}#brief`}>
+              <img class="project-section-icon" src={`${iconRoot}/project-brief.svg`} alt="" aria-hidden="true" />
+              Project Brief
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href={`${projectHref}#solution`}>
+              <img
+                class="project-section-icon"
+                src={`${iconRoot}/solution-implemented.svg`}
+                alt=""
+                aria-hidden="true"
+              />
+              Solution Implemented
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href={`${projectHref}#services`}>
+              <img class="project-section-icon" src={`${iconRoot}/services-provided.svg`} alt="" aria-hidden="true" />
+              Services Provided
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href={`${projectHref}#technologies`}>
+              <img class="project-section-icon" src={`${iconRoot}/technologies-used.svg`} alt="" aria-hidden="true" />
+              Technologies Used
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="project-content row justify-content-center">
+      <div class="col-12 col-sm-12 col-md-11 col-lg-10 col-xl-9">
+        <section class="project-brief">
+          <h3 id="brief">Project Brief</h3>
+          <p>
+            Antelle was selected through a formal public-sector procurement process to design and deliver a unified
+            regulatory management platform for the Isle of Man Financial Supervision Authority and Gambling Supervision
+            Commission.
+          </p>
+          <p>
+            The objective was to replace fragmented legacy systems and manual processes with a single enterprise
+            platform capable of supporting the full regulatory lifecycle across both organisations. Although each
+            regulator operated independently, significant operational commonality existed across supervision, licensing,
+            enforcement, investigations, complaints handling, inspections, fitness and propriety assessments,
+            correspondence management and regulatory reporting.
+          </p>
+          <p>
+            Built on Microsoft Dynamics CRM on-premises, the programme sought to establish a consistent and scalable
+            regulatory operating model while providing a consolidated view of the Isle of Man regulatory landscape
+            across the participating authorities.
+          </p>
+        </section>
+
+        <section class="solution-implemented">
+          <h3 id="solution">Solution Implemented</h3>
+          <p>
+            Antelle designed and implemented a common Dynamics CRM-based regulatory platform supporting the end-to-end
+            operational requirements of both regulators while maintaining separate operational environments for each
+            authority. The solution used a shared development model with independent UAT and production environments,
+            enabling standardisation and shared platform evolution without compromising organisational separation or
+            regulatory autonomy.
+          </p>
+          <p>
+            The platform delivered structured workflow automation, approval processes, notifications and repeatable
+            operational procedures aligned with regulatory best practice and legislative requirements. Functional
+            coverage included licensing, supervision, enforcement, investigations, inspections, complaints management,
+            correspondence tracking, regulatory returns and fitness and propriety processes.
+          </p>
+          <p>
+            The implementation included migration from multiple legacy systems, integration with downstream data
+            warehouse environments, internal ASP.NET upload services for regulatory return data, API-based integration
+            services, Laserfiche metadata extraction, automated document generation using Document Core Pack, custom
+            .NET plugins and structured data exports for public-facing websites.
+          </p>
+          <p>
+            The resulting platform established a consistent regulatory operating model and provided each authority with
+            improved visibility, reporting capability, operational consistency and long-term scalability. Antelle
+            continues to provide ongoing support, enhancement and strategic development services for the platform.
+          </p>
+        </section>
+
+        <section class="services-provided">
+          <h3 id="services">Services Provided</h3>
+          <ul>
+            {
+              servicesProvided.map(([icon, label]) => (
+                <li>
+                  <img class="icon-img" src={`${iconRoot}/${icon}`} alt={label} />
+                  <span>{label}</span>
+                </li>
+              ))
+            }
+          </ul>
+        </section>
+
+        <section class="services-provided">
+          <h3 id="technologies">Technologies Used</h3>
+          <ul>
+            {
+              technologiesUsed.map(([icon, label]) => (
+                <li>
+                  <img class="icon-img" src={`${iconRoot}/${icon}`} alt={label} />
+                  <span>
+                    {label === 'Custom Controls and Libraries' ? (
+                      <>
+                        Custom Controls and<br />
+                        Libraries
+                      </>
+                    ) : (
+                      label
+                    )}
+                  </span>
+                </li>
+              ))
+            }
+          </ul>
+        </section>
+      </div>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  :global(.experience.project .project-section-icon) {
+    height: 2rem;
+    width: 2rem;
+  }
+
+  :global(.experience.project .project-content .icon-img) {
+    flex: 0 0 2.5rem;
+    height: 2.5rem;
+    margin-right: 0;
+    vertical-align: middle;
+    width: 2.5rem;
+  }
+
+  :global(.experience.project .project-content .services-provided ul) {
+    column-count: initial !important;
+    column-gap: 2rem;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    list-style: none;
+    padding-left: 0;
+  }
+
+  :global(.experience.project .project-content .services-provided li) {
+    align-items: center;
+    break-inside: avoid;
+    display: grid !important;
+    gap: 1.25rem;
+    grid-template-columns: 2.5rem minmax(0, 1fr);
+    min-height: 4rem;
+  }
+
+  :global(.experience.project .project-content .services-provided li::before) {
+    content: none !important;
+    display: none !important;
+  }
+
+  :global(.experience.project .project-content .services-provided li span) {
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+
+  @media (max-width: 576px) {
+    :global(.experience.project .project-content .services-provided ul) {
+      display: block;
+    }
+  }
+
+  :global(.experience.project .project-header a.back-control) {
+    align-items: center;
+    background: #0072bc;
+    border: 2px solid #0072bc;
+    border-radius: 3px;
+    box-shadow: 0 6px 14px rgba(52, 64, 75, 0.12);
+    color: #ffffff;
+    display: inline-flex;
+    font-family: 'UniversNextPro-Bold', arial, sans-serif;
+    gap: 0.5rem;
+    margin: 0 0 2.5rem;
+    padding: 0.7rem 1rem;
+    text-align: left;
+  }
+
+  :global(.experience.project .project-header a.back-control:hover),
+  :global(.experience.project .project-header a.back-control:focus) {
+    background: rgba(0, 114, 188, 0.75);
+    border-color: transparent;
+    color: #ffffff;
+  }
+
+  :global(.experience.project .project-header a.back-control .nc-icon) {
+    margin-right: 0;
+  }
+
+  :global(.experience.project .project-header a.back-control .back-arrow) {
+    font-size: 1.2rem;
+    line-height: 1;
+  }
+
+  @media (max-width: 576px) {
+    :global(.experience.project .project-header a.back-control) {
+      width: 100%;
+    }
+  }
+</style>

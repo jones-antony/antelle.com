@@ -90,3 +90,11 @@ The production deployment should use the static build output, normally the `Site
 Before pushing meaningful site changes to GitHub, update `docs/CODEX_HANDOVER.md` with the current branch state, recent changes, verification run and any known follow-up work.
 
 This keeps Codex sessions resumable across machines and avoids relying on chat history as the only project memory.
+
+## Completed project pages
+
+Completed project detail pages should follow the established older-project template used by `/experience/completed-projects/windows-mobile-stock-management/`: project header, project subnavigation, `Project Brief`, `Solution Implemented`, `Services Provided` and `Technologies Used`.
+
+Fit new project copy into those sections unless a template-wide change has been agreed.
+
+Use the wider centred content width now applied to project pages, and keep Services Provided / Technologies Used lists as two-column icon-and-text grids on desktop with a single-column mobile fallback.

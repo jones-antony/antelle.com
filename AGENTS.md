@@ -1,4 +1,4 @@
-# AGENTS.md — Antelle.com Static Site Migration
+# AGENTS.md - Antelle.com Static Site Migration
 
 ## Project context
 
@@ -40,23 +40,23 @@ Recommended structure:
 
 ```text
 /
-├── Mirror/
-│   └── www.antelle.com/        # Raw wget mirror, treated as source reference only
-├── src/
-│   ├── components/
-│   ├── layouts/
-│   ├── pages/
-│   ├── content/
-│   └── styles/
-├── public/
-│   ├── assets/
-│   ├── images/
-│   ├── fonts/
-│   └── documents/
-├── docs/
-├── astro.config.mjs
-├── package.json
-└── README.md
++-- Mirror/
+|   +-- www.antelle.com/        # Raw wget mirror, treated as source reference only
++-- src/
+|   +-- components/
+|   +-- layouts/
+|   +-- pages/
+|   +-- content/
+|   +-- styles/
++-- public/
+|   +-- assets/
+|   +-- images/
+|   +-- fonts/
+|   +-- documents/
++-- docs/
++-- astro.config.mjs
++-- package.json
++-- README.md
 ```
 
 ## Contact form
@@ -108,7 +108,19 @@ When any completed-project skill, service surface or technology label is added o
 
 ## Completed project cards
 
-Completed project tiles must use the shared `ProjectCards.astro` card pattern used by `/experience/completed-projects/`. When completed projects are surfaced on service pages, use the same whole-tile click behaviour and visual styling rather than a separate inline “Our Solution” link pattern.
+Completed project tiles must use the shared `ProjectCards.astro` card pattern used by `/experience/completed-projects/`. When completed projects are surfaced on service pages, use the same whole-tile click behaviour and visual styling rather than a separate inline "Our Solution" link pattern.
+
+## Completed project pages
+
+Completed project detail pages must follow the established older-project page structure used by `/experience/completed-projects/windows-mobile-stock-management/`:
+
+- centred project header with back button, project title and client/context subheading
+- sticky subnavigation for Project Brief, Solution Implemented, Services Provided and Technologies Used
+- wider centred project content column, currently equivalent to `col-md-11 col-lg-10 col-xl-9`, using `Project Brief`, `Solution Implemented`, `Services Provided` and `Technologies Used` sections
+- Services Provided and Technologies Used lists should use a two-column grid on desktop where each item is split into a fixed icon cell and a flexible text cell; fall back to a single column on mobile
+- no bespoke extra sections such as Outcome, Platform Coverage or Integration and Migration unless the owner explicitly approves a template change for all completed project pages
+
+When adding richer content from owner-supplied documents, fit it into those existing sections rather than inventing a new page structure.
 
 ## Safety and accuracy rules
 

@@ -23,10 +23,55 @@ const { page } = Astro.props;
   }
 
   .experience.project .project-content .icon-img {
+    flex: 0 0 2.5rem;
     height: 2.5rem;
-    margin-right: 1.25rem;
+    margin-right: 0;
     vertical-align: middle;
     width: 2.5rem;
+  }
+
+  @media (min-width: 992px) {
+    .experience.project .project-content.row > [class*='col-lg-8'],
+    .experience.project .project-content.row > [class*='col-xl-8'] {
+      flex: 0 0 83.333333%;
+      max-width: 83.333333%;
+    }
+  }
+
+  @media (min-width: 1200px) {
+    .experience.project .project-content.row > [class*='col-xl-8'] {
+      flex: 0 0 75%;
+      max-width: 75%;
+    }
+  }
+
+  .experience.project .project-content section.services-provided ul {
+    column-count: initial !important;
+    column-gap: 2rem;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    list-style: none;
+    padding-left: 0;
+  }
+
+  .experience.project .project-content section.services-provided ul li {
+    align-items: center;
+    break-inside: avoid;
+    display: grid !important;
+    gap: 1.25rem;
+    grid-template-columns: 2.5rem minmax(0, 1fr);
+    min-height: 4rem;
+  }
+
+  .experience.project .project-content section.services-provided ul li::before {
+    content: none !important;
+    display: none !important;
+  }
+
+  @media (max-width: 576px) {
+    .experience.project .project-content section.services-provided ul {
+      display: block;
+    }
   }
 
   .experience.project .project-header a.back-control {

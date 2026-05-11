@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title">
+  <title id="title">Power Platform</title>
+  <rect x="7" y="7" width="24" height="24" rx="5" fill="#114989" stroke="#ffffff" stroke-width="2"/>
+  <rect x="33" y="7" width="24" height="24" rx="5" fill="#8dd8f8" stroke="#ffffff" stroke-width="2"/>
+  <rect x="7" y="33" width="24" height="24" rx="5" fill="#00baf2" stroke="#ffffff" stroke-width="2"/>
+  <rect x="33" y="33" width="24" height="24" rx="5" fill="#0072bc" stroke="#ffffff" stroke-width="2"/>
+  <path d="M19 15v8h8" fill="none" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" opacity="0.9"/>
+  <path d="M45 15v8h8" fill="none" stroke="#114989" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" opacity="0.55"/>
+  <path d="M19 41v8h8" fill="none" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" opacity="0.85"/>
+  <path d="M45 41v8h8" fill="none" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" opacity="0.9"/>
+</svg>

@@ -1,4 +1,4 @@
-# Codex Start Here — Antelle.com
+# Codex Start Here - Antelle.com
 
 ## First task
 

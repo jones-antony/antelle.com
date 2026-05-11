@@ -1,4 +1,4 @@
-# Content Refresh Brief — Antelle.com
+# Content Refresh Brief - Antelle.com
 
 ## Objective
 

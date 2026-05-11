@@ -1,4 +1,4 @@
-# Pull Request Template — Antelle.com
+# Pull Request Template - Antelle.com
 
 ## Summary
 

@@ -129,58 +129,42 @@ export const completedProjects: CompletedProject[] = [
     showOn: []
   },
   {
-    slug: 'dynamics-crm-grants-and-awards',
-    title: 'Dynamics CRM - Grants and Awards',
+    slug: 'dynamics-crm-unified-regulatory-management-platform',
+    title: 'Dynamics CRM - Unified Regulatory Management Platform',
     summary:
-      'Boilerplate project entry for a Dynamics CRM solution supporting grants, awards or related case-management processes.',
+      'A unified Dynamics CRM-based regulatory platform supporting licensing, supervision, enforcement, investigations, inspections, complaints, correspondence and regulatory reporting.',
     collection: 'recent',
     showOn: []
   },
   {
-    slug: 'dynamics-crm-regulatory-system',
-    title: 'Dynamics CRM - Regulatory System',
+    slug: 'regulatory-platform-cloud-migration-modernisation',
+    title: 'Regulatory Platform Cloud Migration & Modernisation',
     summary:
-      'Boilerplate project entry for a Dynamics CRM solution supporting regulatory case management, workflow and reporting needs.',
+      'Migration and modernisation of regulatory management systems from Microsoft Dynamics CRM 8.2 to Microsoft Dataverse in Azure.',
     collection: 'recent',
     showOn: []
   },
   {
-    slug: 'dynamics-crm-cloud-migration',
-    title: 'Dynamics CRM - Cloud Migration',
+    slug: 'banking-payments-approval-platform',
+    title: 'Banking Payments & Approval Platform',
     summary:
-      'Boilerplate project entry for a Dynamics CRM cloud migration, covering planning, transition and post-migration support.',
+      'A secure internal payment processing and approval platform supporting outbound payment workflows, NatWest integration, auditability and operational monitoring.',
     collection: 'recent',
     showOn: []
   },
   {
-    slug: 'banking-payments-solutions',
-    title: 'Banking - Payments Solutions',
+    slug: 'secure-client-statement-generation-system',
+    title: 'Secure Client Statement Generation System',
     summary:
-      'Boilerplate project entry for banking payment-solution work involving operational systems, integrations or reporting.',
+      'A secure automated statement generation system for transforming client statement data into protected PDF account statements.',
     collection: 'recent',
     showOn: []
   },
   {
-    slug: 'banking-client-statements',
-    title: 'Banking - Client Statements',
+    slug: 'investment-platform-back-office-system',
+    title: 'Investment Platform Back-Office System',
     summary:
-      'Boilerplate project entry for banking client-statement work involving data preparation, document generation or distribution processes.',
-    collection: 'recent',
-    showOn: []
-  },
-  {
-    slug: 'dynamics-crm-fintech-investment-platform-backoffice',
-    title: 'Dynamics CRM - Fintech Investment Platform Backoffice',
-    summary:
-      'Boilerplate project entry for a Dynamics CRM back-office solution supporting fintech investment platform operations.',
-    collection: 'recent',
-    showOn: []
-  },
-  {
-    slug: 'dynamics-crm-fintech-portal-apis',
-    title: 'Dynamics CRM - Fintech Portal APIs',
-    summary:
-      'Boilerplate project entry for Dynamics CRM portal API work supporting fintech platform or client-service integration.',
+      'A Dynamics 365 back-office system supporting an international investment platform through operational processes, integration, reporting and long-term support.',
     collection: 'recent',
     showOn: []
   }

@@ -1,0 +1,287 @@
+---
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import { completedProjects, getProjectHref } from '../../../../content/projects';
+
+const project = completedProjects.find((item) => item.slug === 'secure-client-statement-generation-system');
+
+if (!project) {
+  throw new Error('Secure Client Statement Generation System project metadata is missing.');
+}
+
+const projectHref = getProjectHref(project);
+const canonicalUrl = `https://www.antelle.com${projectHref}`;
+const description =
+  'A secure automated banking statement generation system for transforming statement data into protected PDF account statements.';
+const iconRoot = '/assets/images/icons/completed-projects';
+
+const servicesProvided = [
+  ['consultancy.svg', 'Consultancy'],
+  ['development.svg', 'Development'],
+  ['data-conversion.svg', 'Data Conversion'],
+  ['database-design.svg', 'Data Modelling'],
+  ['jigsaw-integration.svg', 'Systems Integration'],
+  ['analysis-design.svg', 'Analysis and System Design'],
+  ['project-management.svg', 'Project Management'],
+  ['app-modernisation.svg', 'App Modernisation']
+];
+
+const technologiesUsed = [
+  ['sftp.svg', 'SFTP'],
+  ['windows-service.svg', 'Windows Service Application'],
+  ['sql-server.svg', 'Microsoft SQL Server'],
+  ['cloud-document.svg', 'Server Side PDF Generation'],
+  ['azure-insights-monitoring.svg', 'Azure Insights and Monitoring'],
+  ['smtp-notifications.svg', 'SMTP Email Notifications'],
+  ['dotnet.svg', 'Microsoft .NET Framework'],
+  ['csharp.svg', 'Microsoft C# .Net'],
+  ['visual-studio.svg', 'Microsoft Visual Studio']
+];
+
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'CreativeWork',
+  name: project.title,
+  url: canonicalUrl,
+  description
+};
+---
+
+<BaseLayout
+  title={`${project.title} | Antelle IT Ltd`}
+  description={description}
+  pageClass="experience project"
+  canonicalUrl={canonicalUrl}
+  structuredData={structuredData}
+>
+  <div class="container">
+    <header class="project-header row">
+      <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 text-center">
+        <a href="/experience/completed-projects/" class="back-control project-list-back">
+          <span class="back-arrow" aria-hidden="true">&larr;</span>
+          <span>Back to all completed projects</span>
+        </a>
+        <h1 class="display-text light">{project.title}</h1>
+        <h2 class="header-2-text light">Banking statement operations</h2>
+      </div>
+    </header>
+
+    <nav class="navbar subnavbar navbar-expand-sm sticky-top">
+      <button
+        class="navbar-toggler cta tertiary small"
+        type="button"
+        aria-controls="navbarSubNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        Toggle SubNavigation
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSubNav">
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-link" href={`${projectHref}#brief`}>
+              <img class="project-section-icon" src={`${iconRoot}/project-brief.svg`} alt="" aria-hidden="true" />
+              Project Brief
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href={`${projectHref}#solution`}>
+              <img
+                class="project-section-icon"
+                src={`${iconRoot}/solution-implemented.svg`}
+                alt=""
+                aria-hidden="true"
+              />
+              Solution Implemented
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href={`${projectHref}#services`}>
+              <img class="project-section-icon" src={`${iconRoot}/services-provided.svg`} alt="" aria-hidden="true" />
+              Services Provided
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href={`${projectHref}#technologies`}>
+              <img class="project-section-icon" src={`${iconRoot}/technologies-used.svg`} alt="" aria-hidden="true" />
+              Technologies Used
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="project-content row justify-content-center">
+      <div class="col-12 col-sm-12 col-md-11 col-lg-10 col-xl-9">
+        <section class="project-brief">
+          <h3 id="brief">Project Brief</h3>
+          <p>
+            Antelle was engaged by a local bank to design and implement a secure client statement generation system
+            supporting the production of account statements for onward delivery to the bank's clients.
+          </p>
+          <p>
+            The bank required a reliable, controlled and supportable process for transforming statement data into
+            client-ready PDF documents. Key drivers included reducing operational risk, improving reliability and
+            control, and ensuring that generated statements were protected against unauthorised alteration.
+          </p>
+          <p>
+            The solution needed to receive statement data securely, validate incoming files, generate PDF account
+            statements and apply consistent naming conventions so that downstream systems could pick up and route the
+            documents for portal delivery.
+          </p>
+          <p>
+            Although the final statements were intended for clients, the solution was designed for internal operational
+            use, providing the bank's operations team with a robust automated statement production process.
+            Client-facing outputs also meant that enhanced logging, monitoring and notification capabilities were
+            essential.
+          </p>
+        </section>
+
+        <section class="solution-implemented">
+          <h3 id="solution">Solution Implemented</h3>
+          <p>
+            Antelle delivered an automated statement generation system built around secure file ingestion, validation,
+            PDF generation, operational monitoring and exception notification.
+          </p>
+          <p>
+            Statement data is transferred via SFTP and presented to a custom Windows Service developed by Antelle. The
+            service automatically parses incoming files, validates the file structure and mandatory fields, and
+            generates client account statements in PDF format where the data passes validation.
+          </p>
+          <p>
+            The generated PDFs are produced as protected documents and named using agreed conventions to support onward
+            processing by the bank's portal-related systems. Antelle's solution completes the statement creation stage,
+            after which the documents are picked up by downstream processes for delivery through the bank's
+            client-facing portal.
+          </p>
+          <p>
+            The system was designed to operate as a fully automated, lights-out process. Enhanced logging, Azure
+            Application Insights monitoring and SMTP email notifications provide operational visibility and ensure that
+            validation failures, processing issues or other exceptions can be identified and acted upon quickly by the
+            operations team.
+          </p>
+          <p>
+            The resulting system improved the reliability and control of client statement production, reduced manual
+            intervention, strengthened operational controls, improved exception visibility and reduced the risk
+            associated with client-facing statement generation. Antelle continues to provide ongoing support for the
+            solution.
+          </p>
+        </section>
+
+        <section class="services-provided">
+          <h3 id="services">Services Provided</h3>
+          <ul>
+            {
+              servicesProvided.map(([icon, label]) => (
+                <li>
+                  <img class="icon-img" src={`${iconRoot}/${icon}`} alt={label} />
+                  <span>{label}</span>
+                </li>
+              ))
+            }
+          </ul>
+        </section>
+
+        <section class="services-provided">
+          <h3 id="technologies">Technologies Used</h3>
+          <ul>
+            {
+              technologiesUsed.map(([icon, label]) => (
+                <li>
+                  <img class="icon-img" src={`${iconRoot}/${icon}`} alt={label} />
+                  <span>{label}</span>
+                </li>
+              ))
+            }
+          </ul>
+        </section>
+      </div>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  :global(.experience.project .project-section-icon) {
+    height: 2rem;
+    width: 2rem;
+  }
+
+  :global(.experience.project .project-content .icon-img) {
+    flex: 0 0 2.5rem;
+    height: 2.5rem;
+    margin-right: 0;
+    vertical-align: middle;
+    width: 2.5rem;
+  }
+
+  :global(.experience.project .project-content .services-provided ul) {
+    column-count: initial !important;
+    column-gap: 2rem;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    list-style: none;
+    padding-left: 0;
+  }
+
+  :global(.experience.project .project-content .services-provided li) {
+    align-items: center;
+    break-inside: avoid;
+    display: grid !important;
+    gap: 1.25rem;
+    grid-template-columns: 2.5rem minmax(0, 1fr);
+    min-height: 4rem;
+  }
+
+  :global(.experience.project .project-content .services-provided li::before) {
+    content: none !important;
+    display: none !important;
+  }
+
+  :global(.experience.project .project-content .services-provided li span) {
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+
+  @media (max-width: 576px) {
+    :global(.experience.project .project-content .services-provided ul) {
+      display: block;
+    }
+  }
+
+  :global(.experience.project .project-header a.back-control) {
+    align-items: center;
+    background: #0072bc;
+    border: 2px solid #0072bc;
+    border-radius: 3px;
+    box-shadow: 0 6px 14px rgba(52, 64, 75, 0.12);
+    color: #ffffff;
+    display: inline-flex;
+    font-family: 'UniversNextPro-Bold', arial, sans-serif;
+    gap: 0.5rem;
+    margin: 0 0 2.5rem;
+    padding: 0.7rem 1rem;
+    text-align: left;
+  }
+
+  :global(.experience.project .project-header a.back-control:hover),
+  :global(.experience.project .project-header a.back-control:focus) {
+    background: rgba(0, 114, 188, 0.75);
+    border-color: transparent;
+    color: #ffffff;
+  }
+
+  :global(.experience.project .project-header a.back-control .nc-icon) {
+    margin-right: 0;
+  }
+
+  :global(.experience.project .project-header a.back-control .back-arrow) {
+    font-size: 1.2rem;
+    line-height: 1;
+  }
+
+  @media (max-width: 576px) {
+    :global(.experience.project .project-header a.back-control) {
+      width: 100%;
+    }
+  }
+</style>

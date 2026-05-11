@@ -75,7 +75,7 @@ export const projectIcons: ProjectIconItem[] = [
     legacyMediaPath: '1547/service_data_conversion_40x40.png'
   },
   {
-    label: 'Database Design',
+    label: 'Data Modelling',
     context: 'Services Provided',
     icon: 'database-design.svg',
     legacyMediaPath: '1548/service_database_design_40x40.png'
@@ -132,6 +132,11 @@ export const projectIcons: ProjectIconItem[] = [
     label: 'API Design',
     context: 'Services Provided',
     icon: 'api-design.svg'
+  },
+  {
+    label: 'App Modernisation',
+    context: 'Services Provided',
+    icon: 'app-modernisation.svg'
   },
   {
     label: 'Microsoft .NET Framework',
@@ -299,6 +304,51 @@ export const projectIcons: ProjectIconItem[] = [
     context: 'Technologies Used',
     icon: 'dynamics-crm.svg',
     legacyMediaPath: '1583/tech_dynamics_crm_40x40.png'
+  },
+  {
+    label: 'Power Platform',
+    context: 'Technologies Used',
+    icon: 'power-platform.svg'
+  },
+  {
+    label: 'Microsoft Dataverse',
+    context: 'Technologies Used',
+    icon: 'dataverse.svg'
+  },
+  {
+    label: 'Power Apps',
+    context: 'Technologies Used',
+    icon: 'power-apps.svg'
+  },
+  {
+    label: 'Microsoft Power BI',
+    context: 'Technologies Used',
+    icon: 'power-bi.svg'
+  },
+  {
+    label: 'SQL Server Integration Services',
+    context: 'Technologies Used',
+    icon: 'ssis.svg'
+  },
+  {
+    label: 'SFTP',
+    context: 'Technologies Used',
+    icon: 'sftp.svg'
+  },
+  {
+    label: 'SMTP Email Notifications',
+    context: 'Technologies Used',
+    icon: 'smtp-notifications.svg'
+  },
+  {
+    label: 'Azure Insights and Monitoring',
+    context: 'Technologies Used',
+    icon: 'azure-insights-monitoring.svg'
+  },
+  {
+    label: 'Azure Key Vault',
+    context: 'Technologies Used',
+    icon: 'azure-key-vault.svg'
   }
 ];
 

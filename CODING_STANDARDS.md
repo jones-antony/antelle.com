@@ -1,4 +1,4 @@
-# Coding Standards — Antelle.com Static Site
+# Coding Standards - Antelle.com Static Site
 
 ## General
 

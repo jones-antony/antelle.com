@@ -13,7 +13,7 @@ type SiteMapNode = {
 const completedProjects: SiteMapNode[] = projectEntries.map((project) => ({
   title: project.title,
   href: getProjectHref(project),
-  complete: project.collection === 'earlier'
+  complete: true
 }));
 
 const nodes: SiteMapNode[] = [

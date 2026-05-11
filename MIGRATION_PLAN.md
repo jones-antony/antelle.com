@@ -1,10 +1,10 @@
-# Migration Plan — Antelle.com
+# Migration Plan - Antelle.com
 
 ## Goal
 
 Move Antelle.com from an old Umbraco-backed IIS website to a static Astro website deployed to IIS, with an Azure Function for the contact form.
 
-## Phase 1 — Preserve the existing site
+## Phase 1 - Preserve the existing site
 
 ### Objective
 
@@ -32,7 +32,7 @@ D:\Source\AI\antelle.com\Mirror\www.antelle.com
 - List of fixes required before conversion
 - List of URL paths to preserve
 
-## Phase 2 — Static mirror cleanup
+## Phase 2 - Static mirror cleanup
 
 ### Objective
 
@@ -52,7 +52,7 @@ Clean the raw mirror enough to be a trustworthy baseline.
 - Working static mirror
 - Known issues list
 
-## Phase 3 — Astro project setup
+## Phase 3 - Astro project setup
 
 ### Objective
 
@@ -75,7 +75,7 @@ Create a maintainable Astro project while preserving the current site visually.
 - Astro project builds successfully.
 - Local preview visually matches the current mirror.
 
-## Phase 4 — Contact form replacement
+## Phase 4 - Contact form replacement
 
 ### Objective
 
@@ -97,7 +97,7 @@ Replace Umbraco contact form behaviour with a static form posting to an Azure Fu
 - Azure Function specification or implementation
 - Local mock/test notes
 
-## Phase 5 — Content refresh
+## Phase 5 - Content refresh
 
 ### Objective
 
@@ -128,7 +128,7 @@ Update stale website content to reflect current Antelle positioning.
 - Updated contact calls to action
 - Optional Completus/product page content
 
-## Phase 6 — Controlled modernisation
+## Phase 6 - Controlled modernisation
 
 ### Objective
 
@@ -147,7 +147,7 @@ Modernise design carefully after content and structure are stable.
 
 Do not perform major visual redesign in the same PR as the initial Astro conversion.
 
-## Phase 7 — IIS deployment
+## Phase 7 - IIS deployment
 
 ### Objective
 

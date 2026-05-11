@@ -162,9 +162,45 @@ const structuredData = {
   }
 
   .services-provided .icon-img {
+    flex: 0 0 2.5rem;
     height: 2.5rem;
-    margin-right: 1.25rem;
+    margin-right: 0;
     vertical-align: middle;
     width: 2.5rem;
+  }
+
+  .services-provided ul {
+    column-count: initial !important;
+    column-gap: 2rem;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    list-style: none;
+    padding-left: 0;
+  }
+
+  .services-provided li {
+    align-items: center;
+    display: grid !important;
+    gap: 1.25rem;
+    grid-template-columns: 2.5rem minmax(0, 1fr);
+    min-height: 4rem;
+    padding: 1rem 0;
+  }
+
+  .services-provided li::before {
+    content: none !important;
+    display: none !important;
+  }
+
+  @media (min-width: 992px) {
+    .project-content {
+      max-width: 960px;
+    }
+  }
+
+  @media (max-width: 576px) {
+    .services-provided ul {
+      display: block;
+    }
   }
 </style>

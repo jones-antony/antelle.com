@@ -1,4 +1,4 @@
-# IIS Deployment Notes — Antelle.com Static Astro Site
+# IIS Deployment Notes - Antelle.com Static Astro Site
 
 ## Objective
 

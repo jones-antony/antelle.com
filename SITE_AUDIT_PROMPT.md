@@ -1,4 +1,4 @@
-# Codex Task — Audit the Static Mirror
+# Codex Task - Audit the Static Mirror
 
 ## Task
 

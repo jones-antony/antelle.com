@@ -1,4 +1,4 @@
-# Codex Task — Convert Static Mirror to Astro
+# Codex Task - Convert Static Mirror to Astro
 
 ## Task
 
@@ -43,31 +43,31 @@ D:\Source\AI\antelle.com\Mirror\www.antelle.com
 
 ```text
 src/
-├── components/
-│   ├── Header.astro
-│   ├── Footer.astro
-│   ├── Navigation.astro
-│   ├── Hero.astro
-│   ├── ServiceCard.astro
-│   └── CallToAction.astro
-├── layouts/
-│   └── BaseLayout.astro
-├── pages/
-│   ├── index.astro
-│   ├── contact.astro
-│   ├── about/
-│   ├── services/
-│   └── 404.astro
-└── styles/
-    └── global.css
++-- components/
+|   +-- Header.astro
+|   +-- Footer.astro
+|   +-- Navigation.astro
+|   +-- Hero.astro
+|   +-- ServiceCard.astro
+|   +-- CallToAction.astro
++-- layouts/
+|   +-- BaseLayout.astro
++-- pages/
+|   +-- index.astro
+|   +-- contact.astro
+|   +-- about/
+|   +-- services/
+|   +-- 404.astro
++-- styles/
+    +-- global.css
 
 public/
-├── assets/
-├── images/
-├── fonts/
-├── documents/
-├── robots.txt
-└── web.config
++-- assets/
++-- images/
++-- fonts/
++-- documents/
++-- robots.txt
++-- web.config
 ```
 
 ## Output

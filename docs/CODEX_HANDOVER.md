@@ -1,11 +1,11 @@
 # Codex handover
 
-Last updated: 2026-05-10
+Last updated: 2026-05-11
 
 ## Current branch
 
 - Branch: `codex/consultancy-bi-page-updates`
-- Baseline working-state commit before this handover was updated: `ceef958 Refresh site content and organise assets`
+- Baseline working-state commit before this handover was updated: `184aa2b Refresh service and project pages`
 - Repository: `https://github.com/jones-antony/antelle.com`
 
 ## Handover rule
@@ -46,8 +46,8 @@ npm run build
 
 - Added the completed-project icon catalogue in `Site/src/data/projectIcons.ts` and the development review page at `/dev/projecticons/`.
 - Replaced completed-project legacy sprite icons with maintained SVG icons under `Site/public/assets/images/icons/completed-projects/`.
-- Updated completed-project detail pages so the “Back to all completed projects” control is a clearer Antelle-styled button.
-- Updated `/experience/completed-projects/` so project tiles are full-card links and tile summaries no longer show “Why it is relevant”.
+- Updated completed-project detail pages so the "Back to all completed projects" control is a clearer Antelle-styled button.
+- Updated `/experience/completed-projects/` so project tiles are full-card links and tile summaries no longer show "Why it is relevant".
 - Added the shared completed-project tile styling rule to `ProjectCards.astro`; service-page project tiles should use the same pattern if reintroduced later.
 - Removed completed-project card sections from maintained service pages and replaced them with a shared `Explore Projects` CTA.
 - Added `ExploreProjectsCta.astro` and used it across maintained service pages.
@@ -77,6 +77,19 @@ npm run build
 - Replaced two customer logos with empty placeholders pending owner-supplied assets.
 - Added the five new customer logo PNG files supplied by the owner into `assets/images/clients/`, but they are not yet shown on the homepage.
 - Refactored active assets out of the old Umbraco-style `assets/media` and `assets/svg` folders.
+- Renamed `Dynamics CRM - Regulatory System` to `Dynamics CRM - Unified Regulatory Management Platform`, added owner-supplied project content, and retained the old regulatory-system route as a redirect-style page.
+- Standardised completed-project detail layout expectations so project content uses the wider centred column and Services Provided / Technologies Used lists use aligned icon/text grid rows.
+- Replaced several completed-project boilerplate pages with owner-supplied project pages:
+  - `Dynamics CRM - Unified Regulatory Management Platform`
+  - `Banking Payments & Approval Platform`
+  - `Regulatory Platform Cloud Migration & Modernisation`
+  - `Secure Client Statement Generation System`
+  - `Investment Platform Back-Office System`
+- Retained old project URLs as lightweight moved/redirect-style pages for renamed project routes.
+- Removed the placeholder projects `Dynamics CRM - Grants and Awards` and `Dynamics CRM - Fintech Portal APIs`.
+- Expanded `/dev/projecticons/` and `Site/src/data/projectIcons.ts` with new service/technology icons including App Modernisation, Power Platform, Dataverse, Power Apps, Power BI, SSIS, SFTP, SMTP Email Notifications, Azure Insights and Monitoring, and Azure Key Vault.
+- Renamed the project service label `Database Design` to `Data Modelling` while retaining the existing database icon.
+- Marked all current completed project detail pages complete in the development site map.
 
 ## Asset structure
 
@@ -84,24 +97,24 @@ Active site assets now live under:
 
 ```text
 Site/public/assets/images/
-├── brand/
-├── clients/
-├── heroes/
-├── icons/
-│   ├── bi/
-│   ├── experience/
-│   ├── global/
-│   └── services/
-├── legacy-mirror/
-└── placeholders/
++-- brand/
++-- clients/
++-- heroes/
++-- icons/
+|   +-- bi/
+|   +-- experience/
+|   +-- global/
+|   +-- services/
++-- legacy-mirror/
++-- placeholders/
 ```
 
 The old copied Umbraco folders have been moved out of the active namespace and retained for reference:
 
 ```text
 Site/public/assets/legacy/
-├── umbraco-media/
-└── umbraco-svg/
++-- umbraco-media/
++-- umbraco-svg/
 ```
 
 `Site/public/assets/media/` and `Site/public/assets/svg/` should not exist in the current working tree.
@@ -118,6 +131,7 @@ Pages currently marked complete:
 - Past Experience
 - Core Skills
 - Completed Projects
+- All current completed project detail pages
 - Careers
 - About Antelle
 - Privacy Policy
@@ -128,7 +142,6 @@ Pages still needing review or completion include:
 - Services and service detail pages
 - Contact
 - Site Map itself
-- Individual completed project detail pages, unless the owner later signs off the boilerplate pages
 
 ## Content and accuracy rules
 
@@ -137,6 +150,8 @@ Pages still needing review or completion include:
 - Keep copy grounded and professional, with a Microsoft/compliance/software consultancy tone.
 - Where detail is uncertain, use owner-input placeholders rather than guessing.
 - Completed project boilerplate should remain cautious until project-specific details are confirmed.
+- Completed project detail pages should follow the existing older-project template structure: centred header, project subnavigation, `Project Brief`, `Solution Implemented`, `Services Provided` and `Technologies Used`. Do not add bespoke extra sections unless the owner approves a template-wide change.
+- Completed project detail pages now use a wider centred content column and desktop two-column icon/text grids for Services Provided and Technologies Used. Keep that layout for new project pages and use a single-column fallback on mobile.
 
 ## Known follow-ups
 

@@ -1,11 +1,11 @@
 # Codex handover
 
-Last updated: 2026-05-11
+Last updated: 2026-05-19
 
 ## Current branch
 
 - Branch: `codex/consultancy-bi-page-updates`
-- Baseline working-state commit before this handover was updated: `cb2aafe Refresh completed project pages`
+- Baseline working-state commit before this handover was updated: `5f7f9cd Refresh site review tooling and legacy redirects`
 - Repository: `https://github.com/jones-antony/antelle.com`
 
 ## Handover rule
@@ -101,6 +101,14 @@ npm run build
 - Removed AI and Agentic Services from the public nav/data while keeping a skeleton under `_ai-agentic-services` for future use.
 - Removed old Universal Analytics as a launch concern; added a planned follow-up to consider analytics options after launch if needed.
 - Restarted the local Astro dev server and verified `/contact/` is a real page again, with nav, sitemap and CTA links pointing to `/contact/`.
+- Added `Site/public/web.config` so retired `/blog/` and unclear blog-child URLs redirect permanently to the home page for IIS static hosting.
+- Added maintained repo-level Codex skills under `.codex/skills/` for completed project pages, service page refreshes and dev sitemap/handover work; `AGENTS.md` and `README.md` now point future Codex sessions at these reusable workflows.
+- Rebuilt `/contact/` as a maintained Astro page with contact details, Google map, client-side validation, honeypot/timing fields and submission to the Azure Function endpoint.
+- Added the .NET isolated Azure Function contact backend under `Functions/ContactForm/`, using Microsoft Graph to send from `noreply@antelle.com` to `hello@antelle.com`.
+- Published the Azure Function to `func-antelle-contact-prod` and confirmed the live endpoint accepts valid submissions, rejects honeypot/spam-style submissions and sends via Graph.
+- Added contact form setup/deployment documentation in `docs/contact-form.md` and `docs/azure-graph-contact-form-setup.txt`.
+- Added `docs/Antelle-IIS-Initial-Release-Deployment-Guide.docx` for target-server IIS deployment handover, including installation/reference URLs.
+- Marked `/contact/` and `/about/site-map/` signed off in the development site map and removed their outstanding review rows.
 
 ## Asset structure
 
@@ -139,20 +147,24 @@ The development site map is at:
 Pages currently marked complete:
 
 - Home
+- Contact
 - Past Experience
 - Core Skills
 - Completed Projects
 - All current completed project detail pages
 - Careers
 - About Antelle
+- Public Site Map
 - Privacy Policy
 - Information Security
+- Power Platform
+- Microsoft Dynamics CRM
+- Software Development
+- Web Development
+- Business Intelligence
 - Consultancy
 
-Pages still needing review or completion include:
-
-- Contact
-- Public Site Map
+All current public top-level maintained pages are signed off in the development site map.
 
 Known follow-up work is now also surfaced in the Outstanding Items table on `/dev/site-map/`. Maintain that table from `Site/src/data/outstandingItems.ts`.
 
@@ -168,13 +180,19 @@ Known follow-up work is now also surfaced in the Outstanding Items table on `/de
 
 ## Known follow-ups
 
-- Continue page-by-page review from the development site map.
 - Track non-page follow-ups in `Site/src/data/outstandingItems.ts`, which renders the Outstanding Items table on `/dev/site-map/`.
-- Blog pages are still parked and not generated.
+- Current non-blocking launch follow-ups are analytics options and monitoring whether stronger contact-form spam protection is needed after real traffic.
+- Blog pages are still parked and not generated; retired `/blog/` URLs redirect to the home page in `Site/public/web.config`.
+- Before final production hardening, consider removing local development origins from the Azure Function `CONTACT_ALLOWED_ORIGINS` setting if they are no longer needed.
 - `gh` is not installed on this machine, so GitHub PR creation/auth checks were not available from the CLI during this push.
 
 ## Verification already run
 
 - `npm run build`
+- `dotnet build Functions\ContactForm\ContactForm.csproj`
+- Azure Functions Core Tools publish to `func-antelle-contact-prod`
+- Live contact endpoint smoke tests: CORS preflight, honeypot rejection and valid submission
+- `web.config` XML validation
+- `git diff --check`
 - Generated site asset-reference check after the asset refactor: no missing generated asset references found.
 - Source/style search confirmed no remaining active references to `/assets/media/` or `/assets/svg/`.

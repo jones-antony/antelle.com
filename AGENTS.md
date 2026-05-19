@@ -132,6 +132,18 @@ Completed project detail pages must follow the established older-project page st
 
 When adding richer content from owner-supplied documents, fit it into those existing sections rather than inventing a new page structure.
 
+## Repo-level Codex skills
+
+Reusable project workflows live under `.codex/skills/`.
+
+Use the relevant skill when working on:
+
+- completed project pages
+- service page refreshes
+- development sitemap, outstanding items, handover or push workflow
+
+Keep durable invariants in this file and move detailed repeatable workflows into skills.
+
 ## Safety and accuracy rules
 
 Do not fabricate facts. Where content is missing or uncertain, mark it clearly as needing owner input.

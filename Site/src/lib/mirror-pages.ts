@@ -22,6 +22,7 @@ const overriddenSlugs = new Set([
   'about/members-of-micta',
   'about/site-map',
   'careers',
+  'contact',
   'experience/completed-projects',
   'experience/core-skills',
   'experience/past-experience',

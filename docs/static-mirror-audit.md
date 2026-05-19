@@ -256,18 +256,17 @@ Redirect requirements:
 
 - Preserve existing trailing-slash public URLs such as `/services/software-development/`.
 - Redirect `/index.html` forms of URLs to clean directory URLs where practical.
-- Redirect old query-string blog pagination URLs, for example `/blog/?page=2`, if those pages remain useful.
-- Decide whether to preserve blog tag search URLs such as `/blog/search/?q=%23Javascript` or redirect them to cleaner static tag pages.
+- Retired blog URLs, including old pagination and search URLs under `/blog/`, are redirected to the home page by `Site/public/web.config`.
 - Redirect the sitemap route from `/sitemap/` to a static sitemap file or generate a static `/sitemap-index.xml`/`/sitemap.xml` depending on the Astro configuration.
 - Keep or redirect `/iso-27001/` and the PDF path `media/1589/information-security-policy-external.pdf`.
-- If any old Umbraco paths were indexed beyond this mirror, add explicit redirects only after checking production logs or Search Console. [OWNER INPUT REQUIRED: confirm availability of historical URL data.]
+- If any old Umbraco paths are later found in production logs or Search Console, add explicit redirects when a clear target exists; otherwise redirect unclear legacy paths to the home page.
 
 ## IIS Deployment Considerations
 
 The final static output should include an IIS `web.config` for:
 
 - URL rewriting from legacy `/index.html` paths to clean routes.
-- Redirects for query-string blog pagination/search routes where retained.
+- Redirects for retired blog pagination/search routes.
 - HTTPS canonical redirects if IIS terminates TLS directly.
 - Host canonicalisation between `antelle.com` and `www.antelle.com`, based on owner preference.
 - Static 404 handling.

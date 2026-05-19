@@ -71,6 +71,10 @@ No CMS should be introduced.
 - `CODEX_PR_TEMPLATE.md` - pull request template
 - `docs/CODEX_HANDOVER.md` - current Codex handover and resume notes
 
+## Codex skills
+
+Repo-level Codex skills live in `.codex/skills/` and capture repeatable workflows for completed project pages, service page refreshes, and development sitemap/handover maintenance.
+
 ## Build commands
 
 From the Astro site directory:

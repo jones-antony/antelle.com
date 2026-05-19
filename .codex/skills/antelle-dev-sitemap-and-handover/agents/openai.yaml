@@ -1,0 +1,4 @@
+interface:
+  display_name: "Antelle Dev Sitemap And Handover"
+  short_description: "Maintain dev sitemap, outstanding items, and push handover."
+  default_prompt: "Update Antelle dev sitemap, outstanding items, handover, and prepare a push."

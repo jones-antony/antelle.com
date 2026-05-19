@@ -1,0 +1,389 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const contactEndpoint = import.meta.env.PUBLIC_CONTACT_FORM_ENDPOINT ?? '';
+
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'ContactPage',
+  name: 'Contact Antelle',
+  url: 'https://www.antelle.com/contact/',
+  description: 'Contact Antelle IT Ltd about Microsoft technology, bespoke software, consultancy and support.'
+};
+---
+
+<BaseLayout
+  title="Contact | Antelle IT Ltd"
+  description="Contact Antelle IT Ltd about Microsoft technology, bespoke software, consultancy and support."
+  pageClass="contact-page maintained-contact"
+  canonicalUrl="https://www.antelle.com/contact/"
+  structuredData={structuredData}
+>
+  <div class="container">
+    <section class="contact-header row maintained-contact-header">
+      <div class="col-12 col-sm-10 col-md-10 col-lg-10 col-xl-10 mx-auto">
+        <h1 class="subheader-text">Contact</h1>
+      </div>
+      <div class="col-12 col-sm-10 col-md-10 col-lg-8 col-xl-8 mx-auto">
+        <p class="header-text light">
+          Tell us a little about what you need and we will come back to you as soon as we can.
+        </p>
+      </div>
+    </section>
+
+    <section class="contact row maintained-contact-details" aria-labelledby="contact-details-heading">
+      <h2 id="contact-details-heading" class="sr-only">Contact Information</h2>
+      <div class="contact-infos col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+        <div class="contact-info row">
+          <div class="col-12 col-sm-1 col-md-1 col-lg-1 col-xl-1">
+            <span class="nc-icon nc-phone"></span>
+          </div>
+          <div class="col-12 col-sm-10 col-md-8 col-lg-8 col-xl-8">
+            <div class="subheader-text light">Call us on:</div>
+            <div class="subheader-text">+44 (0)1624 660613</div>
+          </div>
+        </div>
+        <div class="contact-info row">
+          <div class="col-12 col-sm-1 col-md-1 col-lg-1 col-xl-1">
+            <span class="nc-icon nc-email"></span>
+          </div>
+          <div class="col-12 col-sm-10 col-md-8 col-lg-8 col-xl-8">
+            <div class="subheader-text light">Email us at:</div>
+            <div class="subheader-text"><a href="mailto:hello@antelle.com">hello@antelle.com</a></div>
+          </div>
+        </div>
+        <div class="contact-info row">
+          <div class="col-12 col-sm-1 col-md-1 col-lg-1 col-xl-1">
+            <span class="nc-icon nc-map-pin"></span>
+          </div>
+          <div class="col-12 col-sm-10 col-md-8 col-lg-8 col-xl-8">
+            <div class="subheader-text light">Find us at:</div>
+            <div class="subheader-text">Antelle IT Ltd, Unit 17b, Carrs Lane, Tromode Estate, Douglas, Isle of Man, IM4 4RG</div>
+          </div>
+        </div>
+        <div class="contact-info row">
+          <div class="col-12 col-sm-1 col-md-1 col-lg-1 col-xl-1">
+            <span class="nc-icon nc-calendar-grid"></span>
+          </div>
+          <div class="col-12 col-sm-10 col-md-8 col-lg-8 col-xl-8">
+            <div class="subheader-text light">We are open:</div>
+            <div class="subheader-text">Monday to Friday: 9:00am - 5:30pm</div>
+          </div>
+        </div>
+      </div>
+      <div class="contact-map-column col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+        <div class="contact-map">
+          <iframe
+            class="img-map"
+            src="https://www.google.com/maps?q=Antelle%20IT%20Ltd%2C%20Douglas%2C%20Isle%20of%20Man&output=embed"
+            title="Map showing Antelle IT Ltd in Douglas, Isle of Man"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact-form row maintained-contact-form" aria-labelledby="contact-form-heading">
+      <div class="col-12 col-sm-12 col-md-10 col-lg-10 col-xl-10 mx-auto">
+        <h2 id="contact-form-heading" class="text-center">Send Us A Message</h2>
+        <p class="text-center">
+          Use the form below for new project enquiries, support conversations or general questions.
+        </p>
+
+        <form id="contact-form" class="antelle-contact-form" data-endpoint={contactEndpoint} novalidate>
+          <div class="form-status" role="status" aria-live="polite" data-form-status hidden></div>
+          <div class="row">
+            <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+              <div class="form-group">
+                <label for="contact-name">Name</label>
+                <input class="form-control" id="contact-name" name="name" autocomplete="name" maxlength="120" required type="text" />
+              </div>
+              <div class="form-group">
+                <label for="contact-organisation">Organisation <span class="optional">optional</span></label>
+                <input class="form-control" id="contact-organisation" name="organisation" autocomplete="organization" maxlength="160" type="text" />
+              </div>
+              <div class="form-group">
+                <label for="contact-email">Email</label>
+                <input class="form-control" id="contact-email" name="email" autocomplete="email" maxlength="254" required type="email" />
+              </div>
+              <div class="form-group">
+                <label for="contact-phone">Phone <span class="optional">optional</span></label>
+                <input class="form-control" id="contact-phone" name="phone" autocomplete="tel" maxlength="60" type="tel" />
+              </div>
+            </div>
+            <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+              <div class="form-group">
+                <label for="contact-enquiry-type">Enquiry type <span class="optional">optional</span></label>
+                <select class="form-control" id="contact-enquiry-type" name="enquiryType">
+                  <option value="">Please select</option>
+                  <option value="New project">New project</option>
+                  <option value="Support">Support</option>
+                  <option value="Consultancy">Consultancy</option>
+                  <option value="Careers">Careers</option>
+                  <option value="General enquiry">General enquiry</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="contact-message">Message</label>
+                <textarea class="form-control" id="contact-message" name="message" maxlength="4000" required rows="8"></textarea>
+              </div>
+            </div>
+            <div class="col-12">
+              <p class="privacy-note">
+                We will use the details you provide to respond to your enquiry. See our
+                <a href="/privacy-policy/">privacy policy</a> for more information.
+              </p>
+            </div>
+            <div class="contact-extra-field" aria-hidden="true">
+              <label for="contact-website">Website</label>
+              <input id="contact-website" name="website" tabindex="-1" autocomplete="off" type="text" />
+            </div>
+            <input id="contact-loaded-at" name="loadedAt" type="hidden" value="" />
+            <div class="col-12 text-center">
+              <button type="submit" class="primary">Send message</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </section>
+  </div>
+</BaseLayout>
+
+<script is:inline>
+  const form = document.querySelector('#contact-form');
+  const loadedAt = document.querySelector('#contact-loaded-at');
+
+  if (loadedAt) {
+    loadedAt.value = Date.now().toString();
+  }
+
+  function setFormStatus(message, type) {
+    const status = form?.querySelector('[data-form-status]');
+
+    if (!status) {
+      return;
+    }
+
+    status.hidden = false;
+    status.textContent = message;
+    status.dataset.type = type;
+  }
+
+  form?.addEventListener('submit', async (event) => {
+    event.preventDefault();
+
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
+
+    const endpoint = form.dataset.endpoint;
+
+    if (!endpoint) {
+      setFormStatus('The contact form is not connected yet. Please email hello@antelle.com.', 'error');
+      return;
+    }
+
+    const submitButton = form.querySelector('button[type="submit"]');
+    const formData = new FormData(form);
+    const payload = Object.fromEntries(formData.entries());
+
+    submitButton.disabled = true;
+    setFormStatus('Sending your message...', 'pending');
+
+    try {
+      const response = await fetch(endpoint, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(payload)
+      });
+
+      if (!response.ok) {
+        throw new Error('Contact request failed.');
+      }
+
+      form.reset();
+      if (loadedAt) {
+        loadedAt.value = Date.now().toString();
+      }
+      setFormStatus('Thank you. Your message has been sent and we will come back to you shortly.', 'success');
+    } catch {
+      setFormStatus('Sorry, your message could not be sent. Please email hello@antelle.com.', 'error');
+    } finally {
+      submitButton.disabled = false;
+    }
+  });
+</script>
+
+<style is:global>
+  .maintained-contact-header {
+    text-align: center;
+  }
+
+  .maintained-contact-details {
+    align-items: stretch;
+    display: grid !important;
+    gap: 1.875rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding-top: 2rem;
+  }
+
+  .maintained-contact-details > .sr-only {
+    grid-column: 1 / -1;
+  }
+
+  .maintained-contact-details > .contact-infos,
+  .maintained-contact-details > .contact-map-column {
+    align-self: stretch;
+    flex: none !important;
+    margin-bottom: 0;
+    max-width: none !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    width: auto !important;
+  }
+
+  .contact-page.maintained-contact .maintained-contact-details > .contact-infos {
+    padding: 2.25rem 2.75rem !important;
+  }
+
+  .contact-page.maintained-contact .maintained-contact-details > .contact-infos,
+  .contact-page.maintained-contact .maintained-contact-details .contact-map {
+    height: 25.25rem;
+    min-height: 25.25rem;
+  }
+
+  .maintained-contact-details > .contact-map-column {
+    display: flex;
+  }
+
+  .maintained-contact-details .contact-map {
+    flex: 1 1 auto;
+    height: 100%;
+    width: 100%;
+  }
+
+  .maintained-contact-details .img-map {
+    border: 0;
+    display: block;
+    height: 100% !important;
+    width: 100% !important;
+  }
+
+  .maintained-contact-details .contact-info {
+    align-items: start;
+    display: grid;
+    gap: 1.25rem;
+    grid-template-columns: 2rem minmax(0, 1fr);
+    margin-left: 0 !important;
+    margin-bottom: 1.75rem;
+    margin-right: 0 !important;
+  }
+
+  .maintained-contact-details .contact-info > div {
+    flex: none !important;
+    max-width: none !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    width: auto !important;
+  }
+
+  .maintained-contact-details .contact-info:last-child {
+    margin-bottom: 0;
+  }
+
+  .maintained-contact-details .nc-icon {
+    color: #0072bc;
+    left: auto !important;
+    margin-top: 0.25rem;
+  }
+
+  .maintained-contact-form {
+    padding-top: 3rem;
+  }
+
+  @media (max-width: 991.98px) {
+    .maintained-contact-details {
+      display: block !important;
+    }
+
+    .contact-page.maintained-contact .maintained-contact-details > .contact-infos,
+    .contact-page.maintained-contact .maintained-contact-details .contact-map {
+      height: auto;
+      min-height: 0;
+    }
+
+    .maintained-contact-details > .contact-map-column {
+      margin-top: 1.5rem;
+    }
+
+    .contact-page.maintained-contact .maintained-contact-details .contact-map {
+      height: 22rem;
+    }
+  }
+
+  .maintained-contact-form h2 {
+    color: #0072bc;
+    font-family: 'AntelleSans-Bold', arial, sans-serif;
+  }
+
+  .antelle-contact-form {
+    margin-top: 2rem;
+  }
+
+  .antelle-contact-form label {
+    color: #343f4b;
+    font-family: 'AntelleSans-Bold', arial, sans-serif;
+    text-transform: uppercase;
+  }
+
+  .antelle-contact-form .optional {
+    color: #63717f;
+    font-family: 'AntelleSans', arial, sans-serif;
+    font-size: 0.85em;
+    text-transform: none;
+  }
+
+  .privacy-note {
+    color: #343f4b;
+    margin: 0 0 2rem;
+  }
+
+  .contact-extra-field {
+    height: 0;
+    left: -10000px;
+    overflow: hidden;
+    position: absolute;
+    width: 1px;
+  }
+
+  .form-status {
+    border: 1px solid rgba(0, 114, 188, 0.25);
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+  }
+
+  .form-status[data-type='success'] {
+    border-color: rgba(46, 125, 50, 0.35);
+    color: #2e7d32;
+  }
+
+  .form-status[data-type='error'] {
+    border-color: rgba(198, 40, 40, 0.35);
+    color: #c62828;
+  }
+
+  .form-status[data-type='pending'] {
+    color: #0072bc;
+  }
+
+  .antelle-contact-form button[disabled] {
+    cursor: wait;
+    opacity: 0.7;
+  }
+</style>

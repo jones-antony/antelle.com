@@ -1,0 +1,242 @@
+Antelle Website Contact Form - Azure and Microsoft Graph Setup
+==============================================================
+
+Purpose
+-------
+
+The rebuilt Antelle website contact form will submit to an Azure Function.
+The Azure Function will send email using Microsoft Graph from:
+
+  noreply@antelle.com
+
+The expected recipient mailbox is currently:
+
+  hello@antelle.com
+
+Please confirm if this recipient should be different.
+
+
+1. Azure Resources Required
+---------------------------
+
+Create or confirm the following Azure resources:
+
+1. Resource Group
+   Suggested name:
+     rg-antelle-website-prod
+
+2. Storage Account for the Function App
+   Suggested name:
+     stantellewebsiteprod
+
+3. Application Insights
+   Suggested name:
+     appi-antelle-website-prod
+
+4. Azure Function App
+   Suggested name:
+     func-antelle-contact-prod
+
+Recommended Function App settings:
+
+- Runtime stack: .NET
+- Runtime model: Azure Functions v4
+- Worker runtime: dotnet-isolated
+- Operating system: Windows or Linux is acceptable
+- Hosting: Consumption plan is fine for this workload
+- Region: UK South or another preferred Antelle region
+
+
+2. Entra App Registration
+-------------------------
+
+Create an Entra ID app registration for the Function App.
+
+Suggested name:
+
+  antelle-website-contact-form
+
+Record the following values:
+
+  Tenant ID
+  Client ID / Application ID
+
+Create a client secret and record the secret value securely.
+
+Important:
+
+  The client secret value is only shown once. Do not email it in plain text
+  unless you are using an agreed secure method.
+
+
+3. Microsoft Graph Permissions
+------------------------------
+
+The app registration needs Microsoft Graph permission to send email.
+
+Add:
+
+  API: Microsoft Graph
+  Permission type: Application permission
+  Permission: Mail.Send
+
+Then grant admin consent.
+
+
+4. Restrict Mail.Send To noreply@antelle.com
+--------------------------------------------
+
+Because Microsoft Graph Mail.Send application permission can otherwise be broad,
+please restrict the app so it can only send as:
+
+  noreply@antelle.com
+
+Recommended approach:
+
+Use an Exchange Online Application Access Policy to limit the app registration
+to a mail-enabled security group containing only noreply@antelle.com.
+
+High-level steps:
+
+1. Create a mail-enabled security group, for example:
+
+     sg-antelle-contact-form-senders
+
+2. Add noreply@antelle.com as the only mailbox/member allowed for this app.
+
+3. Create an application access policy that restricts the app registration to
+   that group.
+
+4. Test that the app can send as noreply@antelle.com and cannot send as other
+   mailboxes.
+
+If this restriction is not possible immediately, please flag it clearly before
+go-live so the risk can be reviewed.
+
+
+5. Azure Function App Settings
+------------------------------
+
+Configure these as Function App application settings.
+
+Do not commit these values to the website repository.
+
+Required settings:
+
+  CONTACT_ALLOWED_ORIGINS=https://www.antelle.com
+  CONTACT_TO_EMAIL=hello@antelle.com
+  GRAPH_TENANT_ID=<Tenant ID>
+  GRAPH_CLIENT_ID=<Client ID / Application ID>
+  GRAPH_CLIENT_SECRET=<Client Secret Value>
+  GRAPH_SENDER_MAILBOX=noreply@antelle.com
+
+Note:
+
+  On Azure Functions Flex Consumption, the worker runtime is managed through
+  the Function App runtime configuration rather than an app setting. Do not add
+  FUNCTIONS_WORKER_RUNTIME manually for Flex Consumption apps.
+
+For test/staging, CONTACT_ALLOWED_ORIGINS may also temporarily include:
+
+  http://127.0.0.1:4321
+  http://localhost:4321
+
+Example development value:
+
+  CONTACT_ALLOWED_ORIGINS=https://www.antelle.com,http://127.0.0.1:4321,http://localhost:4321
+
+
+6. CORS
+-------
+
+In the Azure Function App CORS settings, allow:
+
+  https://www.antelle.com
+
+During development/testing, also allow:
+
+  http://127.0.0.1:4321
+  http://localhost:4321
+
+Remove local development origins before final production sign-off unless they
+are still needed for support/testing.
+
+
+7. Information Required Back For Website Configuration
+-----------------------------------------------------
+
+Please provide the following once the Azure resources are ready:
+
+1. Function App name
+2. Resource Group name
+3. Azure subscription name or ID
+4. Region
+5. Public Function endpoint URL, expected to look similar to:
+
+     https://func-antelle-contact-prod.azurewebsites.net/api/contact
+
+   Confirmed production endpoint:
+
+     https://func-antelle-contact-prod-fsfyd5a8hadzdagg.ukwest-01.azurewebsites.net/api/contact
+
+6. Confirmation that noreply@antelle.com can send through Graph
+7. Confirmation that Mail.Send has been restricted to noreply@antelle.com, or
+   confirmation that this still needs to be done
+8. Confirm final recipient mailbox:
+
+     hello@antelle.com
+
+
+8. Deployment Approach
+----------------------
+
+Initial deployment can be done from local Azure Functions Core Tools.
+
+The Function source lives in the repository at:
+
+  Functions/ContactForm/
+
+Local Core Tools path currently available on the development machine:
+
+  C:\Code\TradingDiary\tools\Azure.Functions.Cli.min.win-arm64.4.10.0\func.exe
+
+After the Function App exists and Azure access is available, the deployment
+command will be similar to:
+
+  cd Functions\ContactForm
+  & 'C:\Code\TradingDiary\tools\Azure.Functions.Cli.min.win-arm64.4.10.0\func.exe' azure functionapp publish func-antelle-contact-prod --dotnet-isolated
+
+This command should be confirmed against the final Function App name.
+
+
+9. Test Plan
+------------
+
+After deployment:
+
+1. Test CORS preflight from the website origin.
+2. Submit an invalid form payload and confirm it is rejected.
+3. Submit a honeypot/spam-style payload and confirm it is rejected.
+4. Submit a valid enquiry and confirm email is received.
+5. Confirm the email is sent from noreply@antelle.com.
+6. Confirm Reply-To is set to the visitor's email address.
+7. Check Application Insights logs for success/failure entries.
+8. Confirm no secrets are visible in website source or browser JavaScript.
+
+
+10. Notes
+---------
+
+The browser-facing contact form endpoint is public, so the Azure Function HTTP
+trigger is anonymous. Protection is provided by:
+
+- CORS restrictions
+- server-side validation
+- honeypot field
+- minimum time-on-page check
+- duplicate submission heuristic
+- basic spam content checks
+- Application Insights monitoring
+
+The contact form should not rely on the old Umbraco form postback or old Google
+reCAPTCHA keys.

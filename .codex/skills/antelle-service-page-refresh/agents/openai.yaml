@@ -1,0 +1,4 @@
+interface:
+  display_name: "Antelle Service Page Refresh"
+  short_description: "Refresh Antelle service pages while preserving local patterns."
+  default_prompt: "Refresh an Antelle service page and maintain review status."

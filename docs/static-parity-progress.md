@@ -31,9 +31,8 @@ Generated page scope:
 
 Known limitations:
 
-- Blog pages are intentionally not generated at this stage.
-- Blog URL redirects still need to be defined before deployment to protect existing SEO value. Candidate handling: redirect `/blog/` and retired blog article URLs to an agreed replacement destination, such as a relevant service page, the site home page, or a future insights/resources page.
-- The contact form is still static parity content only. It does not yet submit to the planned Azure Function endpoint.
+- Blog pages are intentionally not generated at this stage; retired `/blog/` URLs are redirected to the home page by the IIS `web.config`.
+- The contact form is now a maintained Astro page and submits to the Azure Function endpoint.
 - The converted mirror content should be reviewed for stale claims before the content refresh phase.
 
 Review note:

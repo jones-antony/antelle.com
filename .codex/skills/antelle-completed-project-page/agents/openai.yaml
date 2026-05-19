@@ -1,0 +1,4 @@
+interface:
+  display_name: "Antelle Completed Project Page"
+  short_description: "Create and maintain Antelle completed project pages."
+  default_prompt: "Create or update an Antelle completed-project page using the standard project template."

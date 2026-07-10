@@ -5,7 +5,8 @@ Last updated: 2026-07-10
 ## Current branch
 
 - Branch: `recovery/production-baseline-tooling`
-- Baseline production-matching commit before this handover was updated: `a391fd6 Prepare contact form and IIS release`
+- Latest production-published commit: `5f9f095 Redirect retired MICTA page to home`
+- Latest workflow-only commit before push: `3949115 Document optional contact form smoke test`
 - Repository: `https://github.com/jones-antony/antelle.com`
 
 ## Handover rule
@@ -18,7 +19,7 @@ From a fresh machine or another checkout:
 
 ```powershell
 git fetch
-git checkout codex/consultancy-bi-page-updates
+git checkout master
 git pull
 cd Site
 npm install
@@ -45,6 +46,10 @@ npm run build
 ## Recent changes
 
 - Prepared the first production publish from the recovered Astro baseline, including homepage service-card updates, the new Low-Code Governance page, shared service icons and service conversation CTAs.
+- Published the refreshed static site to production over FTP after creating `backups/antelle.com_20260710.zip`.
+- Added a permanent IIS redirect from `/about/members-of-micta/` to the home page and verified it live.
+- Fixed first-run FTP script issues: Windows PowerShell-compatible relative paths in `deploy-ftp.ps1`, a corrected same-day backup path check, and future backup exclusions for remote `Archive` folders and `.zip` files.
+- Updated the publish skill so FTP upload always requires manual approval after backup, and production contact-form email testing is documented as an optional explicit-approval smoke test.
 - Updated the homepage to include the problem-led "When to speak to Antelle" section and a homepage conversation CTA.
 - Added Font Awesome-derived SVG service and experience navigation icons under `Site/public/assets/svg/graphics/`.
 - Updated Playwright checks to cover the low-code service page, homepage service structure, service CTA prompts and visual/layout risks around the refreshed service surfaces.
@@ -137,6 +142,12 @@ Site/public/assets/images/
 +-- placeholders/
 ```
 
+Shared service and experience menu icons now also live under:
+
+```text
+Site/public/assets/svg/graphics/
+```
+
 The old copied Umbraco folders have been moved out of the active namespace and retained for reference:
 
 ```text
@@ -145,7 +156,7 @@ Site/public/assets/legacy/
 +-- umbraco-svg/
 ```
 
-`Site/public/assets/media/` and `Site/public/assets/svg/` should not exist in the current working tree.
+`Site/public/assets/media/` should not exist in the current working tree. `Site/public/assets/svg/graphics/` is active and contains maintained Font Awesome-derived service/experience icons.
 
 ## Site map status
 
@@ -173,7 +184,7 @@ Pages currently marked complete:
 - Business Intelligence
 - Consultancy
 
-All current public top-level maintained pages are signed off in the development site map.
+The homepage and current service pages touched during the latest refresh are intentionally marked Needs review until owner sign-off.
 
 Known follow-up work is now also surfaced in the Outstanding Items table on `/dev/site-map/`. Maintain that table from `Site/src/data/outstandingItems.ts`.
 
@@ -199,6 +210,9 @@ Known follow-up work is now also surfaced in the Outstanding Items table on `/de
 
 - `PUBLIC_CONTACT_FORM_ENDPOINT=https://func-antelle-contact-prod-fsfyd5a8hadzdagg.ukwest-01.azurewebsites.net/api/contact npm run build`
 - `npm run visual:check`
+- `.\deploy\backup-ftp.ps1`
+- `.\deploy\deploy-ftp.ps1 -SkipBuild`
+- Live production smoke checks for home, changed service pages, new SVG icon asset, broken images on sampled pages, and `/about/members-of-micta/` redirect.
 - `npm run build`
 - `dotnet build Functions\ContactForm\ContactForm.csproj`
 - Azure Functions Core Tools publish to `func-antelle-contact-prod`

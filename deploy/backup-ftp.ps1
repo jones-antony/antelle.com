@@ -28,6 +28,9 @@ if ($FtpUseSsl) {
   throw "This backup script is configured for standard FTP. Set `$FtpUseSsl = `$false in deploy/ftp.settings.ps1."
 }
 
+$ExcludedDirectoryNames = @("Archive")
+$ExcludedFileExtensions = @(".zip")
+
 function Join-FtpPath {
   param(
     [string]$Left,
@@ -186,9 +189,20 @@ function Save-FtpDirectory {
     $localChild = Join-Path $LocalPath $entry.Name
 
     if ($entry.IsDirectory) {
+      if ($ExcludedDirectoryNames -contains $entry.Name) {
+        Write-Host "Skipping excluded directory: $remoteChild"
+        continue
+      }
+
       Write-Host "Backing up directory: $remoteChild"
       Save-FtpDirectory -RemotePath $remoteChild -LocalPath $localChild
     } else {
+      $extension = [System.IO.Path]::GetExtension($entry.Name)
+      if ($ExcludedFileExtensions -contains $extension.ToLowerInvariant()) {
+        Write-Host "Skipping excluded file: $remoteChild"
+        continue
+      }
+
       Write-Host "Backing up file: $remoteChild"
       Save-FtpFile -RemotePath $remoteChild -LocalPath $localChild
     }

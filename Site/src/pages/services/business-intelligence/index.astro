@@ -2,6 +2,7 @@
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import OtherServices from '../../../components/OtherServices.astro';
 import ExploreProjectsCta from '../../../components/ExploreProjectsCta.astro';
+import ConversationCta from '../../../components/ConversationCta.astro';
 
 const asset = (path: string) => `/assets/${path}`;
 
@@ -233,6 +234,19 @@ const structuredData = {
         }
       </div>
     </section>
+
+    <ConversationCta
+      title="Not confident your reporting is based on trusted data?"
+      buttonText="Discuss a BI requirement"
+    >
+      <p>
+        We can help review the data sources, reporting model and practical steps needed to make operational reporting
+        more reliable.
+      </p>
+      <p>
+        That may include Azure SQL, Dataverse, Power BI, legacy reporting tools, data integration or report governance.
+      </p>
+    </ConversationCta>
 
     <ExploreProjectsCta />
 

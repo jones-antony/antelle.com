@@ -1,0 +1,365 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import OtherServices from '../../../components/OtherServices.astro';
+import ExploreProjectsCta from '../../../components/ExploreProjectsCta.astro';
+import ConversationCta from '../../../components/ConversationCta.astro';
+
+const signs = [
+  {
+    title: 'The system started as a quick fix',
+    text: 'Useful low-code systems often begin as pragmatic workarounds. If the system is now relied on every day, it may need to be reviewed, documented and strengthened.'
+  },
+  {
+    title: 'The original maker has moved on',
+    text: 'If only one person understands the app, flows, data model or permissions, the organisation has a support risk.'
+  },
+  {
+    title: 'Changes feel risky',
+    text: 'If small changes require caution because nobody is fully sure what might break, the system may need better solution management, testing and deployment discipline.'
+  },
+  {
+    title: 'Reporting is difficult to trust',
+    text: 'If reports require manual checking or reconciliation between systems, there may be deeper issues with data structure, ownership or integration.'
+  },
+  {
+    title: 'Security has become unclear',
+    text: 'Dataverse security is capable, but it needs careful design. Permissions added over time without a clear model can expose too much or block legitimate work.'
+  },
+  {
+    title: 'Integration is becoming unavoidable',
+    text: 'Once a low-code system needs to connect to finance systems, document systems, portals, APIs, data warehouses or legacy platforms, deeper technical design is usually required.'
+  }
+];
+
+const helpAreas = [
+  {
+    title: 'Dataverse and Power Platform Reviews',
+    text: 'We review existing apps, flows, tables, security models, environments and deployment practices to identify practical risks and improvements.'
+  },
+  {
+    title: 'Architecture and Governance',
+    text: 'We help decide what belongs in Power Apps, Dynamics, Dataverse, Azure or custom code, and put sensible structure around ownership, release and support.'
+  },
+  {
+    title: 'Complex Platform Delivery',
+    text: 'We can help with Dataverse design, Dynamics customisation, model-driven apps, complex Power Automate, plugins, APIs, Azure Functions, integration and reporting.'
+  },
+  {
+    title: 'Rescue and Stabilisation',
+    text: 'We help organisations regain control where flows are fragile, permissions are unclear, deployments are manual or nobody is comfortable changing the system.'
+  },
+  {
+    title: 'Support for Internal Teams',
+    text: 'We work alongside internal Microsoft platform teams where deeper technical input is needed without taking ownership away from the people closest to the process.'
+  }
+];
+
+const firstReview = [
+  'what the system does',
+  'how it is structured',
+  'who owns and supports it',
+  'where the main technical and operational risks sit',
+  'what should be improved first',
+  'what can safely be left alone',
+  'whether parts of the system need deeper engineering work'
+];
+
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfessionalService',
+  name: 'Antelle IT Ltd',
+  url: 'https://www.antelle.com/services/low-code-business-critical/',
+  areaServed: 'Isle of Man',
+  serviceType: [
+    'Power Platform governance',
+    'Dataverse review',
+    'Low-code solution stabilisation',
+    'Dynamics 365 technical assurance'
+  ],
+  description:
+    'Support for Microsoft Power Platform, Dataverse and Dynamics solutions that have become important enough to need stronger governance, security, integration and support.'
+};
+---
+
+<BaseLayout
+  title="When low-code becomes business-critical | Antelle IT Ltd"
+  description="Antelle helps organisations make Microsoft Power Platform, Dataverse and Dynamics solutions more robust, supportable and suitable for business-critical use."
+  pageClass="services low-code-page"
+  canonicalUrl="https://www.antelle.com/services/low-code-business-critical/"
+  structuredData={structuredData}
+>
+  <div class="container">
+    <section class="splash row maintained-service-splash">
+      <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+        <h1 class="subheader-text">When low-code becomes business-critical</h1>
+        <p class="header-text light">
+          Antelle helps organisations make Microsoft Power Platform, Dataverse and Dynamics-based systems more robust,
+          supportable and suitable for business-critical use.
+        </p>
+        <a href="/contact/" class="cta cta-large">Discuss a Power Platform or Dataverse Requirement</a>
+      </div>
+      <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+        <svg
+          class="img-splash img-fluid low-code-hero"
+          viewBox="0 0 420 260"
+          role="img"
+          aria-labelledby="low-code-hero-title low-code-hero-desc"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <title id="low-code-hero-title">Governed low-code applications</title>
+          <desc id="low-code-hero-desc">Connected application, data and governance blocks around a central Microsoft platform.</desc>
+          <rect class="visual-panel" x="18" y="18" width="384" height="224" rx="8" />
+          <rect class="visual-dark" x="70" y="62" width="92" height="58" rx="8" />
+          <rect class="visual-accent" x="258" y="62" width="92" height="58" rx="8" />
+          <rect class="visual-mid" x="164" y="150" width="92" height="58" rx="8" />
+          <path class="visual-line" d="M162 91h96M116 120v59h48M304 120v59h-48" />
+          <path class="visual-tick" d="M99 91l15 15 32-37M287 91l15 15 32-37M193 179l15 15 32-37" />
+        </svg>
+      </div>
+    </section>
+
+    <section class="sector row low-code-overview" id="overview">
+      <div class="col-12">
+        <h2>Overview</h2>
+      </div>
+      <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+        <h3 class="header-2-text light">Low-code is not the problem.</h3>
+        <p>
+          Low-code platforms are excellent for moving quickly. They help teams replace spreadsheets, automate repetitive
+          work and prototype ideas without waiting months for a full software project.
+        </p>
+        <p>
+          The risk comes when a solution grows beyond its original intent without the right structure around it. A quick
+          app becomes a departmental system. A departmental system becomes operationally important. An operational
+          system becomes something people are nervous to change.
+        </p>
+      </div>
+      <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+        <h3 class="header-2-text light">The questions change.</h3>
+        <ul>
+          <li><span>Who owns this system?</span></li>
+          <li><span>Can we support it if the original maker leaves?</span></li>
+          <li><span>Is the data model still fit for purpose?</span></li>
+          <li><span>Are security roles and permissions correct?</span></li>
+          <li><span>Can changes be deployed safely?</span></li>
+          <li><span>Would this stand up to audit, regulation or operational scrutiny?</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="solutions service-card-grid row" id="signs">
+      <div class="col-12">
+        <h2>Signs your low-code solution may need more structure</h2>
+      </div>
+      {
+        signs.map((sign) => (
+          <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+            <div class="item service-focus-card">
+              <h3>{sign.title}</h3>
+              <p>{sign.text}</p>
+            </div>
+          </div>
+        ))
+      }
+    </section>
+
+    <section class="sector row" id="how-antelle-helps">
+      <div class="col-12">
+        <h2>How Antelle Helps</h2>
+      </div>
+      <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+        <p>
+          Antelle sits in the space between internal low-code delivery and fully engineered business-critical systems.
+          Not every Power Platform solution needs to become a large software project, and internal teams are often the
+          right people to build and own the first version.
+        </p>
+        <p>
+          Our role is to help when the system becomes too important, too integrated, too complex or too risky to leave
+          as an informal build.
+        </p>
+      </div>
+      <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+        <p>
+          We can review existing solutions, stabilise inherited systems, design safer architectures, build complex
+          components, or support internal teams.
+        </p>
+        <p>
+          This work often connects with our broader
+          <a href="/services/power-platform/">Power Platform</a>,
+          <a href="/services/microsoft-dynamics-crm/">Dynamics CRM</a>,
+          <a href="/services/business-intelligence/">Business Intelligence</a> and
+          <a href="/services/consultancy/">Consultancy</a> services.
+        </p>
+      </div>
+    </section>
+
+    <section class="solutions service-card-grid row" id="key-areas">
+      <div class="col-12">
+        <h2>Typical Areas We Help With</h2>
+      </div>
+      {
+        helpAreas.map((area) => (
+          <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+            <div class="item service-focus-card">
+              <h3>{area.title}</h3>
+              <p>{area.text}</p>
+            </div>
+          </div>
+        ))
+      }
+    </section>
+
+    <section class="sector row" id="first-step">
+      <div class="col-12">
+        <h2>A Practical First Step</h2>
+      </div>
+      <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+        <p>
+          If you have a Power Platform, Dataverse or Dynamics solution that has become more important than originally
+          intended, we can help you understand where you are.
+        </p>
+        <p>
+          The output is a practical set of findings and recommendations, not a theoretical architecture exercise.
+        </p>
+        <a href="/contact/" class="cta cta-large">Discuss a Review</a>
+      </div>
+      <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+        <ul>
+          {firstReview.map((item) => <li><span>{item}</span></li>)}
+        </ul>
+      </div>
+    </section>
+
+    <ConversationCta
+      title="Has a low-code solution become too important to leave informal?"
+      buttonText="Discuss a Power Platform or Dataverse requirement"
+    >
+      <p>
+        Send us a short outline of the app, flow, Dataverse model or Dynamics solution, and what is becoming harder to
+        change, support, secure or report from.
+      </p>
+      <p>
+        We can help review the structure, identify practical risks and agree sensible next steps without turning every
+        low-code system into a large software project.
+      </p>
+    </ConversationCta>
+
+    <ExploreProjectsCta />
+
+    <OtherServices currentPath="/services/low-code-business-critical/" />
+  </div>
+</BaseLayout>
+
+<style>
+  .low-code-hero,
+  .content-icon {
+    display: block;
+    height: auto;
+  }
+
+  .low-code-hero {
+    width: 100%;
+  }
+
+  .low-code-overview {
+    padding-top: 4rem !important;
+  }
+
+  .service-card-grid {
+    padding-top: 3rem !important;
+  }
+
+  .service-card-grid > div {
+    margin-bottom: 2rem;
+  }
+
+  .service-focus-card {
+    min-height: auto;
+    padding: 2rem;
+  }
+
+  .service-focus-card p:last-of-type {
+    margin-bottom: 0;
+  }
+
+  .visual-panel {
+    fill: #ffffff;
+    stroke: #8dd8f8;
+    stroke-width: 2;
+  }
+
+  .visual-line {
+    fill: none;
+    stroke: #0072bc;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 5;
+  }
+
+  .visual-tick {
+    fill: none;
+    stroke: #ffffff;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 6;
+  }
+
+  .visual-accent {
+    fill: #8dd8f8;
+  }
+
+  .visual-mid {
+    fill: #00baf2;
+  }
+
+  .visual-dark {
+    fill: #0072bc;
+  }
+
+  @media (max-width: 991.98px) {
+    section.maintained-service-splash {
+      min-height: auto;
+      padding-bottom: 2rem !important;
+      padding-top: 2.5rem !important;
+    }
+
+    section.maintained-service-splash > div:nth-of-type(1) {
+      max-width: 100%;
+      order: 2;
+      position: static !important;
+      width: 100% !important;
+    }
+
+    section.maintained-service-splash > div:nth-of-type(2) {
+      margin-bottom: 0.75rem;
+      max-width: 100%;
+      opacity: 1;
+      order: 1;
+      position: static !important;
+      text-align: right;
+      width: 100% !important;
+    }
+
+    .low-code-hero {
+      display: inline-block;
+      max-width: 20rem;
+      width: 50%;
+    }
+  }
+
+  @media (max-width: 576px) {
+    section.maintained-service-splash .header-text {
+      font-size: 1.6em;
+    }
+
+    section.maintained-service-splash .cta {
+      min-width: 0;
+      width: 100%;
+    }
+
+    .low-code-hero {
+      max-width: 13rem;
+      width: 50%;
+    }
+  }
+</style>

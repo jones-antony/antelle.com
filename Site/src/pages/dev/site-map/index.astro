@@ -38,17 +38,10 @@ const completedProjectGroups: SiteMapNode[] = [
   }
 ];
 
-const completedServicePaths = new Set([
-  '/services/power-platform/',
-  '/services/microsoft-dynamics-crm/',
-  '/services/software-development/',
-  '/services/web-development/',
-  '/services/business-intelligence/',
-  '/services/consultancy/'
-]);
+const completedServicePaths = new Set([]);
 
 const nodes: SiteMapNode[] = [
-  { title: 'Home', href: '/', complete: true },
+  { title: 'Home', href: '/', complete: false },
   {
     title: 'Services',
     children: services.map((service) => ({

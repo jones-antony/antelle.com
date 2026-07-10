@@ -36,6 +36,8 @@ Read `AGENTS.md` first. Read `docs/CODEX_HANDOVER.md` and `Site/public/web.confi
    Pop-Location
    ```
 
+   For visual-sensitive releases, `visual:check` must include objective assertions for the relevant layout/style risks, not just screenshot capture. Check expected hero/background styling, visible copy, card counts/order, icon asset paths, broken images, and key bounding boxes at production-comparable viewports.
+
 4. Commit the code before deployment when the user has asked for a publish. Use a concise, meaningful commit message and report the commit hash.
 5. Back up the remote site before upload:
 

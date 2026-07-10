@@ -44,6 +44,11 @@ npm run build
 
 ## Recent changes
 
+- Prepared the first production publish from the recovered Astro baseline, including homepage service-card updates, the new Low-Code Governance page, shared service icons and service conversation CTAs.
+- Updated the homepage to include the problem-led "When to speak to Antelle" section and a homepage conversation CTA.
+- Added Font Awesome-derived SVG service and experience navigation icons under `Site/public/assets/svg/graphics/`.
+- Updated Playwright checks to cover the low-code service page, homepage service structure, service CTA prompts and visual/layout risks around the refreshed service surfaces.
+- Updated Antelle Codex skills to make Playwright screenshots supporting evidence rather than the only validation for visual work.
 - Confirmed `jones-origin/codex/consultancy-bi-page-updates` at `a391fd6` is the production-matching Astro baseline; see `docs/production-baseline-recovery.md`.
 - Added repo-local Playwright checks with `npm run visual:check`.
 - Added standard FTP backup/deploy scripts under `deploy/` and a publish skill for controlled production backup/upload workflow.
@@ -192,6 +197,8 @@ Known follow-up work is now also surfaced in the Outstanding Items table on `/de
 
 ## Verification already run
 
+- `PUBLIC_CONTACT_FORM_ENDPOINT=https://func-antelle-contact-prod-fsfyd5a8hadzdagg.ukwest-01.azurewebsites.net/api/contact npm run build`
+- `npm run visual:check`
 - `npm run build`
 - `dotnet build Functions\ContactForm\ContactForm.csproj`
 - Azure Functions Core Tools publish to `func-antelle-contact-prod`

@@ -2,6 +2,7 @@
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import OtherServices from '../../../components/OtherServices.astro';
 import ExploreProjectsCta from '../../../components/ExploreProjectsCta.astro';
+import ConversationCta from '../../../components/ConversationCta.astro';
 
 const structuredData = {
   '@context': 'https://schema.org',
@@ -86,6 +87,25 @@ const structuredData = {
           The aim is to use Power Platform confidently, but not blindly. Where low-code is the right fit, it can reduce
           friction and speed up delivery. Where a bespoke or hybrid approach is stronger, we will say so.
         </p>
+      </div>
+    </section>
+
+    <section class="sector row power-platform-growth" id="business-critical-low-code">
+      <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+        <h2>Has a Power Platform solution grown beyond its original scope?</h2>
+        <p>
+          Many useful Power Platform solutions start as quick internal builds. Once they become operationally important,
+          they need clearer ownership, safer deployment, stronger security and a supportable data model.
+        </p>
+      </div>
+      <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+        <p>
+          We help organisations review, stabilise and strengthen Power Platform, Dataverse and Dynamics solutions that
+          now need more governance, integration, reporting or support.
+        </p>
+        <a href="/services/low-code-business-critical/" class="cta cta-secondary cta-small">
+          Read about Low-Code Governance
+        </a>
       </div>
     </section>
 
@@ -201,6 +221,25 @@ const structuredData = {
       </div>
     </section>
 
+    <ConversationCta
+      title="Has a Power Platform solution grown beyond its original scope?"
+      buttonText="Discuss a Power Platform requirement"
+    >
+      <p>
+        Many useful Power Apps, flows and Dataverse solutions start as quick internal builds. Once they become
+        operationally important, they need clearer ownership, safer deployment, stronger security and a supportable data
+        model.
+      </p>
+      <p>
+        If a Power Platform solution is becoming harder to change, support or trust, we can help review the structure
+        and identify practical next steps.
+      </p>
+      <p>
+        You may also find our page on
+        <a href="/services/low-code-business-critical/">when low-code becomes business-critical</a> useful.
+      </p>
+    </ConversationCta>
+
     <ExploreProjectsCta />
 
     <OtherServices currentPath="/services/power-platform/" />
@@ -231,6 +270,10 @@ const structuredData = {
 
   .power-platform-overview {
     padding-top: 4rem !important;
+  }
+
+  .power-platform-growth {
+    padding-top: 3rem !important;
   }
 
   .service-card-grid {

@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import ConversationCta from '../components/ConversationCta.astro';
 import SectorIcon from '../components/SectorIcon.astro';
 import { sectors } from '../content/sectors';
 import { services as siteServices } from '../content/services';
@@ -7,10 +8,11 @@ import { services as siteServices } from '../content/services';
 const asset = (path: string) => `/assets/${path}`;
 
 const homeServiceOrder = [
-  'Microsoft Dynamics CRM',
   'Power Platform',
-  'Web Development',
+  'Low-Code Governance',
+  'Microsoft Dynamics CRM',
   'Software Development',
+  'Web Development',
   'Business Intelligence',
   'Consultancy'
 ];
@@ -20,6 +22,8 @@ const homeServiceText: Record<string, string> = {
     'Design, delivery and long-term support for Dynamics 365 and Dataverse solutions across regulated, operational and service-led organisations.',
   'Power Platform':
     'Practical Power Apps, Power Automate, Dataverse and Power BI solutions, built with the governance and support needed for long-term use.',
+  'Low-Code Governance':
+    'We help organisations review, stabilise and strengthen Power Platform, Dataverse and Dynamics solutions that now need better governance, security, integration, reporting or support.',
   'Web Development':
     'Modern web applications, portals and APIs using Microsoft cloud services, with a focus on secure integration, maintainability and practical delivery.',
   'Software Development':
@@ -40,9 +44,47 @@ const services = homeServiceOrder.map((title) => {
   return {
     ...service,
     alt: `${service.title} Image`,
+    columnClass:
+      title === 'Power Platform' || title === 'Low-Code Governance' || title === 'Microsoft Dynamics CRM'
+        ? 'col-12 col-sm-12 col-md-6 col-lg-4'
+        : 'col-12 col-sm-12 col-md-6 col-lg-6',
+    cardClass: title === 'Software Development' || title === 'Web Development' ? 'service service-card-light' : 'service',
     text: homeServiceText[service.title] ?? service.summary
   };
 });
+
+const problemCards = [
+  {
+    title: 'Your CRM or Dataverse estate is becoming harder to change',
+    href: '/services/microsoft-dynamics-crm/',
+    text: 'We help review, modernise, migrate and support Microsoft CRM, Dynamics 365 and Dataverse systems where data, process, reporting and integration need to keep working reliably.'
+  },
+  {
+    title: 'A low-code solution has become business-critical',
+    href: '/services/low-code-business-critical/',
+    text: 'We help strengthen Power Platform and Dataverse solutions that now need clearer ownership, safer deployment, stronger security, reliable reporting or deeper technical support.'
+  },
+  {
+    title: 'Reporting is difficult to trust',
+    href: '/services/business-intelligence/',
+    text: 'We help organisations build reporting foundations around reliable data sources, Azure SQL, Dataverse and Power BI so teams can work from numbers they understand.'
+  },
+  {
+    title: 'A legacy or bespoke system still matters',
+    href: '/services/software-development/',
+    text: 'We support, stabilise and modernise older Microsoft-based systems where replacement needs care and the business still depends on the current process.'
+  },
+  {
+    title: 'Systems need to talk to each other properly',
+    href: '/services/software-development/',
+    text: 'We design and support practical integrations between CRM, Dataverse, Microsoft 365, Azure services, databases, portals and line-of-business systems.'
+  },
+  {
+    title: 'You need senior technical input before committing',
+    href: '/services/consultancy/',
+    text: 'We provide practical review and consultancy where an organisation needs clear options, realistic risks and experienced judgement before starting or rescuing a project.'
+  }
+];
 
 const customers = [
   ['images/clients/client-logo-ardan.png', 'Ardan International'],
@@ -62,7 +104,11 @@ const customers = [
 ];
 ---
 
-<BaseLayout title="Home | Antelle IT Ltd" pageClass="homepage">
+<BaseLayout
+  title="Home | Antelle IT Ltd"
+  description="Antelle helps Isle of Man and UK organisations design, modernise and support business-critical Microsoft systems across Dynamics 365, Dataverse, Power Platform, Azure SQL, Power BI and bespoke .NET development."
+  pageClass="homepage"
+>
   <div class="container">
     <section class="splash row">
       <div class="col-11 col-sm-10 col-md-8 col-lg-6 col-xl-6">
@@ -81,8 +127,8 @@ const customers = [
       <div class="row">
         {
           services.map((service) => (
-            <div class="col-12 col-sm-12 col-md-6 col-lg-4">
-              <a href={service.href} class="service">
+            <div class={service.columnClass}>
+              <a href={service.href} class={service.cardClass}>
                 <span class="icon">
                   <img class="img-fluid" src={asset(service.icon)} alt={service.alt} />
                 </span>
@@ -101,6 +147,40 @@ const customers = [
         }
       </div>
     </section>
+
+    <section class="when-to-speak row">
+      <div class="col-12">
+        <h2>When to speak to Antelle</h2>
+        <p class="header-2-text light">
+          Organisations do not usually need help because they want more technology. They need help because an important
+          system is becoming harder to support, change, integrate or trust.
+        </p>
+        <p>
+          Antelle is a good fit where Microsoft-based systems, data and processes have become business-critical and need
+          practical engineering discipline around them.
+        </p>
+      </div>
+      {
+        problemCards.map((card) => (
+          <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+            <a class="problem-card" href={card.href}>
+              <h3>{card.title}</h3>
+              <p>{card.text}</p>
+            </a>
+          </div>
+        ))
+      }
+    </section>
+
+    <ConversationCta
+      title="Have a system that is becoming difficult to support, report from or change?"
+      buttonText="Contact Antelle"
+    >
+      <p>
+        Send us a short outline of the system, what it does, and what is starting to feel risky or difficult.
+      </p>
+      <p>We will tell you whether it sounds like something we can sensibly help with.</p>
+    </ConversationCta>
 
     <section class="experience row">
       <div class="col-8 col-sm-6 col-md-4 col-lg-4 col-xl-4">
@@ -185,31 +265,81 @@ const customers = [
 </BaseLayout>
 
 <style is:global>
-  .homepage main.content section.services .row > div:nth-child(6) .service {
+  .homepage main.content section.services .service.service-card-light {
     background-color: #ffffff;
   }
 
-  .homepage main.content section.services .row > div:nth-child(6) .service h4 {
+  .homepage main.content section.services .service.service-card-light h4 {
     color: #0072bc;
   }
 
-  .homepage main.content section.services .row > div:nth-child(6) .service h4 .icon-arrow path {
+  .homepage main.content section.services .service.service-card-light h4 .icon-arrow path {
     fill: #0072bc;
   }
 
-  .homepage main.content section.services .row > div:nth-child(6) .service span {
+  .homepage main.content section.services .service.service-card-light span {
     color: #343f4b;
   }
 
-  .homepage main.content section.services .row > div:nth-child(6) .service:hover,
-  .homepage main.content section.services .row > div:nth-child(6) .service:focus {
+  .homepage main.content section.services .service.service-card-light:hover,
+  .homepage main.content section.services .service.service-card-light:focus {
     background-color: #f2f2f2;
     transition: background-color 0.33s linear;
   }
 
-  .homepage main.content section.services .row > div:nth-child(6) .service:active {
+  .homepage main.content section.services .service.service-card-light:active {
     background-color: #e6e6e6;
     transition: background-color 0.15s linear;
+  }
+
+  .homepage main.content section.when-to-speak {
+    padding-top: 4rem;
+  }
+
+  .homepage main.content section.when-to-speak h2 {
+    color: #0072bc;
+    font-size: 0.9em;
+    text-transform: uppercase;
+  }
+
+  .homepage main.content section.when-to-speak > div:first-child {
+    margin-bottom: 1.5rem;
+  }
+
+  .homepage main.content section.when-to-speak .header-2-text {
+    max-width: 55rem;
+  }
+
+  .homepage main.content section.when-to-speak .problem-card {
+    background-color: rgba(0, 186, 242, 0.1);
+    border-left: 4px solid #00baf2;
+    box-shadow: 0 8px 16px 0 rgba(52, 64, 75, 0.16);
+    color: #343f4b;
+    display: block;
+    height: 100%;
+    padding: 2rem;
+    transition: background-color 0.25s linear, color 0.25s linear;
+  }
+
+  .homepage main.content section.when-to-speak .problem-card:hover,
+  .homepage main.content section.when-to-speak .problem-card:focus {
+    background-color: rgba(0, 186, 242, 0.16);
+    color: #0072bc;
+    text-decoration: none;
+  }
+
+  .homepage main.content section.when-to-speak .problem-card h3 {
+    color: #0072bc;
+    font-size: 1.25em;
+  }
+
+  .homepage main.content section.when-to-speak .problem-card p {
+    font-family: 'AntelleSans-Regular', arial, sans-serif;
+    margin-bottom: 0;
+  }
+
+  .homepage main.content section.when-to-speak > div {
+    margin-bottom: 1.5rem;
   }
 
   .homepage main.content section.experience .homepage-sector-icon {

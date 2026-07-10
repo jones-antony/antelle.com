@@ -2,6 +2,7 @@
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import OtherServices from '../../../components/OtherServices.astro';
 import ExploreProjectsCta from '../../../components/ExploreProjectsCta.astro';
+import ConversationCta from '../../../components/ConversationCta.astro';
 
 const structuredData = {
   '@context': 'https://schema.org',
@@ -147,6 +148,19 @@ const structuredData = {
         </p>
       </div>
     </section>
+
+    <ConversationCta
+      title="Have a CRM estate that is becoming difficult to change, support or report from?"
+      buttonText="Discuss a CRM requirement"
+    >
+      <p>
+        Send us a short outline of the system, the version or platform involved, and what is becoming difficult.
+      </p>
+      <p>
+        We can help with Dynamics 365, Dataverse, older Microsoft CRM estates, migration planning, integration,
+        reporting and long-term support.
+      </p>
+    </ConversationCta>
 
     <ExploreProjectsCta />
 

@@ -17,6 +17,7 @@ description: Use when refreshing Antelle service pages under /services/, includi
 8. Mark the page as Needs review after meaningful changes unless the user says done/signed off.
 9. Run `npm run build`.
 10. Use Playwright when rendered-page inspection is useful, especially for service navigation, homepage service cards, responsive layout, screenshots and retired-route checks. From `Site/`, use `npm.cmd run visual:check` for the repo-local Playwright checks.
+11. For visual-sensitive changes, do not rely on screenshots alone. Add or update Playwright assertions for the specific risk, such as expected background image/colour, visible hero copy, card count/order, icon asset paths, and key element bounding boxes at a production-comparable viewport.
 
 ## Copy Rules
 
@@ -34,3 +35,5 @@ Check:
 - Other Services section.
 - `/dev/site-map/` status.
 - No broken `/contact/` or retired-page links.
+- Visual regressions have objective Playwright assertions, not only saved screenshots.
+- When matching production, capture same-viewport local and production screenshots and compare the intended layout areas before signing off.

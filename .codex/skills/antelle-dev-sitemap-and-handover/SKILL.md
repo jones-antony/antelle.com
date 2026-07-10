@@ -41,3 +41,5 @@ description: Use when maintaining Antelle's development sitemap, page sign-off s
 After build, confirm `Site/dist/dev` is removed by postbuild cleanup.
 
 Use Playwright when screenshots or browser-rendered checks help confirm the handover state. From `Site/`, use `npm.cmd run visual:check` for the repo-local Playwright checks.
+
+For visual-sensitive work, screenshots are evidence, not validation by themselves. Add or update Playwright assertions for the failure mode being guarded, such as expected hero/background styling, visible copy, card counts/order, icon asset paths, broken images, and key bounding boxes at desktop/mobile or production-comparable viewports. When matching production, capture same-viewport local and production screenshots and report the comparison.

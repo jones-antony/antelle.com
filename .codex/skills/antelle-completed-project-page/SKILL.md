@@ -23,6 +23,7 @@ description: Use when creating, updating, renaming, reviewing, or signing off An
 9. New or meaningfully changed project pages default to Needs review in `/dev/site-map/` unless explicitly marked complete.
 10. Run `npm run build`.
 11. Use Playwright when rendered-page inspection is useful, especially for project cards, page layout, responsive behaviour, screenshots and navigation checks. From `Site/`, use `npm.cmd run visual:check` for the repo-local Playwright checks.
+12. For visual-sensitive changes, do not rely on screenshots alone. Add or update Playwright assertions for the specific risk, such as subnav visibility, hero/background styling, card count/order, icon asset paths, and key element bounding boxes at a production-comparable viewport.
 
 ## Content Rules
 
@@ -41,3 +42,4 @@ Check:
 - Subnav anchors match section IDs.
 - Services/technologies align in two columns on desktop and single column on mobile.
 - `/dev/projecticons/` includes any new icons/labels.
+- Visual regressions have objective Playwright assertions, not only saved screenshots.

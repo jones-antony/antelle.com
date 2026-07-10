@@ -2,6 +2,7 @@
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import OtherServices from '../../../components/OtherServices.astro';
 import ExploreProjectsCta from '../../../components/ExploreProjectsCta.astro';
+import ConversationCta from '../../../components/ConversationCta.astro';
 
 const structuredData = {
   '@context': 'https://schema.org',
@@ -143,6 +144,20 @@ const structuredData = {
         </p>
       </div>
     </section>
+
+    <ConversationCta
+      title="Need a system that fits the way the business actually works?"
+      buttonText="Discuss a software requirement"
+    >
+      <p>
+        We help design, build, integrate and support bespoke software where off-the-shelf tools or informal workarounds
+        are not enough.
+      </p>
+      <p>
+        This is often useful where a process is operationally important, difficult to standardise, dependent on legacy
+        systems, or needs careful integration with Microsoft services and business data.
+      </p>
+    </ConversationCta>
 
     <ExploreProjectsCta />
 

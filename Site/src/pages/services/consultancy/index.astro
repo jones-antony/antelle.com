@@ -2,6 +2,7 @@
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import OtherServices from '../../../components/OtherServices.astro';
 import ExploreProjectsCta from '../../../components/ExploreProjectsCta.astro';
+import ConversationCta from '../../../components/ConversationCta.astro';
 
 const asset = (path: string) => `/assets/${path}`;
 
@@ -160,6 +161,19 @@ const structuredData = {
         </div>
       </div>
     </section>
+
+    <ConversationCta
+      title="Need experienced technical input before committing to a project?"
+      buttonText="Discuss a consultancy requirement"
+    >
+      <p>
+        We can help review options, risks, likely effort and whether a proposed approach is proportionate.
+      </p>
+      <p>
+        This can be useful before starting a Microsoft platform project, rescuing an existing system, planning a
+        migration or deciding whether internal delivery needs additional support.
+      </p>
+    </ConversationCta>
 
     <ExploreProjectsCta />
 

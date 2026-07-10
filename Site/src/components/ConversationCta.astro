@@ -1,0 +1,59 @@
+---
+type Props = {
+  title: string;
+  buttonText: string;
+  href?: string;
+};
+
+const { title, buttonText, href = '/contact/' } = Astro.props;
+---
+
+<section class="sector row conversation-cta">
+  <div class="col-12">
+    <div class="conversation-cta-panel">
+      <h2>{title}</h2>
+      <div class="conversation-cta-copy">
+        <slot />
+      </div>
+      <a href={href} class="cta">{buttonText}</a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .conversation-cta {
+    padding-top: 3rem !important;
+  }
+
+  .conversation-cta-panel {
+    background: rgba(0, 186, 242, 0.12);
+    border-left: 4px solid #0072bc;
+    padding: 2rem;
+  }
+
+  .conversation-cta-panel h2 {
+    color: #0072bc;
+    font-size: 2em !important;
+    margin-bottom: 1rem;
+    text-transform: none !important;
+  }
+
+  .conversation-cta-copy {
+    max-width: 54rem;
+  }
+
+  .conversation-cta-copy p:last-child {
+    margin-bottom: 1.5rem;
+  }
+
+  @media (max-width: 576px) {
+    .conversation-cta-panel {
+      padding: 1.5rem;
+    }
+
+    .conversation-cta-panel .cta {
+      min-width: 0;
+      width: 100%;
+    }
+  }
+</style>

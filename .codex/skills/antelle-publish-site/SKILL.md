@@ -10,6 +10,7 @@ description: Controlled production publish workflow for the Antelle Astro/IIS st
 Treat this as a production change. Production `https://www.antelle.com/` is the source of truth; do not publish a branch that is not intentionally based on the production-matching Astro baseline.
 
 Build and back up before upload, never reveal FTP secrets, and do not publish uncommitted or unexplained work.
+Always keep a manual approval gate between a successful production backup and the FTP upload.
 
 Read `AGENTS.md` first. Read `docs/CODEX_HANDOVER.md` and `Site/public/web.config` before running the publish workflow.
 
@@ -47,7 +48,7 @@ Read `AGENTS.md` first. Read `docs/CODEX_HANDOVER.md` and `Site/public/web.confi
 
    The script downloads the configured FTP root to `backups/antelle.com_YYYYMMDD`, creates a zip, then removes the downloaded folder. If a same-day zip already exists, retain both by using a timestamped suffix.
 
-6. Pause before upload unless the user's latest instruction explicitly says to proceed with publishing now. State the backup zip path and the commit hash.
+6. Always pause before upload after the backup completes. State the backup zip path and the commit hash, then wait for explicit user approval to continue with the FTP upload. Do this even when the original request asked to publish.
 7. Upload the already-built `Site/dist` output:
 
    ```powershell

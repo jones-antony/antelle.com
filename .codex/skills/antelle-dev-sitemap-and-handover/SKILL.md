@@ -30,6 +30,7 @@ description: Use when maintaining Antelle's development sitemap, page sign-off s
    - resume notes
 2. Run:
    - `npm run build` from `Site`
+   - `npm run visual:check` from `Site` when layout, navigation or route behaviour changed
    - `git diff --check`
 3. Check `git status --short`.
 4. Commit with a concise message.
@@ -38,3 +39,5 @@ description: Use when maintaining Antelle's development sitemap, page sign-off s
 ## Verification
 
 After build, confirm `Site/dist/dev` is removed by postbuild cleanup.
+
+Use Playwright when screenshots or browser-rendered checks help confirm the handover state. From `Site/`, use `npm.cmd run visual:check` for the repo-local Playwright checks.

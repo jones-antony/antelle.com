@@ -1,11 +1,11 @@
 # Codex handover
 
-Last updated: 2026-05-19
+Last updated: 2026-07-10
 
 ## Current branch
 
-- Branch: `codex/consultancy-bi-page-updates`
-- Baseline working-state commit before this handover was updated: `5f7f9cd Refresh site review tooling and legacy redirects`
+- Branch: `recovery/production-baseline-tooling`
+- Baseline production-matching commit before this handover was updated: `a391fd6 Prepare contact form and IIS release`
 - Repository: `https://github.com/jones-antony/antelle.com`
 
 ## Handover rule
@@ -44,6 +44,10 @@ npm run build
 
 ## Recent changes
 
+- Confirmed `jones-origin/codex/consultancy-bi-page-updates` at `a391fd6` is the production-matching Astro baseline; see `docs/production-baseline-recovery.md`.
+- Added repo-local Playwright checks with `npm run visual:check`.
+- Added standard FTP backup/deploy scripts under `deploy/` and a publish skill for controlled production backup/upload workflow.
+- Added Playwright usage notes to `AGENTS.md`, local development docs and relevant Codex skills.
 - Added the completed-project icon catalogue in `Site/src/data/projectIcons.ts` and the development review page at `/dev/projecticons/`.
 - Replaced completed-project legacy sprite icons with maintained SVG icons under `Site/public/assets/images/icons/completed-projects/`.
 - Updated completed-project detail pages so the "Back to all completed projects" control is a clearer Antelle-styled button.

@@ -16,6 +16,7 @@ description: Use when refreshing Antelle service pages under /services/, includi
 7. If a service is removed from public navigation, remove it from `Site/src/content/services.ts`; keep a skeleton only if the owner asks.
 8. Mark the page as Needs review after meaningful changes unless the user says done/signed off.
 9. Run `npm run build`.
+10. Use Playwright when rendered-page inspection is useful, especially for service navigation, homepage service cards, responsive layout, screenshots and retired-route checks. From `Site/`, use `npm.cmd run visual:check` for the repo-local Playwright checks.
 
 ## Copy Rules
 

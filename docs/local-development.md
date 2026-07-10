@@ -14,6 +14,7 @@ npm.cmd install
 npm.cmd run dev
 npm.cmd run build
 npm.cmd run preview
+npm.cmd run visual:check
 ```
 
 ## Notes
@@ -23,5 +24,6 @@ npm.cmd run preview
 - The blog is intentionally parked; retired `/blog/` URLs are redirected to the home page by `Site/public/web.config`.
 - Static assets copied from the mirror are under `Site/public/assets`.
 - Production output is static HTML in `Site/dist` after `npm run build`.
+- Playwright is installed as a project dev dependency. Use `npm.cmd run visual:check` from `Site/` for browser-based checks; screenshots are written to `docs/screenshots/`.
 - IIS-specific redirects now start in `Site/public/web.config`; expand this file for future static hosting rules.
 - On this Windows environment, use `npm.cmd` if PowerShell blocks the `npm.ps1` shim through execution policy.

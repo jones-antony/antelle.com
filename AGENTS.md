@@ -141,6 +141,7 @@ Use the relevant skill when working on:
 - completed project pages
 - service page refreshes
 - development sitemap, outstanding items, handover or push workflow
+- production publish, FTP backup, FTP upload, and post-publish verification
 
 Keep durable invariants in this file and move detailed repeatable workflows into skills.
 
@@ -187,6 +188,8 @@ This handover document is the durable project memory; do not rely on chat histor
 
 When Codex completes a local site task, include a clickable URL to the running site or relevant page, where the local dev server is available.
 
+Codex has access to Playwright for browser-based inspection. Use it when visual layout, navigation, responsive behaviour, screenshots, route status or post-change page verification would benefit from seeing the rendered site. From `Site/`, run `npm.cmd run visual:check` for the repo-local Playwright checks.
+
 ## Commands
 
 Preferred local commands after Astro setup:
@@ -196,6 +199,7 @@ npm install
 npm run dev
 npm run build
 npm run preview
+npm run visual:check
 ```
 
 If adding linting or formatting, document the commands in `README.md`.

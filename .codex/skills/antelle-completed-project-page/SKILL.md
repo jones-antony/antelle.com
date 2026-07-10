@@ -22,6 +22,7 @@ description: Use when creating, updating, renaming, reviewing, or signing off An
 8. If a project is renamed, retain the old URL as a lightweight redirect page unless the owner says otherwise.
 9. New or meaningfully changed project pages default to Needs review in `/dev/site-map/` unless explicitly marked complete.
 10. Run `npm run build`.
+11. Use Playwright when rendered-page inspection is useful, especially for project cards, page layout, responsive behaviour, screenshots and navigation checks. From `Site/`, use `npm.cmd run visual:check` for the repo-local Playwright checks.
 
 ## Content Rules
 

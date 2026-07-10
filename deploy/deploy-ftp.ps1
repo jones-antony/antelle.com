@@ -49,6 +49,20 @@ function Join-FtpPath {
   return "$leftClean/$rightClean"
 }
 
+function Get-RelativePath {
+  param(
+    [string]$BasePath,
+    [string]$TargetPath
+  )
+
+  $baseFullPath = [System.IO.Path]::GetFullPath($BasePath).TrimEnd([System.IO.Path]::DirectorySeparatorChar, [System.IO.Path]::AltDirectorySeparatorChar) + [System.IO.Path]::DirectorySeparatorChar
+  $targetFullPath = [System.IO.Path]::GetFullPath($TargetPath)
+  $baseUri = [System.Uri]::new($baseFullPath)
+  $targetUri = [System.Uri]::new($targetFullPath)
+
+  return [System.Uri]::UnescapeDataString($baseUri.MakeRelativeUri($targetUri).ToString()).Replace("/", [System.IO.Path]::DirectorySeparatorChar)
+}
+
 function ConvertTo-FtpUri {
   param([string]$RemotePath)
 
@@ -149,7 +163,7 @@ Ensure-FtpDirectory -RemoteDirectory $remoteRoot
 
 $files = Get-ChildItem -LiteralPath $DistRoot -Recurse -File
 foreach ($file in $files) {
-  $relative = [System.IO.Path]::GetRelativePath($DistRoot, $file.FullName) -replace "\\", "/"
+  $relative = (Get-RelativePath -BasePath $DistRoot -TargetPath $file.FullName) -replace "\\", "/"
   $remoteFile = Join-FtpPath -Left $remoteRoot -Right $relative
   $remoteDirectory = Split-Path -Parent ($remoteFile -replace "/", [System.IO.Path]::DirectorySeparatorChar)
   $remoteDirectory = ($remoteDirectory -replace "\\", "/")

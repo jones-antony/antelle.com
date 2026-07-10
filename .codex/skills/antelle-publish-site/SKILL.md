@@ -56,10 +56,16 @@ Read `AGENTS.md` first. Read `docs/CODEX_HANDOVER.md` and `Site/public/web.confi
    ```
 
 8. Verify the live site with lightweight checks of key URLs. At minimum check the home page and any changed routes.
-9. Final response must include:
+9. Optional contact-form smoke test:
+   - This sends a real email, so do not run it automatically.
+   - Ask for explicit user approval before submitting the production contact form.
+   - If approved, use Playwright to open `https://antelle.com/contact/`, fill the form with clearly marked test data, leave honeypot fields empty, submit, and assert that the success message appears.
+   - Report the timestamp and test sender details so the user can confirm receipt.
+10. Final response must include:
    - commit hash
    - backup zip path
    - build, backup, upload, and verification commands run
+   - whether the optional contact-form smoke test was skipped or run
    - any URLs or checks that failed
 
 ## Guardrails

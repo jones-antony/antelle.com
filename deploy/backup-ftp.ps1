@@ -204,7 +204,7 @@ New-Item -ItemType Directory -Path $BackupParent -Force | Out-Null
 $backupRoot = Join-Path $BackupParent $BackupName
 $zipPath = Join-Path $BackupParent "$BackupName.zip"
 
-if (Test-Path -LiteralPath $backupRoot -or Test-Path -LiteralPath $zipPath) {
+if ((Test-Path -LiteralPath $backupRoot) -or (Test-Path -LiteralPath $zipPath)) {
   $BackupName = "$BackupName`_$(Get-Date -Format HHmmss)"
   $backupRoot = Join-Path $BackupParent $BackupName
   $zipPath = Join-Path $BackupParent "$BackupName.zip"
